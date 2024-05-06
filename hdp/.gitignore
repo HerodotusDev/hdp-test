@@ -1,6 +1,0 @@
-target
-.env
-*.pie
-venv
-tools
-hdp-cairo
