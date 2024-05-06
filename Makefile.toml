@@ -20,7 +20,7 @@ workspace = false
 description = "Set up the Cairo environment by running the setup script."
 script = '''
 echo "Setting up the environment..."
-./script/setup_cairovm.sh
+./scripts/setup_cairovm.sh
 '''
 
 [tasks.cli-setup]
@@ -35,7 +35,7 @@ workspace = false
 description = "Compile the HDP Cairo program. This step requires the setup task to be completed first."
 script = '''
 echo "Compiling the program..."
-./script/compile.sh
+./scripts/compile.sh
 '''
 
 [tasks.integration-test]
@@ -44,7 +44,7 @@ description = "Run integration tests. Specify the folder name through the INTEGR
 env = { INTEGRATION_ARGS = "min_max_count" }
 script = '''
 echo "Running integration tests with arguments: $INTEGRATION_ARGS"
-./script/integration.sh $INTEGRATION_ARGS
+./scripts/integration.sh $INTEGRATION_ARGS
 '''
 
 [tasks.reset-setup]
