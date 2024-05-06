@@ -1,6 +1,33 @@
 [env]
 CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
 
+[tasks.format]
+install_crate = "rustfmt"
+command = "cargo"
+args = ["fmt", "--", "--check"]
+description = "Run rustfmt to check the code formatting without making changes."
+
+[tasks.clean]
+command = "cargo"
+args = ["clean"]
+description = "Clean up the project by removing the target directory."
+
+[tasks.clippy]
+command = "cargo"
+args = ["clippy", "--all-targets", "--all-features", "--", "-Dwarnings"]
+description = "Run clippy to catch common mistakes and improve your Rust code."
+
+[tasks.test]
+workspace = false
+command = "cargo"
+args = ["nextest", "run", "--workspace", "${@}"]
+description = "Execute all unit tests in the workspace."
+
+[tasks.run-ci-flow]
+workspace = false
+description = "Run the entire CI pipeline including format, clippy, and test checks."
+dependencies = ["format", "clippy", "test"]
+
 [tasks.clone-hdp-cairo]
 workspace = false
 description = "Clone the hdp-cairo repository. Ignores errors if the clone operation fails."
@@ -8,26 +35,12 @@ ignore_errors = true
 command = "git"
 args = ["clone", "https://github.com/HerodotusDev/hdp-cairo.git"]
 
-[tasks.clone-hdp-cli]
-workspace = false
-description = "Clone the hdp-cairo repository. Ignores errors if the clone operation fails."
-ignore_errors = true
-command = "git"
-args = ["clone", "https://github.com/HerodotusDev/hdp.git"]
-
 [tasks.cairo-setup]
 workspace = false
 description = "Set up the Cairo environment by running the setup script."
 script = '''
 echo "Setting up the environment..."
-./script/setup_cairovm.sh
-'''
-
-[tasks.cli-setup]
-workspace = false
-description = "Set up the HDP binary to be used in the integration tests."
-script = '''
-cd hdp && cargo install --path cli -f && cd ..
+./script/setup.sh
 '''
 
 [tasks.cairo-compile]

@@ -1,0 +1,15 @@
+[package]
+name = "hdp-primitives"
+description = "HDP primitives"
+edition.workspace = true
+license-file.workspace = true
+repository.workspace = true
+version.workspace = true
+
+[dependencies]
+serde = { workspace = true, features = ["derive"] }
+anyhow = { workspace = true }
+alloy-dyn-abi = { workspace = true }
+alloy-rlp = { workspace = true, features = ["derive"] }
+alloy-primitives = { workspace = true, features = ["rlp", "serde"] }
+eth-trie-proofs.workspace = true
