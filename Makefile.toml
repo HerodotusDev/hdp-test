@@ -44,6 +44,7 @@ description = "Run integration tests. Specify the folder name through the INTEGR
 env = { INTEGRATION_ARGS = "min_max_count" }
 script = '''
 echo "Running integration tests with arguments: $INTEGRATION_ARGS"
+chmod +x ./scripts/integration.sh
 ./scripts/integration.sh $INTEGRATION_ARGS
 '''
 
