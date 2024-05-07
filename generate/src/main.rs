@@ -3,6 +3,7 @@ use std::{
     error::Error,
     fs,
     process::{Command, Stdio},
+    sync::Arc,
 };
 
 use alloy_provider::{network::Ethereum, Network, Provider, ProviderBuilder, RootProvider};
@@ -10,11 +11,20 @@ use alloy_rpc_client::RpcClient;
 use alloy_transport::Transport;
 use alloy_transport_http::Http;
 use dotenv::dotenv;
-use hdp_core::aggregate_fn::{AggregationFunction, FunctionContext};
-use hdp_primitives::datalake::block_sampled::BlockSampledCollection;
+use hdp_core::{
+    aggregate_fn::{AggregationFunction, FunctionContext},
+    config::Config,
+    evaluator,
+    task::ComputationalTask,
+};
+use hdp_primitives::datalake::{
+    block_sampled::{BlockSampledCollection, BlockSampledDatalake},
+    envelope::DatalakeEnvelope,
+};
+use hdp_provider::evm::AbstractProvider;
 use rand::{distributions::Standard, Rng};
-use reqwest::Client;
 use thiserror::Error;
+use tokio::sync::RwLock;
 use tracing::Level;
 use tracing_subscriber::FmtSubscriber;
 
@@ -33,21 +43,21 @@ async fn main() {
         .with_max_level(Level::INFO)
         .finish();
     tracing::subscriber::set_global_default(subscriber).expect("setting default subscriber failed");
-
-    let rpc_url = env::var("RPC_URL").unwrap();
+    let rpc_url: String = env::var("RPC_URL").unwrap();
+    let chain_id: u64 = env::var("CHAIN_ID").unwrap().parse().unwrap();
+    let tasks = env::var("TASKS").unwrap();
+    let datalakes = env::var("DATALAKES").unwrap();
+    let config = Config::init(Some(rpc_url), Some(tasks), Some(datalakes), Some(chain_id)).await;
+    let provider = AbstractProvider::new(&config.rpc_url, config.chain_id);
 
     let mut rng = rand::thread_rng();
 
     // let compiler = CairoCompiler::new();
     // compiler.compile().unwrap();
 
-    let http = Http::<Client>::new(rpc_url.to_string().parse().unwrap());
-    let provider = ProviderBuilder::<_, Ethereum>::new()
-        .provider(RootProvider::new(RpcClient::new(http, true)));
-
-    let generator = Generator { provider };
+    let generator = Generator::new(provider);
     let cairo_runner = CairoRunner::new();
-    for _ in 0..1 {
+    for _ in 0..10 {
         let compute: AggregationFunction = rng.sample(Standard);
         let context: FunctionContext = rng.sample(Standard);
         let sampled_property: BlockSampledCollection = rng.sample(Standard);
@@ -64,15 +74,17 @@ async fn main() {
     }
 }
 
-pub struct Generator<N, T> {
-    provider: RootProvider<N, T>,
+pub struct Generator {
+    provider: Arc<RwLock<AbstractProvider>>,
 }
 
-impl<N, T> Generator<N, T>
-where
-    N: Network,
-    T: Transport + Clone,
-{
+impl Generator {
+    pub fn new(provider: AbstractProvider) -> Self {
+        Self {
+            provider: Arc::new(RwLock::new(provider)),
+        }
+    }
+
     async fn generate_block_sampled_input_file(
         &self,
         compute: AggregationFunction,
@@ -80,11 +92,7 @@ where
         sampled_property: BlockSampledCollection,
     ) -> Result<(String, String), GeneratorError> {
         let mut rng = rand::thread_rng();
-        let latest_block = self
-            .provider
-            .get_block_number()
-            .await
-            .map_err(|_| GeneratorError::RPC)?;
+        let latest_block = 5854020;
         let folder_path = format!(
             "../fixtures/{}",
             sampled_property.to_string().split('.').next().unwrap()
@@ -100,6 +108,7 @@ where
         let output_file_path = format!("{}/{}/output.json", folder_path, count);
         let input_file_path = format!("{}/{}/input.json", folder_path, count);
         let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
+        // ! Note: the test is currently for Sepolia
         let start_block = rng.gen_range(4952200..=latest_block - 10000);
         let end_range = if latest_block - start_block > 100 {
             100
@@ -121,42 +130,42 @@ where
 
         match compute {
             AggregationFunction::COUNT => {
-                let mut task = Command::new("hdp")
-                    .arg("encode")
-                    .arg("-a")
-                    .arg("-o")
-                    .arg(&output_file_path)
-                    .arg("-c")
-                    .arg(&input_file_path)
-                    .arg(compute.to_string())
-                    .arg(context.to_string())
-                    .arg("-b")
-                    .arg(start_block.to_string())
-                    .arg(end_block.to_string())
-                    .arg(sampled_property.to_string())
-                    .arg(step.to_string())
-                    .stdout(Stdio::null())
-                    .spawn()?;
+                let result = evaluator::evaluator(
+                    vec![ComputationalTask {
+                        aggregate_fn_id: compute,
+                        aggregate_fn_ctx: Some(context),
+                    }],
+                    vec![DatalakeEnvelope::BlockSampled(BlockSampledDatalake {
+                        sampled_property,
+                        block_range_start: start_block,
+                        block_range_end: end_block,
+                        increment: step,
+                    })],
+                    self.provider.clone(),
+                )
+                .await
+                .unwrap();
 
-                task.wait()?;
+                result.save_to_file(&input_file_path, true).unwrap();
             }
             _ => {
-                let mut task = Command::new("hdp")
-                    .arg("encode")
-                    .arg("-a")
-                    .arg("-o")
-                    .arg(&output_file_path)
-                    .arg("-c")
-                    .arg(&input_file_path)
-                    .arg(compute.to_string())
-                    .arg("-b")
-                    .arg(start_block.to_string())
-                    .arg(end_block.to_string())
-                    .arg(sampled_property.to_string())
-                    .arg(step.to_string())
-                    .stdout(Stdio::null())
-                    .spawn()?;
-                task.wait()?;
+                let result = evaluator::evaluator(
+                    vec![ComputationalTask {
+                        aggregate_fn_id: compute,
+                        aggregate_fn_ctx: None,
+                    }],
+                    vec![DatalakeEnvelope::BlockSampled(BlockSampledDatalake {
+                        sampled_property,
+                        block_range_start: start_block,
+                        block_range_end: end_block,
+                        increment: step,
+                    })],
+                    self.provider.clone(),
+                )
+                .await
+                .unwrap();
+
+                result.save_to_file(&input_file_path, true).unwrap();
             }
         }
 
