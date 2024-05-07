@@ -1,30 +1,22 @@
 use std::{
     env,
     error::Error,
-    io::{Stdin, Stdout},
+    fs,
     process::{Command, Stdio},
-    str::FromStr,
 };
 
-use alloy_provider::{
-    network::Ethereum, HttpProvider, Network, Provider, ProviderBuilder, RootProvider,
-};
+use alloy_provider::{network::Ethereum, Network, Provider, ProviderBuilder, RootProvider};
 use alloy_rpc_client::RpcClient;
-use alloy_transport::{RpcError, Transport};
+use alloy_transport::Transport;
 use alloy_transport_http::Http;
 use dotenv::dotenv;
 use hdp_core::aggregate_fn::{AggregationFunction, FunctionContext};
 use hdp_primitives::datalake::block_sampled::BlockSampledCollection;
-use rand::{
-    distributions::{Distribution, Standard},
-    Rng,
-};
+use rand::{distributions::Standard, Rng};
 use reqwest::Client;
 use thiserror::Error;
-use tokio::select;
 use tracing::Level;
 use tracing_subscriber::FmtSubscriber;
-use url::Url;
 
 #[derive(Error, Debug)]
 pub enum GeneratorError {
@@ -45,6 +37,9 @@ async fn main() {
     let rpc_url = env::var("RPC_URL").unwrap();
 
     let mut rng = rand::thread_rng();
+
+    // let compiler = CairoCompiler::new();
+    // compiler.compile().unwrap();
 
     let http = Http::<Client>::new(rpc_url.to_string().parse().unwrap());
     let provider = ProviderBuilder::<_, Ethereum>::new()
@@ -170,7 +165,14 @@ impl CairoRunner {
         cairo_pie_file_path: String,
         input_file_path: String,
     ) -> Result<(), Box<dyn Error>> {
-        println!("input file path: {}", input_file_path);
+        let context = fs::read_to_string(&input_file_path)?;
+        if context.is_empty() {
+            return Err("Input file is empty".into());
+        }
+        let context = fs::read_to_string("../compiled_cairo/hdp.json")?;
+        if context.is_empty() {
+            return Err("Cairo compilation failed".into());
+        }
         println!("cairo pie file path: {}", cairo_pie_file_path);
         let mut task = Command::new("cairo-run")
             .arg("--program")
@@ -189,6 +191,34 @@ impl CairoRunner {
 
         // if success, print success
         println!("Cairo program ran successfully");
+
+        Ok(())
+    }
+}
+
+pub struct CairoCompiler {}
+
+impl CairoCompiler {
+    pub fn new() -> Self {
+        Self {}
+    }
+
+    pub fn compile(&self) -> Result<(), Box<dyn Error>> {
+        let mut task = Command::new("cairo-compile")
+            .arg("--cairo_path")
+            .arg("packages/eth_essentials")
+            .arg("../hdp-cairo/src/hdp.cairo")
+            .arg("--output")
+            .arg("../compiled_cairo/hdp.json")
+            .stdout(Stdio::null())
+            .spawn()?;
+
+        task.wait()?;
+
+        let context = fs::read_to_string(&"../compiled_cairo/hdp.json")?;
+        if context.is_empty() {
+            return Err("Cairo compilation failed".into());
+        }
 
         Ok(())
     }
