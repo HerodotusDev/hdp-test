@@ -10,14 +10,8 @@ rand = "0.8.4"
 hdp-primitives = { git = "https://github.com/HerodotusDev/hdp.git", branch = "test-utils" }
 hdp-core = { git = "https://github.com/HerodotusDev/hdp.git", branch = "test-utils" }
 hdp-provider = { git = "https://github.com/HerodotusDev/hdp.git", branch = "test-utils" }
-alloy-provider = { git = "https://github.com/alloy-rs/alloy", rev = "52d16d3" }
-alloy-transport = { git = "https://github.com/alloy-rs/alloy", rev = "52d16d3" }
-alloy-transport-http = { git = "https://github.com/alloy-rs/alloy", rev = "52d16d3" }
-alloy-rpc-client = { git = "https://github.com/alloy-rs/alloy", rev = "52d16d3" }
 thiserror = "1.0.0"
-url = "2.5.0"
 dotenv = "0.15.0"
-reqwest = "0.11.27"
 tokio = { version = "1", features = ["full"] }
 tracing-subscriber = "0.3.0"
 tracing = "0.1"

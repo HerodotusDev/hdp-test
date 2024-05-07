@@ -1,3 +1,5 @@
+#![deny(unused_crate_dependencies)]
+
 use std::{
     env,
     error::Error,
@@ -6,10 +8,6 @@ use std::{
     sync::Arc,
 };
 
-use alloy_provider::{network::Ethereum, Network, Provider, ProviderBuilder, RootProvider};
-use alloy_rpc_client::RpcClient;
-use alloy_transport::Transport;
-use alloy_transport_http::Http;
 use dotenv::dotenv;
 use hdp_core::{
     aggregate_fn::{AggregationFunction, FunctionContext},

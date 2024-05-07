@@ -1275,21 +1275,15 @@ checksum = "42012b0f064e01aa58b545fe3727f90f7dd4020f4a3ea735b50344965f5a57e9"
 name = "generate"
 version = "0.1.0"
 dependencies = [
- "alloy-provider",
- "alloy-rpc-client",
- "alloy-transport",
- "alloy-transport-http",
  "dotenv",
  "hdp-core",
  "hdp-primitives",
  "hdp-provider",
  "rand",
- "reqwest",
  "thiserror",
  "tokio",
  "tracing",
  "tracing-subscriber",
- "url",
 ]
 
 [[package]]
@@ -1369,7 +1363,7 @@ dependencies = [
 [[package]]
 name = "hdp-core"
 version = "0.2.0"
-source = "git+https://github.com/HerodotusDev/hdp.git?branch=test-utils#0a5d6bf62c2f6554325d3867ac4afee8e926c1fa"
+source = "git+https://github.com/HerodotusDev/hdp.git?branch=test-utils#c424713d6320d8f6852b4d1bcf58858f20e38daa"
 dependencies = [
  "alloy-dyn-abi",
  "alloy-merkle-tree",
@@ -1389,7 +1383,7 @@ dependencies = [
 [[package]]
 name = "hdp-primitives"
 version = "0.2.0"
-source = "git+https://github.com/HerodotusDev/hdp.git?branch=test-utils#0a5d6bf62c2f6554325d3867ac4afee8e926c1fa"
+source = "git+https://github.com/HerodotusDev/hdp.git?branch=test-utils#c424713d6320d8f6852b4d1bcf58858f20e38daa"
 dependencies = [
  "alloy-dyn-abi",
  "alloy-primitives",
@@ -1403,7 +1397,7 @@ dependencies = [
 [[package]]
 name = "hdp-provider"
 version = "0.2.0"
-source = "git+https://github.com/HerodotusDev/hdp.git?branch=test-utils#0a5d6bf62c2f6554325d3867ac4afee8e926c1fa"
+source = "git+https://github.com/HerodotusDev/hdp.git?branch=test-utils#c424713d6320d8f6852b4d1bcf58858f20e38daa"
 dependencies = [
  "alloy-primitives",
  "anyhow",
