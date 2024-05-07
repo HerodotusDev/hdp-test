@@ -85,10 +85,21 @@ where
             .get_block_number()
             .await
             .map_err(|_| GeneratorError::RPC)?;
+        let folder_path = format!(
+            "../fixtures/{}",
+            sampled_property.to_string().split('.').next().unwrap()
+        );
+        fs::create_dir_all(&folder_path).unwrap();
+        let entries = fs::read_dir(&folder_path)?;
+        let count = entries
+            .filter_map(|entry| entry.ok())
+            .filter(|entry| entry.file_type().map(|ft| ft.is_dir()).unwrap_or(false))
+            .count();
+        fs::create_dir_all(format!("{}/{}", folder_path, count)).unwrap();
 
-        let output_file_path = format!("../output.json",);
-        let input_file_path = format!("../input.json",);
-        let cairo_pie_file_path = format!("../cairo.pie",);
+        let output_file_path = format!("{}/{}/output.json", folder_path, count);
+        let input_file_path = format!("{}/{}/input.json", folder_path, count);
+        let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
         let start_block = rng.gen_range(4952200..=latest_block - 10000);
         let end_range = if latest_block - start_block > 100 {
             100
