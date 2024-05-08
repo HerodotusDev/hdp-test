@@ -20,7 +20,7 @@ prepare_cairo_enviroment
 echo "Arguments received: $@"
 
 # Base directory where the folders 'storage' and 'account' and 'header' are located
-BASE_DIR="example"
+BASE_DIR="fixtures"
 
 TARGET_DIRS=("$@")
 
@@ -30,13 +30,6 @@ echo "Running integration tests on directories: ${TARGET_DIRS[@]}"
 for dir in $TARGET_DIRS; do
     # Find all directories within the main directories
     find "${BASE_DIR}/${dir}" -type d | while read -r subDir; do
-        # Check if run.sh exists in the directory
-        if [[ -f "${subDir}/run.sh" ]]; then
-            echo "Running script in ${subDir}"
-            # Make sure run.sh is executable
-            chmod +x "${subDir}/run.sh"
-            # Execute run.sh and wait for it to finish
-            "${subDir}/run.sh"
             # Check for the existence of the input.json file after run.sh has completed
             inputFilePath="${subDir}/input.json"
             if [[ -f "${inputFilePath}" ]]; then
@@ -64,8 +57,5 @@ for dir in $TARGET_DIRS; do
             else
                 echo "No input.json found in ${subDir} after running run.sh"
             fi
-        else
-            echo "No run.sh found in ${subDir}"
-        fi
     done
 done
