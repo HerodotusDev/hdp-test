@@ -1,20 +1,6 @@
 [env]
 CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
 
-[tasks.clone-hdp-cairo]
-workspace = false
-description = "Clone the hdp-cairo repository. Ignores errors if the clone operation fails."
-ignore_errors = true
-command = "git"
-args = ["clone", "https://github.com/HerodotusDev/hdp-cairo.git"]
-
-[tasks.clone-hdp-cli]
-workspace = false
-description = "Clone the hdp-cairo repository. Ignores errors if the clone operation fails."
-ignore_errors = true
-command = "git"
-args = ["clone", "https://github.com/HerodotusDev/hdp.git"]
-
 [tasks.cairo-setup]
 workspace = false
 description = "Set up the Cairo environment by running the setup script."
@@ -23,25 +9,10 @@ echo "Setting up the environment..."
 ./scripts/setup_cairovm.sh
 '''
 
-[tasks.cli-setup]
-workspace = false
-description = "Set up the HDP binary to be used in the integration tests."
-script = '''
-cd hdp && cargo install --path cli -f && cd ..
-'''
-
-[tasks.cairo-compile]
-workspace = false
-description = "Compile the HDP Cairo program. This step requires the setup task to be completed first."
-script = '''
-echo "Compiling the program..."
-./scripts/compile.sh
-'''
-
 [tasks.integration-test]
 workspace = false
 description = "Run integration tests. Specify the folder name through the INTEGRATION_ARGS environment variable."
-env = { INTEGRATION_ARGS = "account" }
+env = { INTEGRATION_ARGS = "header account" }
 script = '''
 echo "Running integration tests with arguments: $INTEGRATION_ARGS"
 chmod +x ./scripts/integration.sh
@@ -62,14 +33,7 @@ rm -rf tools
 [tasks.run-full-flow]
 workspace = false
 description = "Execute the full integration test flow, including cloning, setup, compilation, and testing."
-dependencies = [
-    "clone-hdp-cairo",
-    "clone-hdp-cli",
-    "cli-setup",
-    "cairo-setup",
-    "cairo-compile",
-    "integration-test",
-]
+dependencies = ["cairo-setup", "integration-test"]
 
 [config]
 unstable_features = ["CTRL_C_HANDLING"]
