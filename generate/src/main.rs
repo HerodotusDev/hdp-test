@@ -5,6 +5,7 @@ use std::{
     error::Error,
     fs,
     process::{Command, Stdio},
+    str::FromStr,
     sync::Arc,
 };
 
@@ -55,10 +56,18 @@ async fn main() {
 
     let generator = Generator::new(provider);
     let cairo_runner = CairoRunner::new();
-    for _ in 0..10 {
-        let compute: AggregationFunction = rng.sample(Standard);
+    for _ in 0..1 {
+        // === Randomly sample the aggregation function, context, and sampled property ===
+        // let compute: AggregationFunction = rng.sample(Standard);
+        // let context: FunctionContext = rng.sample(Standard);
+        // let sampled_property: BlockSampledCollection = rng.sample(Standard);
+        // ==============================================================================
+        let compute: AggregationFunction = AggregationFunction::MAX;
         let context: FunctionContext = rng.sample(Standard);
-        let sampled_property: BlockSampledCollection = rng.sample(Standard);
+        let sampled_property: BlockSampledCollection = BlockSampledCollection::from_str(
+            "storage.0x75CeC1db9dCeb703200EAa6595f66885C962B920.0x0000000000000000000000000000000000000000000000000000000000000003",
+        )
+        .unwrap();
 
         let (cairo_pie_file_path, input_file_path) = generator
             .generate_block_sampled_input_file(compute, context, sampled_property)
