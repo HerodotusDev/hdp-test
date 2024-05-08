@@ -62,19 +62,26 @@ async fn main() {
         // let compute: AggregationFunction = rng.sample(Standard);
         // let context: FunctionContext = rng.sample(Standard);
         // let sampled_property: BlockSampledCollection = rng.sample(Standard);
+        // let sampled_property: TransactionsCollection = rng.sample(Standard);
         // ==============================================================================
         let compute: AggregationFunction = AggregationFunction::MAX;
         let context: FunctionContext = rng.sample(Standard);
-        let sampled_property: BlockSampledCollection = BlockSampledCollection::from_str(
-            "storage.0x75CeC1db9dCeb703200EAa6595f66885C962B920.0x0000000000000000000000000000000000000000000000000000000000000003",
-        )
-        .unwrap();
+        // let sampled_property: BlockSampledCollection = BlockSampledCollection::from_str(
+        //     "storage.0x75CeC1db9dCeb703200EAa6595f66885C962B920.0x0000000000000000000000000000000000000000000000000000000000000003",
+        // )
+        // .unwrap();
+        let sampled_property: TransactionsCollection =
+            TransactionsCollection::from_str("tx.gas_limit").unwrap();
+
+        // let (cairo_pie_file_path, input_file_path) = generator
+        //     .generate_block_sampled_input_file(compute, context, sampled_property)
+        //     .await
+        //     .unwrap();
 
         let (cairo_pie_file_path, input_file_path) = generator
-            .generate_block_sampled_input_file(compute, context, sampled_property)
+            .generate_tx_input_file(compute, context, sampled_property)
             .await
             .unwrap();
-        println!("Running Cairo program");
 
         cairo_runner
             .run(cairo_pie_file_path, input_file_path)
@@ -189,6 +196,7 @@ impl Generator {
         context: FunctionContext,
         sampled_property: TransactionsCollection,
     ) -> Result<(String, String), GeneratorError> {
+        println!("Generating tx input file...");
         let mut rng = rand::thread_rng();
         let latest_block = 5854020;
         let folder_path = format!(
@@ -207,11 +215,10 @@ impl Generator {
         let input_file_path = format!("{}/{}/input.json", folder_path, count);
         let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
         // ! Note: the test is currently for Sepolia
-        let target_block = match sampled_property {
-            _ => rng.gen_range(4952200..=latest_block - 10000),
-        };
-        let start_index = rng.gen_range(0..=100);
-        let end_index = rng.gen_range(start_index..=start_index + 100);
+        let target_block = rng.gen_range(4952200..=latest_block - 10000);
+
+        let start_index = rng.gen_range(0..=50);
+        let end_index = rng.gen_range(start_index..=start_index + 50);
         let step = rng.gen_range(1..=end_index - start_index);
         let included_types = [1, 1, 1, 1];
 
