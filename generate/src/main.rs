@@ -55,7 +55,7 @@ async fn main() {
 
     let generator = Generator::new(provider);
     let cairo_runner = CairoRunner::new();
-    for _ in 0..1 {
+    for _ in 0..10 {
         let compute: AggregationFunction = rng.sample(Standard);
         let context: FunctionContext = rng.sample(Standard);
         let sampled_property: BlockSampledCollection = rng.sample(Standard);
@@ -107,7 +107,10 @@ impl Generator {
         let input_file_path = format!("{}/{}/input.json", folder_path, count);
         let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
         // ! Note: the test is currently for Sepolia
-        let start_block = rng.gen_range(4952200..=latest_block - 10000);
+        let start_block = match sampled_property {
+            BlockSampledCollection::Storage(_, _) => rng.gen_range(5382810..=latest_block - 100000),
+            _ => rng.gen_range(4952200..=latest_block - 10000),
+        };
         let end_range = if latest_block - start_block > 100 {
             100
         } else {
