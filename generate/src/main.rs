@@ -55,7 +55,7 @@ async fn main() {
 
     let generator = Generator::new(provider);
     let cairo_runner = CairoRunner::new();
-    for _ in 0..1 {
+    for _ in 0..10 {
         let compute: AggregationFunction = rng.sample(Standard);
         let context: FunctionContext = rng.sample(Standard);
         let sampled_property: BlockSampledCollection = rng.sample(Standard);
