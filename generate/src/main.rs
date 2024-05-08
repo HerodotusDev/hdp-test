@@ -19,6 +19,7 @@ use hdp_core::{
 use hdp_primitives::datalake::{
     block_sampled::{BlockSampledCollection, BlockSampledDatalake},
     envelope::DatalakeEnvelope,
+    transactions::{IncludedTypes, TransactionsCollection, TransactionsInBlockDatalake},
 };
 use hdp_provider::evm::AbstractProvider;
 use rand::{distributions::Standard, Rng};
@@ -170,6 +171,100 @@ impl Generator {
                         block_range_end: end_block,
                         increment: step,
                     })],
+                    self.provider.clone(),
+                )
+                .await
+                .unwrap();
+
+                result.save_to_file(&input_file_path, true).unwrap();
+            }
+        }
+
+        Ok((cairo_pie_file_path, input_file_path))
+    }
+
+    async fn generate_tx_input_file(
+        &self,
+        compute: AggregationFunction,
+        context: FunctionContext,
+        sampled_property: TransactionsCollection,
+    ) -> Result<(String, String), GeneratorError> {
+        let mut rng = rand::thread_rng();
+        let latest_block = 5854020;
+        let folder_path = format!(
+            "../fixtures/{}",
+            sampled_property.to_string().split('.').next().unwrap()
+        );
+        fs::create_dir_all(&folder_path).unwrap();
+        let entries = fs::read_dir(&folder_path)?;
+        let count = entries
+            .filter_map(|entry| entry.ok())
+            .filter(|entry| entry.file_type().map(|ft| ft.is_dir()).unwrap_or(false))
+            .count();
+        fs::create_dir_all(format!("{}/{}", folder_path, count)).unwrap();
+
+        let output_file_path = format!("{}/{}/output.json", folder_path, count);
+        let input_file_path = format!("{}/{}/input.json", folder_path, count);
+        let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
+        // ! Note: the test is currently for Sepolia
+        let target_block = match sampled_property {
+            _ => rng.gen_range(4952200..=latest_block - 10000),
+        };
+        let start_index = rng.gen_range(0..=100);
+        let end_index = rng.gen_range(start_index..=start_index + 100);
+        let step = rng.gen_range(1..=end_index - start_index);
+        let included_types = [1, 1, 1, 1];
+
+        println!(
+            "Computing {} of {} from block {} to block {} with step {}, input file path: {}, output file path: {}",
+            compute,
+            sampled_property,
+            start_index,
+            end_index,
+            step,
+            input_file_path,
+            output_file_path);
+
+        match compute {
+            AggregationFunction::COUNT => {
+                let result = evaluator::evaluator(
+                    vec![ComputationalTask {
+                        aggregate_fn_id: compute,
+                        aggregate_fn_ctx: Some(context),
+                    }],
+                    vec![DatalakeEnvelope::Transactions(
+                        TransactionsInBlockDatalake {
+                            target_block,
+                            start_index,
+                            end_index,
+                            increment: step,
+                            included_types: IncludedTypes::from(&included_types),
+                            sampled_property,
+                        },
+                    )],
+                    self.provider.clone(),
+                )
+                .await
+                .unwrap();
+
+                result.save_to_file(&input_file_path, true).unwrap();
+            }
+            _ => {
+                let result = evaluator::evaluator(
+                    vec![ComputationalTask {
+                        aggregate_fn_id: compute,
+                        aggregate_fn_ctx: None,
+                    }],
+                    vec![DatalakeEnvelope::Transactions(
+                        TransactionsInBlockDatalake {
+                            target_block,
+                            start_index,
+                            end_index,
+                            increment: step,
+                            included_types: IncludedTypes::from(&included_types),
+                            sampled_property,
+                        },
+                    )],
                     self.provider.clone(),
                 )
                 .await

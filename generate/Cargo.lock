@@ -1363,7 +1363,7 @@ dependencies = [
 [[package]]
 name = "hdp-core"
 version = "0.2.0"
-source = "git+https://github.com/HerodotusDev/hdp.git?branch=fix/sync-contract-server#b072a9a4b4873b27a5a982603cfc2f78bafdc8e0"
+source = "git+https://github.com/HerodotusDev/hdp.git?branch=fix/sync-contract-server#ec2789610abd1e172ea7915eb8695384e205735b"
 dependencies = [
  "alloy-dyn-abi",
  "alloy-merkle-tree",
@@ -1383,7 +1383,7 @@ dependencies = [
 [[package]]
 name = "hdp-primitives"
 version = "0.2.0"
-source = "git+https://github.com/HerodotusDev/hdp.git?branch=fix/sync-contract-server#b072a9a4b4873b27a5a982603cfc2f78bafdc8e0"
+source = "git+https://github.com/HerodotusDev/hdp.git?branch=fix/sync-contract-server#ec2789610abd1e172ea7915eb8695384e205735b"
 dependencies = [
  "alloy-dyn-abi",
  "alloy-primitives",
@@ -1397,7 +1397,7 @@ dependencies = [
 [[package]]
 name = "hdp-provider"
 version = "0.2.0"
-source = "git+https://github.com/HerodotusDev/hdp.git?branch=fix/sync-contract-server#b072a9a4b4873b27a5a982603cfc2f78bafdc8e0"
+source = "git+https://github.com/HerodotusDev/hdp.git?branch=fix/sync-contract-server#ec2789610abd1e172ea7915eb8695384e205735b"
 dependencies = [
  "alloy-primitives",
  "anyhow",
@@ -1922,9 +1922,9 @@ checksum = "b15813163c1d831bf4a13c3610c05c0d03b39feb07f7e09fa234dac9b15aaf39"
 
 [[package]]
 name = "parity-scale-codec"
-version = "3.6.9"
+version = "3.6.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "881331e34fa842a2fb61cc2db9643a8fedc615e47cfcc52597d1af0db9a7e8fe"
+checksum = "71508994082701f690764ea17a3cc9288b30d831556d540a3b7c14e5521634a2"
 dependencies = [
  "arrayvec",
  "bitvec",

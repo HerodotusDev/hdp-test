@@ -1,9 +1,9 @@
-Computing max of storage.0x75CeC1db9dCeb703200EAa6595f66885C962B920.0x0000000000000000000000000000000000000000000000000000000000000003 from block 5704119 to block 5704201 with step 10, input file path: ../fixtures/storage/3/input.json, output file path: ../fixtures/storage/3/output.json
-2024-05-08T08:13:13.452224Z INFO hdp_provider::evm: Successfully fetched MMR data from indexer
-2024-05-08T08:13:13.452304Z INFO hdp_provider::evm: Time taken (fetch from Indexer): 6.987469917s
-2024-05-08T08:13:14.804001Z INFO hdp_provider::evm: Time taken (Storage Fetch): 1.350980167s
+Computing max of storage.0x75CeC1db9dCeb703200EAa6595f66885C962B920.0x0000000000000000000000000000000000000000000000000000000000000003 from block 5499127 to block 5499226 with step 8, input file path: ../fixtures/storage/4/input.json, output file path: ../fixtures/storage/4/output.json
+2024-05-08T08:34:27.032801Z INFO hdp_provider::evm: Successfully fetched MMR data from indexer
+2024-05-08T08:34:27.032920Z INFO hdp_provider::evm: Time taken (fetch from Indexer): 7.832774666s
+2024-05-08T08:34:28.599252Z INFO hdp_provider::evm: Time taken (Storage Fetch): 1.5650965s
 Running Cairo program
-cairo pie file path: ../fixtures/storage/3/cairo.pie
+cairo pie file path: ../fixtures/storage/4/cairo.pie
 /Users/piapark/Documents/GitHub/hdp-cairo/packages/eth_essentials/lib/utils.cairo:418:5: Error at pc=0:1742:
 Got an exception while executing a hint.
 %{ ids.q, ids.r = divmod(ids.value, 8) %}
@@ -45,4 +45,7 @@ File "/Users/piapark/Documents/GitHub/hdp-test/venv/lib/python3.9/site-packages/
 validated_addresses = rule(self.\_\_memory, addr, \*args)
 File "/Users/piapark/Documents/GitHub/hdp-test/venv/lib/python3.9/site-packages/starkware/cairo/lang/builtins/range_check/range_check_builtin_runner.py", line 35, in rule
 assert 0 <= value < self.bound, (
-AssertionError: Value 452312848583266401712165347886883763202888401916449587496636507016984002560, in range check builtin 25727, is out of range [0, 340282366920938463463374607431768211456).
+AssertionError: Value 452312848583266401712165347886883763202888401916449587496636507016984002560, in range check builtin 36279, is out of range [0, 340282366920938463463374607431768211456).
+Cairo program ran successfully
+
+- Terminal will be reused by tasks, press any key to c
