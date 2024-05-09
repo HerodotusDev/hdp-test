@@ -24,8 +24,6 @@ workspace = false
 description = "Reset all setup and compiled files to their initial state."
 script = '''
 echo "Removing the setup and compiled files..."
-rm -rf ./compiled_cairo/hdp.json
-rm -rf ./hdp-cairo
 rm -rf venv
 rm -rf tools
 '''
