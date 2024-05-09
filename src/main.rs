@@ -109,7 +109,7 @@ impl Generator {
         let mut rng = rand::thread_rng();
         let latest_block = 5854020;
         let folder_path = format!(
-            "../fixtures/{}",
+            "./fixtures/{}",
             sampled_property.to_string().split('.').next().unwrap()
         );
         fs::create_dir_all(&folder_path).unwrap();
@@ -200,7 +200,7 @@ impl Generator {
         let mut rng = rand::thread_rng();
         let latest_block = 5854020;
         let folder_path = format!(
-            "../fixtures/{}",
+            "./fixtures/{}",
             sampled_property.to_string().split('.').next().unwrap()
         );
         fs::create_dir_all(&folder_path).unwrap();
@@ -301,14 +301,14 @@ impl CairoRunner {
         if context.is_empty() {
             return Err("Input file is empty".into());
         }
-        let context = fs::read_to_string("../compiled_cairo/hdp.json")?;
+        let context = fs::read_to_string("./compiled_cairo/hdp.json")?;
         if context.is_empty() {
             return Err("Cairo compilation failed".into());
         }
         println!("cairo pie file path: {}", cairo_pie_file_path);
         let mut task = Command::new("cairo-run")
             .arg("--program")
-            .arg("../compiled_cairo/hdp.json")
+            .arg("./compiled_cairo/hdp.json")
             .arg("--layout")
             .arg("starknet_with_keccak")
             .arg("--program_input")
@@ -341,13 +341,13 @@ impl CairoCompiler {
             .arg("packages/eth_essentials")
             .arg("../hdp-cairo/src/hdp.cairo")
             .arg("--output")
-            .arg("../compiled_cairo/hdp.json")
+            .arg("./compiled_cairo/hdp.json")
             .stdout(Stdio::null())
             .spawn()?;
 
         task.wait()?;
 
-        let context = fs::read_to_string(&"../compiled_cairo/hdp.json")?;
+        let context = fs::read_to_string(&"./compiled_cairo/hdp.json")?;
         if context.is_empty() {
             return Err("Cairo compilation failed".into());
         }
