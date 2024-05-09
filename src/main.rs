@@ -40,6 +40,7 @@ const COMPILED_CAIRO_PATH: &str = "./compiled_cairo/hdp.json";
 
 #[tokio::main]
 async fn main() {
+    // Load environment variables
     dotenv().ok();
     let subscriber = FmtSubscriber::builder()
         .with_max_level(Level::INFO)
@@ -52,38 +53,36 @@ async fn main() {
     let config = Config::init(Some(rpc_url), Some(tasks), Some(datalakes), Some(chain_id)).await;
     let provider = AbstractProvider::new(&config.rpc_url, config.chain_id);
 
-    let mut rng = rand::thread_rng();
-
+    //ToDo: Optionally recompile the cairo program
     // let compiler = CairoCompiler::new();
     // compiler.compile().unwrap();
-
+    let mut rng = rand::thread_rng();
     let generator = Generator::new(provider);
     let cairo_runner = CairoRunner::new();
-    for _ in 0..1 {
+    for _ in 0..2 {
         // === Randomly sample the aggregation function, context, and sampled property ===
-        // let compute: AggregationFunction = rng.sample(Standard);
+        let compute: AggregationFunction = rng.sample(Standard);
         // let context: FunctionContext = rng.sample(Standard);
         // let sampled_property: BlockSampledCollection = rng.sample(Standard);
         // let sampled_property: TransactionsCollection = rng.sample(Standard);
-        // ==============================================================================
-        let compute: AggregationFunction = AggregationFunction::MAX;
-        let context: FunctionContext = rng.sample(Standard);
-        // let sampled_property: BlockSampledCollection = BlockSampledCollection::from_str(
-        //     "storage.0x75CeC1db9dCeb703200EAa6595f66885C962B920.0x0000000000000000000000000000000000000000000000000000000000000003",
-        // )
-        // .unwrap();
-        let sampled_property: TransactionsCollection =
-            TransactionsCollection::from_str("tx.gas_limit").unwrap();
 
-        // let (cairo_pie_file_path, input_file_path) = generator
-        //     .generate_block_sampled_input_file(compute, context, sampled_property)
-        //     .await
-        //     .unwrap();
+        // ==============================================================================
+        // let compute: AggregationFunction = AggregationFunction::MAX;
+        let context: FunctionContext = rng.sample(Standard);
+        let sampled_property: BlockSampledCollection =
+            BlockSampledCollection::from_str("header.timestamp").unwrap();
+        // let sampled_property: TransactionsCollection =
+        //     TransactionsCollection::from_str("tx.gas_limit").unwrap();
 
         let (cairo_pie_file_path, input_file_path) = generator
-            .generate_tx_input_file(compute, context, sampled_property)
+            .generate_block_sampled_input_file(compute, context, sampled_property)
             .await
             .unwrap();
+
+        // let (cairo_pie_file_path, input_file_path) = generator
+        //     .generate_tx_input_file(compute, context, sampled_property)
+        //     .await
+        //     .unwrap();
 
         cairo_runner
             .run(cairo_pie_file_path, input_file_path)
@@ -110,10 +109,15 @@ impl Generator {
     ) -> Result<(String, String), GeneratorError> {
         let mut rng = rand::thread_rng();
         let latest_block = 5854020;
-        let folder_path = format!(
-            "./fixtures/{}",
-            sampled_property.to_string().split('.').next().unwrap()
-        );
+        let folder_path = match sampled_property {
+            BlockSampledCollection::Header(ref f) => {
+                format!("./fixtures/header/{}", f.to_string().to_lowercase())
+            }
+            BlockSampledCollection::Account(_, ref f) => {
+                format!("./fixtures/account/{}", f.to_string().to_lowercase())
+            }
+            BlockSampledCollection::Storage(_, _) => "./fixtures/storage".to_string(),
+        };
         fs::create_dir_all(&folder_path).unwrap();
         let entries = fs::read_dir(&folder_path)?;
         let count = entries
@@ -121,10 +125,10 @@ impl Generator {
             .filter(|entry| entry.file_type().map(|ft| ft.is_dir()).unwrap_or(false))
             .count();
         fs::create_dir_all(format!("{}/{}", folder_path, count)).unwrap();
-
         let output_file_path = format!("{}/{}/output.json", folder_path, count);
         let input_file_path = format!("{}/{}/input.json", folder_path, count);
         let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
+        let readme_file_path = format!("{}/{}/readme.md", folder_path, count);
         // ! Note: the test is currently for Sepolia
         let start_block = match sampled_property {
             BlockSampledCollection::Storage(_, _) => rng.gen_range(5382810..=latest_block - 100000),
@@ -150,40 +154,46 @@ impl Generator {
 
         match compute {
             AggregationFunction::COUNT => {
-                let result = evaluator::evaluator(
-                    vec![ComputationalTask {
-                        aggregate_fn_id: compute,
-                        aggregate_fn_ctx: Some(context),
-                    }],
-                    vec![DatalakeEnvelope::BlockSampled(BlockSampledDatalake {
-                        sampled_property,
-                        block_range_start: start_block,
-                        block_range_end: end_block,
-                        increment: step,
-                    })],
-                    self.provider.clone(),
+                let tasks = vec![ComputationalTask {
+                    aggregate_fn_id: compute,
+                    aggregate_fn_ctx: Some(context),
+                }];
+                let datalakes = vec![DatalakeEnvelope::BlockSampled(BlockSampledDatalake {
+                    sampled_property,
+                    block_range_start: start_block,
+                    block_range_end: end_block,
+                    increment: step,
+                })];
+                fs::write(
+                    &readme_file_path,
+                    format!("Tasks {:?}\n, Datalakes {:?} ", tasks, datalakes),
                 )
-                .await
                 .unwrap();
+                let result = evaluator::evaluator(tasks, datalakes, self.provider.clone())
+                    .await
+                    .unwrap();
 
                 result.save_to_file(&input_file_path, true).unwrap();
             }
             _ => {
-                let result = evaluator::evaluator(
-                    vec![ComputationalTask {
-                        aggregate_fn_id: compute,
-                        aggregate_fn_ctx: None,
-                    }],
-                    vec![DatalakeEnvelope::BlockSampled(BlockSampledDatalake {
-                        sampled_property,
-                        block_range_start: start_block,
-                        block_range_end: end_block,
-                        increment: step,
-                    })],
-                    self.provider.clone(),
+                let tasks = vec![ComputationalTask {
+                    aggregate_fn_id: compute,
+                    aggregate_fn_ctx: None,
+                }];
+                let datalakes = vec![DatalakeEnvelope::BlockSampled(BlockSampledDatalake {
+                    sampled_property,
+                    block_range_start: start_block,
+                    block_range_end: end_block,
+                    increment: step,
+                })];
+                fs::write(
+                    &readme_file_path,
+                    format!("Tasks {:?}\n, Datalakes {:?} ", tasks, datalakes),
                 )
-                .await
                 .unwrap();
+                let result = evaluator::evaluator(tasks, datalakes, self.provider.clone())
+                    .await
+                    .unwrap();
 
                 result.save_to_file(&input_file_path, true).unwrap();
             }
@@ -201,10 +211,22 @@ impl Generator {
         println!("Generating tx input file...");
         let mut rng = rand::thread_rng();
         let latest_block = 5854020;
-        let folder_path = format!(
-            "./fixtures/{}",
-            sampled_property.to_string().split('.').next().unwrap()
-        );
+        let folder_path = match sampled_property {
+            TransactionsCollection::Transactions(ref f) => {
+                format!(
+                    "./fixtures/transactions/{}/{}",
+                    f.to_string().to_lowercase(),
+                    compute
+                )
+            }
+            TransactionsCollection::TranasactionReceipts(ref f) => {
+                format!(
+                    "./fixtures/receipts/{}/{}",
+                    f.to_string().to_lowercase(),
+                    compute
+                )
+            }
+        };
         fs::create_dir_all(&folder_path).unwrap();
         let entries = fs::read_dir(&folder_path)?;
         let count = entries
@@ -216,6 +238,7 @@ impl Generator {
         let output_file_path = format!("{}/{}/output.json", folder_path, count);
         let input_file_path = format!("{}/{}/input.json", folder_path, count);
         let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
+        let readme_file_path = format!("{}/{}/readme.txt", folder_path, count);
         // ! Note: the test is currently for Sepolia
         let target_block = rng.gen_range(4952200..=latest_block - 10000);
 
@@ -236,48 +259,55 @@ impl Generator {
 
         match compute {
             AggregationFunction::COUNT => {
-                let result = evaluator::evaluator(
-                    vec![ComputationalTask {
-                        aggregate_fn_id: compute,
-                        aggregate_fn_ctx: Some(context),
-                    }],
-                    vec![DatalakeEnvelope::Transactions(
-                        TransactionsInBlockDatalake {
-                            target_block,
-                            start_index,
-                            end_index,
-                            increment: step,
-                            included_types: IncludedTypes::from(&included_types),
-                            sampled_property,
-                        },
-                    )],
-                    self.provider.clone(),
+                let tasks = vec![ComputationalTask {
+                    aggregate_fn_id: compute,
+                    aggregate_fn_ctx: Some(context),
+                }];
+                let datalakes = vec![DatalakeEnvelope::Transactions(
+                    TransactionsInBlockDatalake {
+                        target_block,
+                        start_index,
+                        end_index,
+                        increment: step,
+                        included_types: IncludedTypes::from(&included_types),
+                        sampled_property,
+                    },
+                )];
+
+                fs::write(
+                    &readme_file_path,
+                    format!("Tasks {:?}\n, Datalakes {:?} ", tasks, datalakes),
                 )
-                .await
                 .unwrap();
 
+                let result = evaluator::evaluator(tasks, datalakes, self.provider.clone())
+                    .await
+                    .unwrap();
                 result.save_to_file(&input_file_path, true).unwrap();
             }
             _ => {
-                let result = evaluator::evaluator(
-                    vec![ComputationalTask {
-                        aggregate_fn_id: compute,
-                        aggregate_fn_ctx: None,
-                    }],
-                    vec![DatalakeEnvelope::Transactions(
-                        TransactionsInBlockDatalake {
-                            target_block,
-                            start_index,
-                            end_index,
-                            increment: step,
-                            included_types: IncludedTypes::from(&included_types),
-                            sampled_property,
-                        },
-                    )],
-                    self.provider.clone(),
+                let tasks = vec![ComputationalTask {
+                    aggregate_fn_id: compute,
+                    aggregate_fn_ctx: None,
+                }];
+                let datalakes = vec![DatalakeEnvelope::Transactions(
+                    TransactionsInBlockDatalake {
+                        target_block,
+                        start_index,
+                        end_index,
+                        increment: step,
+                        included_types: IncludedTypes::from(&included_types),
+                        sampled_property,
+                    },
+                )];
+                fs::write(
+                    &readme_file_path,
+                    format!("Tasks {:?}\n, Datalakes {:?} ", tasks, datalakes),
                 )
-                .await
                 .unwrap();
+                let result = evaluator::evaluator(tasks, datalakes, self.provider.clone())
+                    .await
+                    .unwrap();
 
                 result.save_to_file(&input_file_path, true).unwrap();
             }
