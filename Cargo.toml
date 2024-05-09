@@ -7,9 +7,9 @@ edition = "2021"
 
 [dependencies]
 rand = "0.8.4"
-hdp-primitives = { git = "https://github.com/HerodotusDev/hdp.git", branch = "fix/sync-contract-server" }
-hdp-core = { git = "https://github.com/HerodotusDev/hdp.git", branch = "fix/sync-contract-server" }
-hdp-provider = { git = "https://github.com/HerodotusDev/hdp.git", branch = "fix/sync-contract-server" }
+hdp-primitives = { git = "https://github.com/HerodotusDev/hdp.git", branch = "dev" }
+hdp-core = { git = "https://github.com/HerodotusDev/hdp.git", branch = "dev" }
+hdp-provider = { git = "https://github.com/HerodotusDev/hdp.git", branch = "dev" }
 thiserror = "1.0.0"
 dotenv = "0.15.0"
 tokio = { version = "1", features = ["full"] }
