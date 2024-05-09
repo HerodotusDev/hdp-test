@@ -59,30 +59,30 @@ async fn main() {
     let mut rng = rand::thread_rng();
     let generator = Generator::new(provider);
     let cairo_runner = CairoRunner::new();
-    for _ in 0..2 {
+    for _ in 0..1 {
         // === Randomly sample the aggregation function, context, and sampled property ===
         let compute: AggregationFunction = rng.sample(Standard);
-        // let context: FunctionContext = rng.sample(Standard);
-        // let sampled_property: BlockSampledCollection = rng.sample(Standard);
+        let context: FunctionContext = rng.sample(Standard);
+        let sampled_property: BlockSampledCollection = rng.sample(Standard);
         // let sampled_property: TransactionsCollection = rng.sample(Standard);
 
         // ==============================================================================
         // let compute: AggregationFunction = AggregationFunction::MAX;
-        let context: FunctionContext = rng.sample(Standard);
+        // let context: FunctionContext = rng.sample(Standard);
         // let sampled_property: BlockSampledCollection =
         //     BlockSampledCollection::from_str("header.timestamp").unwrap();
-        let sampled_property: TransactionsCollection =
-            TransactionsCollection::from_str("tx.max_fee_per_blob_gas").unwrap();
-
-        // let (cairo_pie_file_path, input_file_path) = generator
-        //     .generate_block_sampled_input_file(compute, context, sampled_property)
-        //     .await
-        //     .unwrap();
+        // let sampled_property: TransactionsCollection =
+        //     TransactionsCollection::from_str("tx.max_fee_per_blob_gas").unwrap();
 
         let (cairo_pie_file_path, input_file_path) = generator
-            .generate_tx_input_file(compute, context, sampled_property)
+            .generate_block_sampled_input_file(compute, context, sampled_property)
             .await
             .unwrap();
+
+        // let (cairo_pie_file_path, input_file_path) = generator
+        //     .generate_tx_input_file(compute, context, sampled_property)
+        //     .await
+        //     .unwrap();
 
         cairo_runner
             .run(cairo_pie_file_path, input_file_path)
@@ -173,6 +173,7 @@ impl Generator {
                     .await
                     .unwrap();
 
+                result.save_to_file(&output_file_path, false).unwrap();
                 result.save_to_file(&input_file_path, true).unwrap();
             }
             _ => {
@@ -195,6 +196,7 @@ impl Generator {
                     .await
                     .unwrap();
 
+                result.save_to_file(&output_file_path, false).unwrap();
                 result.save_to_file(&input_file_path, true).unwrap();
             }
         }
@@ -277,6 +279,7 @@ impl Generator {
                 let result = evaluator::evaluator(tasks, datalakes, self.provider.clone())
                     .await
                     .unwrap();
+                result.save_to_file(&output_file_path, false).unwrap();
                 result.save_to_file(&input_file_path, true).unwrap();
             }
             _ => {
@@ -303,6 +306,7 @@ impl Generator {
                     .await
                     .unwrap();
 
+                result.save_to_file(&output_file_path, false).unwrap();
                 result.save_to_file(&input_file_path, true).unwrap();
             }
         }
