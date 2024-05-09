@@ -69,20 +69,20 @@ async fn main() {
         // ==============================================================================
         // let compute: AggregationFunction = AggregationFunction::MAX;
         let context: FunctionContext = rng.sample(Standard);
-        let sampled_property: BlockSampledCollection =
-            BlockSampledCollection::from_str("header.timestamp").unwrap();
-        // let sampled_property: TransactionsCollection =
-        //     TransactionsCollection::from_str("tx.gas_limit").unwrap();
-
-        let (cairo_pie_file_path, input_file_path) = generator
-            .generate_block_sampled_input_file(compute, context, sampled_property)
-            .await
-            .unwrap();
+        // let sampled_property: BlockSampledCollection =
+        //     BlockSampledCollection::from_str("header.timestamp").unwrap();
+        let sampled_property: TransactionsCollection =
+            TransactionsCollection::from_str("tx.gas_price").unwrap();
 
         // let (cairo_pie_file_path, input_file_path) = generator
-        //     .generate_tx_input_file(compute, context, sampled_property)
+        //     .generate_block_sampled_input_file(compute, context, sampled_property)
         //     .await
         //     .unwrap();
+
+        let (cairo_pie_file_path, input_file_path) = generator
+            .generate_tx_input_file(compute, context, sampled_property)
+            .await
+            .unwrap();
 
         cairo_runner
             .run(cairo_pie_file_path, input_file_path)
@@ -213,18 +213,10 @@ impl Generator {
         let latest_block = 5854020;
         let folder_path = match sampled_property {
             TransactionsCollection::Transactions(ref f) => {
-                format!(
-                    "./fixtures/transactions/{}/{}",
-                    f.to_string().to_lowercase(),
-                    compute
-                )
+                format!("./fixtures/transactions/{}", f.to_string().to_lowercase(),)
             }
             TransactionsCollection::TranasactionReceipts(ref f) => {
-                format!(
-                    "./fixtures/receipts/{}/{}",
-                    f.to_string().to_lowercase(),
-                    compute
-                )
+                format!("./fixtures/receipts/{}", f.to_string().to_lowercase(),)
             }
         };
         fs::create_dir_all(&folder_path).unwrap();
@@ -240,12 +232,13 @@ impl Generator {
         let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
         let readme_file_path = format!("{}/{}/readme.txt", folder_path, count);
         // ! Note: the test is currently for Sepolia
-        let target_block = rng.gen_range(4952200..=latest_block - 10000);
-
+        // let target_block = rng.gen_range(4952200..=latest_block - 10000);
+        let target_block = 5745820;
         let start_index = rng.gen_range(0..=50);
+        let start_index = 0;
         let end_index = rng.gen_range(start_index..=start_index + 50);
-        let step = rng.gen_range(1..=end_index - start_index);
-        let included_types = [1, 1, 1, 1];
+        let step = rng.gen_range(1..=10);
+        let included_types = [0, 0, 1, 1];
 
         println!(
             "Computing {} of {} from block {} to block {} with step {}, input file path: {}, output file path: {}",
