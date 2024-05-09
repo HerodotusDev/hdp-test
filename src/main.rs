@@ -36,6 +36,8 @@ pub enum GeneratorError {
     RPC,
 }
 
+const COMPILED_CAIRO_PATH: &str = "./compiled_cairo/hdp.json";
+
 #[tokio::main]
 async fn main() {
     dotenv().ok();
@@ -301,14 +303,14 @@ impl CairoRunner {
         if context.is_empty() {
             return Err("Input file is empty".into());
         }
-        let context = fs::read_to_string("./compiled_cairo/hdp.json")?;
+        let context = fs::read_to_string(COMPILED_CAIRO_PATH)?;
         if context.is_empty() {
             return Err("Cairo compilation failed".into());
         }
         println!("cairo pie file path: {}", cairo_pie_file_path);
         let mut task = Command::new("cairo-run")
             .arg("--program")
-            .arg("./compiled_cairo/hdp.json")
+            .arg(COMPILED_CAIRO_PATH)
             .arg("--layout")
             .arg("starknet_with_keccak")
             .arg("--program_input")
@@ -341,13 +343,13 @@ impl CairoCompiler {
             .arg("packages/eth_essentials")
             .arg("../hdp-cairo/src/hdp.cairo")
             .arg("--output")
-            .arg("./compiled_cairo/hdp.json")
+            .arg(COMPILED_CAIRO_PATH)
             .stdout(Stdio::null())
             .spawn()?;
 
         task.wait()?;
 
-        let context = fs::read_to_string(&"./compiled_cairo/hdp.json")?;
+        let context = fs::read_to_string(COMPILED_CAIRO_PATH)?;
         if context.is_empty() {
             return Err("Cairo compilation failed".into());
         }
