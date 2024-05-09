@@ -72,7 +72,7 @@ async fn main() {
         // let sampled_property: BlockSampledCollection =
         //     BlockSampledCollection::from_str("header.timestamp").unwrap();
         let sampled_property: TransactionsCollection =
-            TransactionsCollection::from_str("tx.gas_price").unwrap();
+            TransactionsCollection::from_str("tx.max_fee_per_blob_gas").unwrap();
 
         // let (cairo_pie_file_path, input_file_path) = generator
         //     .generate_block_sampled_input_file(compute, context, sampled_property)
@@ -232,16 +232,17 @@ impl Generator {
         let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
         let readme_file_path = format!("{}/{}/readme.txt", folder_path, count);
         // ! Note: the test is currently for Sepolia
-        // let target_block = rng.gen_range(4952200..=latest_block - 10000);
-        let target_block = 5745820;
+        let target_block = rng.gen_range(4952200..=latest_block - 10000);
+        let target_block = 5858987;
         let start_index = rng.gen_range(0..=50);
-        let start_index = 0;
+        let start_index = 91;
         let end_index = rng.gen_range(start_index..=start_index + 50);
+        let end_index = 100;
         let step = rng.gen_range(1..=10);
-        let included_types = [0, 0, 1, 1];
+        let included_types = [0, 0, 0, 1];
 
         println!(
-            "Computing {} of {} from block {} to block {} with step {}, input file path: {}, output file path: {}",
+            "Computing {} of {} from tx index {} to tx index {} with step {}, input file path: {}, output file path: {}",
             compute,
             sampled_property,
             start_index,
