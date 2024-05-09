@@ -1363,7 +1363,7 @@ dependencies = [
 [[package]]
 name = "hdp-core"
 version = "0.2.0"
-source = "git+https://github.com/HerodotusDev/hdp.git?branch=fix/sync-contract-server#8eeb5e01ddda1b444707fa728188b1f56ecd89dc"
+source = "git+https://github.com/HerodotusDev/hdp.git?branch=dev#a24d6f8311804c56e7a8d0cd16b85b76e2cd7494"
 dependencies = [
  "alloy-dyn-abi",
  "alloy-merkle-tree",
@@ -1381,7 +1381,7 @@ dependencies = [
 [[package]]
 name = "hdp-primitives"
 version = "0.2.0"
-source = "git+https://github.com/HerodotusDev/hdp.git?branch=fix/sync-contract-server#8eeb5e01ddda1b444707fa728188b1f56ecd89dc"
+source = "git+https://github.com/HerodotusDev/hdp.git?branch=dev#a24d6f8311804c56e7a8d0cd16b85b76e2cd7494"
 dependencies = [
  "alloy-dyn-abi",
  "alloy-primitives",
@@ -1395,7 +1395,7 @@ dependencies = [
 [[package]]
 name = "hdp-provider"
 version = "0.2.0"
-source = "git+https://github.com/HerodotusDev/hdp.git?branch=fix/sync-contract-server#8eeb5e01ddda1b444707fa728188b1f56ecd89dc"
+source = "git+https://github.com/HerodotusDev/hdp.git?branch=dev#a24d6f8311804c56e7a8d0cd16b85b76e2cd7494"
 dependencies = [
  "alloy-primitives",
  "anyhow",
