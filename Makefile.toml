@@ -12,11 +12,10 @@ echo "Setting up the environment..."
 [tasks.integration-test]
 workspace = false
 description = "Run integration tests. Specify the folder name through the INTEGRATION_ARGS environment variable."
-env = { INTEGRATION_ARGS = "storage" }
 script = '''
 echo "Running integration tests with arguments: $INTEGRATION_ARGS"
 chmod +x ./scripts/integration.sh
-./scripts/integration.sh $INTEGRATION_ARGS
+./scripts/integration.sh
 '''
 
 [tasks.reset-setup]

@@ -1,61 +1,56 @@
 #!/bin/bash
 
-prepare_cairo_enviroment() {
+# Function to run tests on a given Cairo file
+run_tests() {
+    local input_file="$1"
+    local temp_output=$(mktemp)
+
     # Activate the virtual environment
-    source ./venv/bin/activate 
-    # Check if cairo-run is installed
-    cairo-run --version
+    source ./venv/bin/activate
+
+    # Attempt to run the compiled program and capture output
+    local start_time=$(date +%s)
+
+    # Extract the directory path from the input file
+    local input_dir=$(dirname "$input_file")
+
+    # Run the cairo-run command
+    cairo-run \
+        --program=compiled_cairo/hdp.json \
+        --layout=starknet_with_keccak \
+        --program_input="$input_file" \
+        --cairo_pie_output "$temp_output" \
+        --print_info
+
     local status=$?
-        if [ $status -eq 0 ]; then
-            echo "$(date '+%Y-%m-%d %H:%M:%S') - Successfully prepared"
-        else
-            echo "$(date '+%Y-%m-%d %H:%M:%S') - Failed to prepared"
-            return $status
-        fi
+    local end_time=$(date +%s)
+    local duration=$((end_time - start_time))
+
+    if [ $status -eq 0 ]; then
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - Successful $input_file: Duration ${duration} seconds"
+    else
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - Failed: $input_file"
+    fi
+
+    rm -f "$temp_output"  # Clean up temporary file
+
+    return $status
 }
-# Call the function to ensure the virtual environment is activated
-prepare_cairo_enviroment
 
-# Echoing arguments for debugging
-echo "Arguments received: $@"
+export -f run_tests
 
-# Base directory where the folders 'storage' and 'account' and 'header' are located
-BASE_DIR="fixtures"
+echo "Starting tests..."
 
-TARGET_DIRS=("$@")
+# Find all input.json files in the /fixtures folder and its subfolders
+find ./fixtures -name "input.json" | parallel run_tests "$file"
 
-echo "Running integration tests on directories: ${TARGET_DIRS[@]}"
+# Capture the exit status of parallel
+exit_status=$?
 
-# Loop through specified directories
-for dir in $TARGET_DIRS; do
-    # Find all directories within the main directories
-    find "${BASE_DIR}/${dir}" -type d | while read -r subDir; do
-            # Check for the existence of the input.json file after run.sh has completed
-            inputFilePath="${subDir}/input.json"
-            if [[ -f "${inputFilePath}" ]]; then
-                 # Extract the base directory and subfolder name from the input file path
-                baseDir=$(dirname "${inputFilePath}")
-                subFolder=$(basename "${baseDir}")
-                
-                # Define the output .pie file path
-                pieFilePath="${baseDir}/${subFolder}.pie"
-                
-                # Run the cairo-run command
-                cairo-run \
-                    --program=compiled_cairo/hdp.json \
-                    --layout=starknet_with_keccak \
-                    --program_input="${inputFilePath}" \
-                    --cairo_pie_output "${pieFilePath}" \
-                    --print_output
-                
-                # Check if cairo-run was successful
-                if [ $? -ne 0 ]; then
-                    echo "Error processing file: ${inputFilePath}"
-                else
-                    echo "Successfully processed file: ${inputFilePath}"
-                fi
-            else
-                echo "No input.json found in ${subDir} after running run.sh"
-            fi
-    done
-done
+if [ $exit_status -eq 0 ]; then
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Success: Parallel execution exited"
+else
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Failed: Parallel execution exited"
+fi
+
+exit $exit_status
