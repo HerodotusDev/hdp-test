@@ -9,6 +9,7 @@ use std::{
     sync::Arc,
 };
 
+use alloy_primitives::{hex::FromHex, Address};
 use dotenv::dotenv;
 use hdp_core::{
     aggregate_fn::{AggregationFunction, FunctionContext},
@@ -22,7 +23,7 @@ use hdp_primitives::datalake::{
     transactions::{IncludedTypes, TransactionsCollection, TransactionsInBlockDatalake},
 };
 use hdp_provider::evm::AbstractProvider;
-use rand::{distributions::Standard, Rng};
+use rand::Rng;
 use thiserror::Error;
 use tokio::sync::RwLock;
 use tracing::Level;
@@ -56,9 +57,9 @@ async fn main() {
     //ToDo: Optionally recompile the cairo program
     // let compiler = CairoCompiler::new();
     // compiler.compile().unwrap();
-    let mut rng = rand::thread_rng();
+    // let mut rng = rand::thread_rng();
     let generator = Generator::new(provider);
-    let cairo_runner = CairoRunner::new();
+    // let cairo_runner = CairoRunner::new();
     for _ in 0..1 {
         // === Randomly sample the aggregation function, context, and sampled property ===
         //let compute: AggregationFunction = rng.sample(Standard);
@@ -68,7 +69,10 @@ async fn main() {
 
         let compute: AggregationFunction = AggregationFunction::SLR;
 
-        let sampled_property: BlockSampledCollection = rng.sample(Standard);
+        let sampled_property: BlockSampledCollection = BlockSampledCollection::Account(
+            Address::from_hex("0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4").unwrap(),
+            hdp_primitives::datalake::block_sampled::AccountField::Balance,
+        );
         // let sampled_property: TransactionsCollection = rng.sample(Standard);
 
         // ==============================================================================
@@ -79,7 +83,7 @@ async fn main() {
         // let sampled_property: TransactionsCollection =
         //     TransactionsCollection::from_str("tx.max_fee_per_blob_gas").unwrap();
 
-        let (cairo_pie_file_path, input_file_path) = generator
+        let (_cairo_pie_file_path, _input_file_path) = generator
             .generate_block_sampled_input_file(compute, context, sampled_property)
             .await
             .unwrap();
@@ -89,9 +93,9 @@ async fn main() {
         //     .await
         //     .unwrap();
 
-        cairo_runner
-            .run(cairo_pie_file_path, input_file_path)
-            .unwrap();
+        // cairo_runner
+        //     .run(cairo_pie_file_path, input_file_path)
+        //     .unwrap();
     }
 }
 
@@ -148,7 +152,7 @@ impl Generator {
         // let end_block = rng.gen_range(start_block..=start_block + end_range);
         // let step = rng.gen_range(1..=end_block - start_block);
         let start_block = 5382810;
-        let end_block = 5382850;
+        let end_block = 5383000;
         let step = 1;
         println!(
             "Computing {} of {} from block {} to block {} with step {}, input file path: {}, output file path: {}",

@@ -1,2 +1,2 @@
-Tasks [ComputationalTask { aggregate_fn_id: SLR, aggregate_fn_ctx: None }]
-, Datalakes [BlockSampled(BlockSampledDatalake { block_range_start: 5349146, block_range_end: 5349223, sampled_property: Account(0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4, Balance), increment: 27 })] 
+Tasks [ComputationalTask { aggregate_fn_id: SLR, aggregate_fn_ctx: Some(FunctionContext { operator: Equal, value_to_compare: 0x0000000000000000000000000000000000000000000000000000000000000010_U256 }) }]
+, Datalakes [BlockSampled(BlockSampledDatalake { block_range_start: 5382810, block_range_end: 5382900, sampled_property: Account(0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4, Balance), increment: 1 })] 

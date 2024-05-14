@@ -7,9 +7,10 @@ edition = "2021"
 
 [dependencies]
 rand = "0.8.4"
-hdp-primitives = { git = "https://github.com/HerodotusDev/hdp.git", branch = "refact-fetcher" }
-hdp-core = { git = "https://github.com/HerodotusDev/hdp.git", branch = "refact-fetcher" }
-hdp-provider = { git = "https://github.com/HerodotusDev/hdp.git", branch = "refact-fetcher" }
+alloy-primitives = "0.6.4"
+hdp-primitives = { git = "https://github.com/HerodotusDev/hdp.git"}
+hdp-core = { git = "https://github.com/HerodotusDev/hdp.git"}
+hdp-provider = { git = "https://github.com/HerodotusDev/hdp.git"}
 thiserror = "1.0.0"
 dotenv = "0.15.0"
 tokio = { version = "1", features = ["full"] }
