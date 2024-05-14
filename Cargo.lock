@@ -1363,7 +1363,7 @@ dependencies = [
 [[package]]
 name = "hdp-core"
 version = "0.2.0"
-source = "git+https://github.com/HerodotusDev/hdp.git?branch=dev#d6df7421b6a5e3cdfc6ec02ab9986ddb0fb2b6c6"
+source = "git+https://github.com/HerodotusDev/hdp.git?branch=refact-fetcher#46d37b9a4ebf8df972568deeb97d7bb2fe0b255f"
 dependencies = [
  "alloy-dyn-abi",
  "alloy-merkle-tree",
@@ -1381,7 +1381,7 @@ dependencies = [
 [[package]]
 name = "hdp-primitives"
 version = "0.2.0"
-source = "git+https://github.com/HerodotusDev/hdp.git?branch=dev#d6df7421b6a5e3cdfc6ec02ab9986ddb0fb2b6c6"
+source = "git+https://github.com/HerodotusDev/hdp.git?branch=refact-fetcher#46d37b9a4ebf8df972568deeb97d7bb2fe0b255f"
 dependencies = [
  "alloy-dyn-abi",
  "alloy-primitives",
@@ -1395,7 +1395,7 @@ dependencies = [
 [[package]]
 name = "hdp-provider"
 version = "0.2.0"
-source = "git+https://github.com/HerodotusDev/hdp.git?branch=dev#d6df7421b6a5e3cdfc6ec02ab9986ddb0fb2b6c6"
+source = "git+https://github.com/HerodotusDev/hdp.git?branch=refact-fetcher#46d37b9a4ebf8df972568deeb97d7bb2fe0b255f"
 dependencies = [
  "alloy-primitives",
  "anyhow",
