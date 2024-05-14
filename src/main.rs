@@ -62,12 +62,17 @@ async fn main() {
     for _ in 0..1 {
         // === Randomly sample the aggregation function, context, and sampled property ===
         //let compute: AggregationFunction = rng.sample(Standard);
-        let context: FunctionContext = rng.sample(Standard);
+        // let context: FunctionContext = rng.sample(Standard);
+
+        let context = FunctionContext::from_str("eq.0x10").unwrap();
+
+        let compute: AggregationFunction = AggregationFunction::SLR;
+
         let sampled_property: BlockSampledCollection = rng.sample(Standard);
         // let sampled_property: TransactionsCollection = rng.sample(Standard);
 
         // ==============================================================================
-        let compute: AggregationFunction = AggregationFunction::SLR;
+
         // let context: FunctionContext = rng.sample(Standard);
         // let sampled_property: BlockSampledCollection =
         //     BlockSampledCollection::from_str("header.timestamp").unwrap();
@@ -107,17 +112,17 @@ impl Generator {
         context: FunctionContext,
         sampled_property: BlockSampledCollection,
     ) -> Result<(String, String), GeneratorError> {
-        let mut rng = rand::thread_rng();
-        let latest_block = 5854020;
-        let folder_path = match sampled_property {
-            BlockSampledCollection::Header(ref f) => {
-                format!("./fixtures/header/{}", f.to_string().to_lowercase())
-            }
-            BlockSampledCollection::Account(_, ref f) => {
-                format!("./fixtures/account/{}", f.to_string().to_lowercase())
-            }
-            BlockSampledCollection::Storage(_, _) => "./fixtures/storage".to_string(),
-        };
+        // let mut rng = rand::thread_rng();
+        // let latest_block = 5854020;
+        // let folder_path = match sampled_property {
+        //     BlockSampledCollection::Header(ref f) => {
+        //         format!("./fixtures/header/{}", f.to_string().to_lowercase())
+        //     }
+        //     BlockSampledCollection::Account(_, ref f) => {
+        //         format!("./fixtures/account/{}", f.to_string().to_lowercase())
+        //     }
+        //     BlockSampledCollection::Storage(_, _) => "./fixtures/storage".to_string(),
+        // };
         let folder_path = "./fixtures/slr".to_string();
         fs::create_dir_all(&folder_path).unwrap();
         let entries = fs::read_dir(&folder_path)?;
@@ -131,17 +136,20 @@ impl Generator {
         let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
         let readme_file_path = format!("{}/{}/readme.md", folder_path, count);
         // ! Note: the test is currently for Sepolia
-        let start_block = match sampled_property {
-            BlockSampledCollection::Storage(_, _) => rng.gen_range(5382810..=latest_block - 100000),
-            _ => rng.gen_range(4952200..=latest_block - 10000),
-        };
-        let end_range = if latest_block - start_block > 100 {
-            100
-        } else {
-            latest_block - start_block
-        };
-        let end_block = rng.gen_range(start_block..=start_block + end_range);
-        let step = rng.gen_range(1..=end_block - start_block);
+        // let start_block = match sampled_property {
+        //     BlockSampledCollection::Storage(_, _) => rng.gen_range(5382810..=latest_block - 100000),
+        //     _ => rng.gen_range(4952200..=latest_block - 10000),
+        // };
+        // let end_range = if latest_block - start_block > 100 {
+        //     100
+        // } else {
+        //     latest_block - start_block
+        // };
+        // let end_block = rng.gen_range(start_block..=start_block + end_range);
+        // let step = rng.gen_range(1..=end_block - start_block);
+        let start_block = 5382810;
+        let end_block = 5382850;
+        let step = 1;
         println!(
             "Computing {} of {} from block {} to block {} with step {}, input file path: {}, output file path: {}",
             compute,
@@ -154,7 +162,7 @@ impl Generator {
         );
 
         match compute {
-            AggregationFunction::COUNT => {
+            AggregationFunction::COUNT | AggregationFunction::SLR => {
                 let tasks = vec![ComputationalTask {
                     aggregate_fn_id: compute,
                     aggregate_fn_ctx: Some(context),
@@ -213,7 +221,7 @@ impl Generator {
     ) -> Result<(String, String), GeneratorError> {
         println!("Generating tx input file...");
         let mut rng = rand::thread_rng();
-        let latest_block = 5854020;
+        // let latest_block = 5854020;
         let folder_path = match sampled_property {
             TransactionsCollection::Transactions(ref f) => {
                 format!("./fixtures/transactions/{}", f.to_string().to_lowercase(),)
@@ -235,11 +243,11 @@ impl Generator {
         let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
         let readme_file_path = format!("{}/{}/readme.txt", folder_path, count);
         // ! Note: the test is currently for Sepolia
-        let target_block = rng.gen_range(4952200..=latest_block - 10000);
+        // let target_block = rng.gen_range(4952200..=latest_block - 10000);
         let target_block = 5858987;
-        let start_index = rng.gen_range(0..=50);
+        // let start_index = rng.gen_range(0..=50);
         let start_index = 91;
-        let end_index = rng.gen_range(start_index..=start_index + 50);
+        // let end_index = rng.gen_range(start_index..=start_index + 50);
         let end_index = 100;
         let step = rng.gen_range(1..=10);
         let included_types = [0, 0, 0, 1];
@@ -359,6 +367,12 @@ impl CairoRunner {
     }
 }
 
+impl Default for CairoRunner {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 pub struct CairoCompiler {}
 
 impl CairoCompiler {
@@ -384,5 +398,11 @@ impl CairoCompiler {
         }
 
         Ok(())
+    }
+}
+
+impl Default for CairoCompiler {
+    fn default() -> Self {
+        Self::new()
     }
 }
