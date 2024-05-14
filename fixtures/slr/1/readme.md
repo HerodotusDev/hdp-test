@@ -1,0 +1,2 @@
+Tasks [ComputationalTask { aggregate_fn_id: SLR, aggregate_fn_ctx: None }]
+, Datalakes [BlockSampled(BlockSampledDatalake { block_range_start: 5326974, block_range_end: 5327037, sampled_property: Header(BaseFeePerGas), increment: 49 })] 

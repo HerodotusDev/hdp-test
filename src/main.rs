@@ -61,13 +61,13 @@ async fn main() {
     let cairo_runner = CairoRunner::new();
     for _ in 0..1 {
         // === Randomly sample the aggregation function, context, and sampled property ===
-        let compute: AggregationFunction = rng.sample(Standard);
+        //let compute: AggregationFunction = rng.sample(Standard);
         let context: FunctionContext = rng.sample(Standard);
         let sampled_property: BlockSampledCollection = rng.sample(Standard);
         // let sampled_property: TransactionsCollection = rng.sample(Standard);
 
         // ==============================================================================
-        // let compute: AggregationFunction = AggregationFunction::MAX;
+        let compute: AggregationFunction = AggregationFunction::SLR;
         // let context: FunctionContext = rng.sample(Standard);
         // let sampled_property: BlockSampledCollection =
         //     BlockSampledCollection::from_str("header.timestamp").unwrap();
@@ -118,6 +118,7 @@ impl Generator {
             }
             BlockSampledCollection::Storage(_, _) => "./fixtures/storage".to_string(),
         };
+        let folder_path = "./fixtures/slr".to_string();
         fs::create_dir_all(&folder_path).unwrap();
         let entries = fs::read_dir(&folder_path)?;
         let count = entries
