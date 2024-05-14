@@ -9,6 +9,15 @@ echo "Setting up the environment..."
 ./scripts/setup_cairovm.sh
 '''
 
+[tasks.cairo1-setup]
+workspace = false
+description = "Set up the Cairo environment by running the setup script."
+script = '''
+echo "Setting up the environment..."
+chmod +x ./scripts/cairo1_install.sh
+./scripts/cairo1_install.sh
+'''
+
 [tasks.integration-test]
 workspace = false
 description = "Run integration tests. Specify the folder name through the INTEGRATION_ARGS environment variable."
