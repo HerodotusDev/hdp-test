@@ -39,7 +39,7 @@ rm -rf tools
 [tasks.run-full-flow]
 workspace = false
 description = "Execute the full integration test flow, including cloning, setup, compilation, and testing."
-dependencies = ["cairo-setup", "integration-test"]
+dependencies = ["cairo-setup", "cairo1-setup", "integration-test"]
 
 [config]
 unstable_features = ["CTRL_C_HANDLING"]

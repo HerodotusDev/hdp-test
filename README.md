@@ -9,6 +9,15 @@ This repository contains all the fixture support from HDP.
 
 This guide provides detailed instructions for running integration tests using the Makefile in the HDP project. These examples demonstrate how to process requests and integrate them with the Cairo Program. Before starting, ensure you have the `RPC_URL` and `CHAIN_ID` set in your `.env` file, as the scripts utilize configuration from environment variables.
 
+### Generate New Fixture
+
+Simply run:
+_wip: currently there are some issues for a supported query that match with randomized values, be might require comment out/in to handle the cases_
+
+```
+cargo run
+```
+
 ## Setup and Test Execution
 
 Follow these steps to set up and run integration tests:
@@ -20,8 +29,17 @@ Follow these steps to set up and run integration tests:
    cargo make cairo-setup
    ```
 
+   If you don't have `cairo1-run` binary installed, try running this script also:
+
+   ```bash
+   cargo make caior1-setup
+   ```
+
 2. **Run Integration Test**:
+   You need to position compiled_cairo program from [HDP-Cairo](https://github.com/HerodotusDev/hdp-cairo) and position in build/compiled_cairo path.
+
    Verify that you are in the correct environment to run `cairo-run`. This step executes all provided [fixtures](./fixtures) input files against the compiled Cairo program.
+
    ```bash
    cargo make integration-test
    ```
@@ -38,13 +56,4 @@ And if want to reset all the setup and compiled files to back the initial state,
 
 ```bash
 cargo make reset-setup
-```
-
-### Generate New Fixture
-
-Simply run:
-_wip: currently there are some issues for a supported query that match with randomized values, be might require comment out/in to handle the cases_
-
-```
-cargo run
 ```

@@ -37,7 +37,7 @@ pub enum GeneratorError {
     RPC,
 }
 
-const COMPILED_CAIRO_PATH: &str = "./compiled_cairo/hdp.json";
+const COMPILED_CAIRO_PATH: &str = "build/compiled_cairo/hdp.json";
 
 #[tokio::main]
 async fn main() {
