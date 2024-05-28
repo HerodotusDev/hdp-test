@@ -13,7 +13,6 @@ use alloy_primitives::{hex::FromHex, Address};
 use dotenv::dotenv;
 use hdp_core::{
     aggregate_fn::{AggregationFunction, FunctionContext},
-    config::Config,
     evaluator,
     task::ComputationalTask,
 };
@@ -23,6 +22,7 @@ use hdp_primitives::datalake::{
     transactions::{IncludedTypes, TransactionsCollection, TransactionsInBlockDatalake},
 };
 use hdp_provider::evm::AbstractProvider;
+use lazy_static::lazy_static;
 use rand::Rng;
 use thiserror::Error;
 use tokio::sync::RwLock;
@@ -38,6 +38,9 @@ pub enum GeneratorError {
 }
 
 const COMPILED_CAIRO_PATH: &str = "build/compiled_cairo/hdp.json";
+lazy_static! {
+    static ref RPC_URL: String = env::var("RPC_URL").unwrap();
+}
 
 #[tokio::main]
 async fn main() {
@@ -47,19 +50,16 @@ async fn main() {
         .with_max_level(Level::INFO)
         .finish();
     tracing::subscriber::set_global_default(subscriber).expect("setting default subscriber failed");
-    let rpc_url: String = env::var("RPC_URL").unwrap();
     let chain_id: u64 = env::var("CHAIN_ID").unwrap().parse().unwrap();
-    let tasks = env::var("TASKS").unwrap();
-    let datalakes = env::var("DATALAKES").unwrap();
-    let config = Config::init(Some(rpc_url), Some(tasks), Some(datalakes), Some(chain_id)).await;
-    let provider = AbstractProvider::new(&config.rpc_url, config.chain_id);
+    let rpc_chunk_size: u64 = env::var("RPC_CHUNK_SIZE").unwrap().parse().unwrap();
+    let provider = AbstractProvider::new(RPC_URL.as_ref(), chain_id, rpc_chunk_size);
 
     //ToDo: Optionally recompile the cairo program
     // let compiler = CairoCompiler::new();
     // compiler.compile().unwrap();
     // let mut rng = rand::thread_rng();
     let generator = Generator::new(provider);
-    // let cairo_runner = CairoRunner::new();
+    let cairo_runner = CairoRunner::new();
     for _ in 0..1 {
         // === Randomly sample the aggregation function, context, and sampled property ===
         //let compute: AggregationFunction = rng.sample(Standard);
@@ -69,9 +69,12 @@ async fn main() {
 
         let compute: AggregationFunction = AggregationFunction::SLR;
 
-        let sampled_property: BlockSampledCollection = BlockSampledCollection::Account(
-            Address::from_hex("0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4").unwrap(),
-            hdp_primitives::datalake::block_sampled::AccountField::Balance,
+        // let sampled_property: BlockSampledCollection = BlockSampledCollection::Account(
+        //     Address::from_hex("0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4").unwrap(),
+        //     hdp_primitives::datalake::block_sampled::AccountField::Balance,
+        // );
+        let sampled_property: BlockSampledCollection = BlockSampledCollection::Header(
+            hdp_primitives::datalake::block_sampled::HeaderField::Number,
         );
         // let sampled_property: TransactionsCollection = rng.sample(Standard);
 
@@ -83,7 +86,7 @@ async fn main() {
         // let sampled_property: TransactionsCollection =
         //     TransactionsCollection::from_str("tx.max_fee_per_blob_gas").unwrap();
 
-        let (_cairo_pie_file_path, _input_file_path) = generator
+        let (cairo_pie_file_path, input_file_path) = generator
             .generate_block_sampled_input_file(compute, context, sampled_property)
             .await
             .unwrap();

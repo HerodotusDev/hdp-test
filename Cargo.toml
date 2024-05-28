@@ -8,11 +8,12 @@ edition = "2021"
 [dependencies]
 rand = "0.8.4"
 alloy-primitives = "0.6.4"
-hdp-primitives = { git = "https://github.com/HerodotusDev/hdp.git"}
-hdp-core = { git = "https://github.com/HerodotusDev/hdp.git"}
-hdp-provider = { git = "https://github.com/HerodotusDev/hdp.git"}
+hdp-primitives = { git = "https://github.com/HerodotusDev/hdp.git", branch = "slr-support" }
+hdp-core = { git = "https://github.com/HerodotusDev/hdp.git", branch = "slr-support" }
+hdp-provider = { git = "https://github.com/HerodotusDev/hdp.git", branch = "slr-support" }
 thiserror = "1.0.0"
 dotenv = "0.15.0"
 tokio = { version = "1", features = ["full"] }
 tracing-subscriber = "0.3.0"
 tracing = "0.1"
+lazy_static = "1.4.0"
