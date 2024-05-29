@@ -1,2 +1,0 @@
-Tasks [ComputationalTask { aggregate_fn_id: COUNT, aggregate_fn_ctx: Some(FunctionContext { operator: GreaterThanOrEqual, value_to_compare: 0x0000000000000000000000000000000000000000000000000000000000000002_U256 }) }]
-, Datalakes [Transactions(TransactionsInBlockDatalake { target_block: 5796667, start_index: 21, end_index: 48, increment: 8, included_types: IncludedTypes { inner: [1, 1, 1, 1] }, sampled_property: Transactions(S) })] 

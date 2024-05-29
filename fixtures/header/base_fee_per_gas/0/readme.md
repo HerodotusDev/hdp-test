@@ -1,2 +1,0 @@
-Tasks [ComputationalTask { aggregate_fn_id: COUNT, aggregate_fn_ctx: Some(FunctionContext { operator: GreaterThanOrEqual, value_to_compare: 0x0000000000000000000000000000000000000000000000000000000000000060_U256 }) }]
-, Datalakes [BlockSampled(BlockSampledDatalake { block_range_start: 5545783, block_range_end: 5545823, sampled_property: Header(BaseFeePerGas), increment: 5 })] 

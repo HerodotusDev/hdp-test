@@ -1,2 +1,0 @@
-Tasks [ComputationalTask { aggregate_fn_id: SLR, aggregate_fn_ctx: Some(FunctionContext { operator: Equal, value_to_compare: 0x0000000000000000000000000000000000000000000000000000000000000010_U256 }) }]
-, Datalakes [BlockSampled(BlockSampledDatalake { block_range_start: 5382810, block_range_end: 5383000, sampled_property: Header(Number), increment: 1 })] 

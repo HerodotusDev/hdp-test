@@ -1,2 +1,0 @@
-Tasks [ComputationalTask { aggregate_fn_id: MAX, aggregate_fn_ctx: None }]
-, Datalakes [Transactions(TransactionsInBlockDatalake { target_block: 5745820, start_index: 0, end_index: 39, increment: 7, included_types: IncludedTypes { inner: [1, 1, 0, 0] }, sampled_property: Transactions(GasPrice) })] 
