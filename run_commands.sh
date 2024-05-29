@@ -58,7 +58,15 @@ COMMANDS_JSON=$2
 # Create the fixtures directory if it doesn't exist
 mkdir -p fixtures
 
-# Execute commands in the specified scope
-execute_commands $SCOPE $COMMANDS_JSON
+# Check if the scope is 'all'
+if [ "$SCOPE" == "all" ]; then
+  SCOPES=("header_slr" "account_slr" "storage_slr" "tx_slr" "header" "account" "storage" "tx")
+  for scope in "${SCOPES[@]}"; do
+    execute_commands $scope $COMMANDS_JSON
+  done
+else
+  # Execute commands in the specified scope
+  execute_commands $SCOPE $COMMANDS_JSON
+fi
 
 echo "All commands in scope '$SCOPE' executed. Outputs saved in respective directories."
