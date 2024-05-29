@@ -1,8 +1,40 @@
 {
-  "default_commands": [
-    "hdp encode -a -c input.json avg -t 5858987 tx.max_fee_per_blob_gas 2 100 1 0,0,0,1",
-    "hdp encode -a -c input.json sum -t 5858987 tx.max_fee_per_blob_gas 2 100 1 0,0,0,1",
-    "hdp encode -a -c input.json min -t 5858987 tx.max_fee_per_blob_gas 2 100 1 0,0,0,1"
+  "header_slr": [
+    "hdp encode -a -c input.json slr none.1 -b 5858987 5858997 header.number 1",
+    "hdp encode -a -c input.json slr none.10 -b 5858987 5858997 header.difficulty 2",
+    "hdp encode -a -c input.json slr none.100 -b 5858987 5858997 header.gas_limit 3",
+    "hdp encode -a -c input.json slr none.1000 -b 5858987 5858997 header.gas_used 1",
+    "hdp encode -a -c input.json slr none.10000 -b 5858987 5858997 header.timestamp 2",
+    "hdp encode -a -c input.json slr none.100000 -b 5858987 5858997 header.base_fee_per_gas 3",
+    "hdp encode -a -c input.json slr none.1000000 -b 5858987 5858997 header.blob_gas_used 1",
+    "hdp encode -a -c input.json slr none.10000000 -b 5858987 5858997 header.excess_blob_gas 2",
+    "hdp encode -a -c input.json slr none.100000000 -b 5858987 5858997 header.nonce 3"
+  ],
+  "account_slr": [
+    "hdp encode -a -c input.json slr none.1 -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1",
+    "hdp encode -a -c input.json slr none.10 -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 2",
+    "hdp encode -a -c input.json slr none.100 -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 3",
+    "hdp encode -a -c input.json slr none.1000 -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 4",
+    "hdp encode -a -c input.json slr none.100000 -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 1",
+    "hdp encode -a -c input.json slr none.1000000 -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 2",
+    "hdp encode -a -c input.json slr none.8000000 -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 3",
+    "hdp encode -a -c input.json slr none.7244634 -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 4"
+  ],
+  "storage_slr": [
+    "hdp encode -a -c input.json slr none.100000 -b 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000000 1",
+    "hdp encode -a -c input.json slr none.200000 -b 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000001 2",
+    "hdp encode -a -c input.json slr none.900000 -b 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000002 3",
+    "hdp encode -a -c input.json slr none.1000000 -b 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000003 4"
+  ],
+  "tx_slr": [
+    "hdp encode -a -c input.json slr none.1 -t 5253873 tx.chain_id 49 79 4 0,1,1,1",
+    "hdp encode -a -c input.json slr none.10 -t 5340342 tx.gas_limit 43 88 34 1,1,1,1",
+    "hdp encode -a -c input.json slr none.20 -t 5340342 tx.gas_price 0 45 4 1,1,0,0",
+    "hdp encode -a -c input.json slr none.30 -t 5858987 tx.max_fee_per_blob_gas 2 100 1 0,0,0,1",
+    "hdp encode -a -c input.json slr none.40 -t 5251607 tx.max_fee_per_gas 30 34 8 0,0,1,1",
+    "hdp encode -a -c input.json slr none.50 -t 5605816 tx.max_priority_fee_per_gas 12 53 1 0,0,1,1",
+    "hdp encode -a -c input.json slr none.60 -t 5409986 tx.nonce 6 40 1 1,1,1,1",
+    "hdp encode -a -c input.json slr none.80 -t 5461248 tx.value 21 29 1 1,1,1,1"
   ],
   "header": [
     "hdp encode -a -c input.json avg -b 5858987 5858997 header.number 1",
