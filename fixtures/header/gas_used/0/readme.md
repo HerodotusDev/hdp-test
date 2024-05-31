@@ -1,2 +1,0 @@
-Tasks [ComputationalTask { aggregate_fn_id: AVG, aggregate_fn_ctx: None }]
-, Datalakes [BlockSampled(BlockSampledDatalake { block_range_start: 5552154, block_range_end: 5552237, sampled_property: Header(GasUsed), increment: 49 })] 

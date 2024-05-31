@@ -1,2 +1,0 @@
-Tasks [ComputationalTask { aggregate_fn_id: MAX, aggregate_fn_ctx: None }]
-, Datalakes [BlockSampled(BlockSampledDatalake { block_range_start: 5130576, block_range_end: 5130582, sampled_property: Header(Difficulty), increment: 4 })] 

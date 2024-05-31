@@ -16,7 +16,7 @@ run_tests() {
 
     # Run the cairo-run command
     cairo-run \
-        --program=compiled_cairo/hdp.json \
+        --program=hdp.json \
         --layout=starknet_with_keccak \
         --program_input="$input_file" \
         --cairo_pie_output "$temp_output" \

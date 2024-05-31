@@ -9,10 +9,10 @@ use std::{
     sync::Arc,
 };
 
+use alloy_primitives::{hex::FromHex, Address};
 use dotenv::dotenv;
 use hdp_core::{
     aggregate_fn::{AggregationFunction, FunctionContext},
-    config::Config,
     evaluator,
     task::ComputationalTask,
 };
@@ -22,7 +22,8 @@ use hdp_primitives::datalake::{
     transactions::{IncludedTypes, TransactionsCollection, TransactionsInBlockDatalake},
 };
 use hdp_provider::evm::AbstractProvider;
-use rand::{distributions::Standard, Rng};
+use lazy_static::lazy_static;
+use rand::Rng;
 use thiserror::Error;
 use tokio::sync::RwLock;
 use tracing::Level;
@@ -36,7 +37,10 @@ pub enum GeneratorError {
     RPC,
 }
 
-const COMPILED_CAIRO_PATH: &str = "./compiled_cairo/hdp.json";
+const COMPILED_CAIRO_PATH: &str = "build/compiled_cairo/hdp.json";
+lazy_static! {
+    static ref RPC_URL: String = env::var("RPC_URL").unwrap();
+}
 
 #[tokio::main]
 async fn main() {
@@ -46,28 +50,36 @@ async fn main() {
         .with_max_level(Level::INFO)
         .finish();
     tracing::subscriber::set_global_default(subscriber).expect("setting default subscriber failed");
-    let rpc_url: String = env::var("RPC_URL").unwrap();
     let chain_id: u64 = env::var("CHAIN_ID").unwrap().parse().unwrap();
-    let tasks = env::var("TASKS").unwrap();
-    let datalakes = env::var("DATALAKES").unwrap();
-    let config = Config::init(Some(rpc_url), Some(tasks), Some(datalakes), Some(chain_id)).await;
-    let provider = AbstractProvider::new(&config.rpc_url, config.chain_id);
+    let rpc_chunk_size: u64 = env::var("RPC_CHUNK_SIZE").unwrap().parse().unwrap();
+    let provider = AbstractProvider::new(RPC_URL.as_ref(), chain_id, rpc_chunk_size);
 
     //ToDo: Optionally recompile the cairo program
     // let compiler = CairoCompiler::new();
     // compiler.compile().unwrap();
-    let mut rng = rand::thread_rng();
+    // let mut rng = rand::thread_rng();
     let generator = Generator::new(provider);
     let cairo_runner = CairoRunner::new();
     for _ in 0..1 {
         // === Randomly sample the aggregation function, context, and sampled property ===
-        let compute: AggregationFunction = rng.sample(Standard);
-        let context: FunctionContext = rng.sample(Standard);
-        let sampled_property: BlockSampledCollection = rng.sample(Standard);
+        //let compute: AggregationFunction = rng.sample(Standard);
+        // let context: FunctionContext = rng.sample(Standard);
+
+        let context = FunctionContext::from_str("eq.0x10").unwrap();
+
+        let compute: AggregationFunction = AggregationFunction::SLR;
+
+        // let sampled_property: BlockSampledCollection = BlockSampledCollection::Account(
+        //     Address::from_hex("0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4").unwrap(),
+        //     hdp_primitives::datalake::block_sampled::AccountField::Balance,
+        // );
+        let sampled_property: BlockSampledCollection = BlockSampledCollection::Header(
+            hdp_primitives::datalake::block_sampled::HeaderField::Number,
+        );
         // let sampled_property: TransactionsCollection = rng.sample(Standard);
 
         // ==============================================================================
-        // let compute: AggregationFunction = AggregationFunction::MAX;
+
         // let context: FunctionContext = rng.sample(Standard);
         // let sampled_property: BlockSampledCollection =
         //     BlockSampledCollection::from_str("header.timestamp").unwrap();
@@ -84,9 +96,9 @@ async fn main() {
         //     .await
         //     .unwrap();
 
-        cairo_runner
-            .run(cairo_pie_file_path, input_file_path)
-            .unwrap();
+        // cairo_runner
+        //     .run(cairo_pie_file_path, input_file_path)
+        //     .unwrap();
     }
 }
 
@@ -107,17 +119,18 @@ impl Generator {
         context: FunctionContext,
         sampled_property: BlockSampledCollection,
     ) -> Result<(String, String), GeneratorError> {
-        let mut rng = rand::thread_rng();
-        let latest_block = 5854020;
-        let folder_path = match sampled_property {
-            BlockSampledCollection::Header(ref f) => {
-                format!("./fixtures/header/{}", f.to_string().to_lowercase())
-            }
-            BlockSampledCollection::Account(_, ref f) => {
-                format!("./fixtures/account/{}", f.to_string().to_lowercase())
-            }
-            BlockSampledCollection::Storage(_, _) => "./fixtures/storage".to_string(),
-        };
+        // let mut rng = rand::thread_rng();
+        // let latest_block = 5854020;
+        // let folder_path = match sampled_property {
+        //     BlockSampledCollection::Header(ref f) => {
+        //         format!("./fixtures/header/{}", f.to_string().to_lowercase())
+        //     }
+        //     BlockSampledCollection::Account(_, ref f) => {
+        //         format!("./fixtures/account/{}", f.to_string().to_lowercase())
+        //     }
+        //     BlockSampledCollection::Storage(_, _) => "./fixtures/storage".to_string(),
+        // };
+        let folder_path = "./fixtures/slr".to_string();
         fs::create_dir_all(&folder_path).unwrap();
         let entries = fs::read_dir(&folder_path)?;
         let count = entries
@@ -130,17 +143,20 @@ impl Generator {
         let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
         let readme_file_path = format!("{}/{}/readme.md", folder_path, count);
         // ! Note: the test is currently for Sepolia
-        let start_block = match sampled_property {
-            BlockSampledCollection::Storage(_, _) => rng.gen_range(5382810..=latest_block - 100000),
-            _ => rng.gen_range(4952200..=latest_block - 10000),
-        };
-        let end_range = if latest_block - start_block > 100 {
-            100
-        } else {
-            latest_block - start_block
-        };
-        let end_block = rng.gen_range(start_block..=start_block + end_range);
-        let step = rng.gen_range(1..=end_block - start_block);
+        // let start_block = match sampled_property {
+        //     BlockSampledCollection::Storage(_, _) => rng.gen_range(5382810..=latest_block - 100000),
+        //     _ => rng.gen_range(4952200..=latest_block - 10000),
+        // };
+        // let end_range = if latest_block - start_block > 100 {
+        //     100
+        // } else {
+        //     latest_block - start_block
+        // };
+        // let end_block = rng.gen_range(start_block..=start_block + end_range);
+        // let step = rng.gen_range(1..=end_block - start_block);
+        let start_block = 5382810;
+        let end_block = 5383000;
+        let step = 1;
         println!(
             "Computing {} of {} from block {} to block {} with step {}, input file path: {}, output file path: {}",
             compute,
@@ -153,7 +169,7 @@ impl Generator {
         );
 
         match compute {
-            AggregationFunction::COUNT => {
+            AggregationFunction::COUNT | AggregationFunction::SLR => {
                 let tasks = vec![ComputationalTask {
                     aggregate_fn_id: compute,
                     aggregate_fn_ctx: Some(context),
@@ -212,7 +228,7 @@ impl Generator {
     ) -> Result<(String, String), GeneratorError> {
         println!("Generating tx input file...");
         let mut rng = rand::thread_rng();
-        let latest_block = 5854020;
+        // let latest_block = 5854020;
         let folder_path = match sampled_property {
             TransactionsCollection::Transactions(ref f) => {
                 format!("./fixtures/transactions/{}", f.to_string().to_lowercase(),)
@@ -234,11 +250,11 @@ impl Generator {
         let cairo_pie_file_path = format!("{}/{}/cairo.pie", folder_path, count);
         let readme_file_path = format!("{}/{}/readme.txt", folder_path, count);
         // ! Note: the test is currently for Sepolia
-        let target_block = rng.gen_range(4952200..=latest_block - 10000);
+        // let target_block = rng.gen_range(4952200..=latest_block - 10000);
         let target_block = 5858987;
-        let start_index = rng.gen_range(0..=50);
+        // let start_index = rng.gen_range(0..=50);
         let start_index = 91;
-        let end_index = rng.gen_range(start_index..=start_index + 50);
+        // let end_index = rng.gen_range(start_index..=start_index + 50);
         let end_index = 100;
         let step = rng.gen_range(1..=10);
         let included_types = [0, 0, 0, 1];
@@ -358,6 +374,12 @@ impl CairoRunner {
     }
 }
 
+impl Default for CairoRunner {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 pub struct CairoCompiler {}
 
 impl CairoCompiler {
@@ -383,5 +405,11 @@ impl CairoCompiler {
         }
 
         Ok(())
+    }
+}
+
+impl Default for CairoCompiler {
+    fn default() -> Self {
+        Self::new()
     }
 }
