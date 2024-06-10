@@ -64,3 +64,20 @@ Command: hdp encode -a -c fixtures/55\/input.json avg -t 5251607 tx.max_fee_per_
 Command: hdp encode -a -c fixtures/56\/input.json sum -t 5605816 tx.max_priority_fee_per_gas 12 53 1 0,0,1,1 executed and output saved in fixtures/56
 Command: hdp encode -a -c fixtures/57\/input.json min -t 5409986 tx.nonce 6 40 1 1,1,1,1 executed and output saved in fixtures/57
 Command: hdp encode -a -c fixtures/58\/input.json max -t 5461248 tx.value 21 29 1 1,1,1,1 executed and output saved in fixtures/58
+Running commands in scope: tx_receipt
+Command: hdp encode -a -c fixtures/59\/input.json avg -t 5253873 tx_receipt.success 49 79 4 0,1,1,1 executed and output saved in fixtures/59
+Command: hdp encode -a -c fixtures/60\/input.json sum -t 5340342 tx_receipt.cumulative_gas_used 43 88 34 1,1,1,1 executed and output saved in fixtures/60
+Command: hdp encode -a -c fixtures/61\/input.json min -t 5340342 tx_receipt.success 0 45 4 1,1,0,0 executed and output saved in fixtures/61
+Command: hdp encode -a -c fixtures/62\/input.json max -t 5858987 tx_receipt.cumulative_gas_used 2 100 1 0,0,0,1 executed and output saved in fixtures/62
+Command: hdp encode -a -c fixtures/63\/input.json avg -t 5251607 tx_receipt.success 0 50 8 0,0,1,1 executed and output saved in fixtures/63
+Command: hdp encode -a -c fixtures/64\/input.json sum -t 5605816 tx_receipt.cumulative_gas_used 12 53 1 0,0,1,1 executed and output saved in fixtures/64
+Command: hdp encode -a -c fixtures/65\/input.json min -t 5409986 tx_receipt.success 6 40 1 1,1,1,1 executed and output saved in fixtures/65
+Command: hdp encode -a -c fixtures/66\/input.json max -t 5461248 tx_receipt.cumulative_gas_used 21 29 1 1,1,1,1 executed and output saved in fixtures/66Running commands in scope: tx_receipt_slr
+Command: hdp encode -a -c fixtures/67\/input.json slr none.1 -t 5253873 tx_receipt.success 49 79 4 0,1,1,1 executed and output saved in fixtures/67
+Command: hdp encode -a -c fixtures/68\/input.json slr none.10 -t 5340342 tx_receipt.cumulative_gas_used 43 88 34 1,1,1,1 executed and output saved in fixtures/68
+Command: hdp encode -a -c fixtures/69\/input.json slr none.20 -t 5340342 tx_receipt.success 0 45 4 1,1,0,0 executed and output saved in fixtures/69
+Command: hdp encode -a -c fixtures/70\/input.json slr none.30 -t 5858987 tx_receipt.cumulative_gas_used 2 100 1 0,0,0,1 executed and output saved in fixtures/70
+Command: hdp encode -a -c fixtures/71\/input.json slr none.40 -t 5251607 tx_receipt.success 0 34 1 0,0,1,1 executed and output saved in fixtures/71
+Command: hdp encode -a -c fixtures/72\/input.json slr none.50 -t 5605816 tx_receipt.cumulative_gas_used 12 53 1 0,0,1,1 executed and output saved in fixtures/72
+Command: hdp encode -a -c fixtures/73\/input.json slr none.60 -t 5409986 tx_receipt.success 6 40 1 1,1,1,1 executed and output saved in fixtures/73
+Command: hdp encode -a -c fixtures/74\/input.json slr none.80 -t 5461248 tx_receipt.cumulative_gas_used 21 29 1 1,1,1,1 executed and output saved in fixtures/74

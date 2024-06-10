@@ -9,6 +9,16 @@ This repository contains all the fixture support from HDP.
 
 This guide provides detailed instructions for running integration tests using the Makefile in the HDP project. These examples demonstrate how to process requests and integrate them with the Cairo Program. Before starting, ensure you have the `RPC_URL` and `CHAIN_ID` set in your `.env` file, as the scripts utilize configuration from environment variables.
 
+### Generate Fixtures with command script
+
+`commands.json` is the one stacks all the command that will generate fixtures by running:
+
+```sh
+./run_commands.sh <scope> commands.json`
+```
+
+for the scope, you could add either tag of the commands.json or just put "all" for execute everything.
+
 ### Generate New Fixture
 
 Simply run:
