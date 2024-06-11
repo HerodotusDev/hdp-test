@@ -36,3 +36,19 @@ Running: hdp encode -a -c fixtures/59\/input.json avg -t 5253873 tx_receipt.succ
 [2m2024-06-10T07:37:57.155018Z[0m [32m INFO[0m [2mhdp_provider::evm[0m[2m:[0m Time taken (fetch from Indexer): 6.057432375s
 [2m2024-06-10T07:38:00.314526Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m Cairo input file saved to: fixtures/59/input.json
 [2m2024-06-10T07:38:00.314551Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m HDP Cli Finished in: 9.225572125s
+## Test started for ./fixtures/59/input.json
+Start time: 2024-06-11 21:16:42
+Task Result(0): 0x1
+Tasks Root: 0x95026f6f519b86a9f470c7f161c9f0dc 0x89e4772d98146bc5b7237bc1d748a688
+Results Root: 0x33831f40d6e44369dbfc6679fdea0a98 0xc73f7a03bf327f7328f480e31603aa3b
+Number of steps: 106400 (originally, 106400)
+Used memory cells: 120363
+Register values after execution:
+pc = 9:0
+ap = 1:87122
+fp = 8:0
+
+End time: 2024-06-11 21:17:01
+Duration: 19 seconds
+Result: **Successful**
+

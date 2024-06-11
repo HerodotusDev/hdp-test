@@ -29,3 +29,20 @@ Running: hdp encode -a -c fixtures/19\/input.json slr none.200000 -b 5641516 564
 [2m2024-06-10T07:30:33.436032Z[0m [32m INFO[0m [2mhdp_provider::evm[0m[2m:[0m Time taken (Storage Fetch): 3.431229083s
 [2m2024-06-10T07:30:33.440447Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m Cairo input file saved to: fixtures/19/input.json
 [2m2024-06-10T07:30:33.440519Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m HDP Cli Finished in: 9.1891545s
+## Test started for ./fixtures/19/input.json
+Start time: 2024-06-11 21:17:47
+SLR prediction for 200000 is 20000000000000
+Task Result(0): 0x12309ce54000
+Tasks Root: 0x87790f9097ff79a093c91b75bfe8c1a9 0x10fa4adad9ddd045815d6770f1481099
+Results Root: 0x71ff4a9822b23a5fa9a6b30a67bc03ba 0xa06cb8fb6cb81e4f3a8a3512f08d6e7b
+Number of steps: 650411 (originally, 650411)
+Used memory cells: 681507
+Register values after execution:
+pc = 9:0
+ap = 1:531565
+fp = 8:0
+
+End time: 2024-06-11 21:18:52
+Duration: 65 seconds
+Result: **Successful**
+

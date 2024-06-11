@@ -81,3 +81,7 @@ Command: hdp encode -a -c fixtures/71\/input.json slr none.40 -t 5251607 tx_rece
 Command: hdp encode -a -c fixtures/72\/input.json slr none.50 -t 5605816 tx_receipt.cumulative_gas_used 12 53 1 0,0,1,1 executed and output saved in fixtures/72
 Command: hdp encode -a -c fixtures/73\/input.json slr none.60 -t 5409986 tx_receipt.success 6 40 1 1,1,1,1 executed and output saved in fixtures/73
 Command: hdp encode -a -c fixtures/74\/input.json slr none.80 -t 5461248 tx_receipt.cumulative_gas_used 21 29 1 1,1,1,1 executed and output saved in fixtures/74
+## Summary of Parallel Execution
+End time: 2024-06-11 21:20:57
+**Success**: Parallel execution exited successfully
+
