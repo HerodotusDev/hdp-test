@@ -26,8 +26,8 @@ run_tests() {
         echo "Start time: $(date '+%Y-%m-%d %H:%M:%S')"
         
         # Run the cairo-run command and capture output
-        cairo-run \
-            --program=hdp.json \
+        docker run hdp-cairo cairo-run \
+            --program=build/compiled_cairo_files/hdp.json \
             --layout=starknet_with_keccak \
             --program_input="$input_file" \
             --cairo_pie_output "$temp_output" \
