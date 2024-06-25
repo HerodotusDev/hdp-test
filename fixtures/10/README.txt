@@ -1,32 +1,8 @@
 Running command: hdp encode -a -c fixtures/10\/input.json slr none.1 -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1
 Running: hdp encode -a -c fixtures/10\/input.json slr none.1 -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1
-[2m2024-06-21T08:19:07.844931Z[0m [32m INFO[0m [2mhdp_core::codec::datalake_compute[0m[2m:[0m Encoded datalakes: 0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005006da00000000000000000000000000000000000000000000000000000000005006ec000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000000016027f2c6f930306d3aa736b3a6c6a98f512f74036d40000000000000000000000
-[2m2024-06-21T08:19:07.844942Z[0m [32m INFO[0m [2mhdp_core::codec::datalake_compute[0m[2m:[0m Encoded computes: 0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001
-[2m2024-06-21T08:19:07.848090Z[0m [32m INFO[0m [2mhdp_core::codec::datalake_compute[0m[2m:[0m Decoded datalakes: [
-    BlockSampled(
-        BlockSampledDatalake {
-            block_range_start: 5244634,
-            block_range_end: 5244652,
-            sampled_property: Account(
-                0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4,
-                Nonce,
-            ),
-            increment: 1,
-        },
-    ),
-]
-[2m2024-06-21T08:19:07.848139Z[0m [32m INFO[0m [2mhdp_core::codec::datalake_compute[0m[2m:[0m Decoded computes: [
-    Computation {
-        aggregate_fn_id: SLR,
-        aggregate_fn_ctx: FunctionContext {
-            operator: None,
-            value_to_compare: 1,
-        },
-    },
-]
-[2m2024-06-21T08:19:12.280943Z[0m [32m INFO[0m [2mhdp_provider::evm[0m[2m:[0m Successfully fetched MMR data from indexer
-[2m2024-06-21T08:19:12.280963Z[0m [32m INFO[0m [2mhdp_provider::evm[0m[2m:[0m Time taken (fetch from Indexer): 4.4327285s
-[2m2024-06-21T08:19:13.695838Z[0m [32m INFO[0m [2mhdp_provider::evm[0m[2m:[0m Time taken (Account Fetch): 1.414635542s
-[2m2024-06-21T08:19:13.696750Z[0m [32m INFO[0m [2mhdp_core::pre_processor[0m[2m:[0m Preprocessor completed successfully
-[2m2024-06-21T08:19:13.716814Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m Finished processing the data, saved the input file in fixtures/10/input.json
-[2m2024-06-21T08:19:13.716923Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m HDP Cli Finished in: 5.872097208s
+[2m2024-06-25T07:43:25.754399Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Header Fetch): 4.722829041s
+[2m2024-06-25T07:43:27.193141Z[0m [32m INFO[0m [2mhdp_provider::evm::rpc[0m[2m:[0m Time taken (Account Fetch): 1.438654s
+[2m2024-06-25T07:43:27.193195Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Account Fetch): 1.438726167s
+[2m2024-06-25T07:43:27.193912Z[0m [32m INFO[0m [2mhdp_core::pre_processor[0m[2m:[0m Preprocessor completed successfully
+[2m2024-06-25T07:43:27.215463Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m Finished processing the data, saved the input file in fixtures/10/input.json
+[2m2024-06-25T07:43:27.215711Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m HDP Cli Finished in: 6.187307083s
