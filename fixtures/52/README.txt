@@ -1,8 +1,7 @@
 Running command: hdp encode -a -c fixtures/52\/input.json sum -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 2
 Running: hdp encode -a -c fixtures/52\/input.json sum -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 2
-[2m2024-06-25T07:48:57.138864Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Header Fetch): 4.545664667s
-[2m2024-06-25T07:48:58.648178Z[0m [32m INFO[0m [2mhdp_provider::evm::rpc[0m[2m:[0m Time taken (Account Fetch): 1.509247584s
-[2m2024-06-25T07:48:58.648200Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Account Fetch): 1.509279125s
-[2m2024-06-25T07:48:58.648571Z[0m [32m INFO[0m [2mhdp_core::pre_processor[0m[2m:[0m Preprocessor completed successfully
-[2m2024-06-25T07:48:58.657523Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m Finished processing the data, saved the input file in fixtures/52/input.json
-[2m2024-06-25T07:48:58.657639Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m HDP Cli Finished in: 6.067392083s
+[2m2024-06-27T06:30:07.389967Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 2.137238709s
+[2m2024-06-27T06:30:08.652050Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Account Proofs Fetch): 1.262029625s
+[2m2024-06-27T06:30:08.652316Z[0m [32m INFO[0m [2mhdp_core::pre_processor[0m[2m:[0m Preprocessor completed successfully
+[2m2024-06-27T06:30:08.659355Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m Finished processing the data, saved the input file in fixtures/52/input.json
+[2m2024-06-27T06:30:08.659396Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m HDP Cli Finished in: 3.409790875s
