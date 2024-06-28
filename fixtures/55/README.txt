@@ -1,7 +1,29 @@
 Running command: hdp encode -a -c fixtures/55\/input.json avg -b 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000000 1
 Running: hdp encode -a -c fixtures/55\/input.json avg -b 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000000 1
-[2m2024-06-27T11:53:03.208718Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 2.541937333s
-[2m2024-06-27T11:53:07.321668Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Storage Proofs Fetch): 4.112812041s
-[2m2024-06-27T11:53:07.322155Z[0m [32m INFO[0m [2mhdp_core::pre_processor[0m[2m:[0m Preprocessor completed successfully
-[2m2024-06-27T11:53:07.340337Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m Finished processing the data, saved the input file in fixtures/55/input.json
-[2m2024-06-27T11:53:07.340675Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m HDP Cli Finished in: 6.676909292s
+[2m2024-06-28T07:44:40.937077Z[0m [32m INFO[0m [2mhdp_core::pre_processor[0m[2m:[0m Target tasks: [
+    DatalakeCompute {
+        datalake: BlockSampled(
+            BlockSampledDatalake {
+                block_range_start: 5641516,
+                block_range_end: 5641561,
+                sampled_property: Storage(
+                    0x75cec1db9dceb703200eaa6595f66885c962b920,
+                    0x0000000000000000000000000000000000000000000000000000000000000000,
+                ),
+                increment: 1,
+            },
+        ),
+        compute: Computation {
+            aggregate_fn_id: AVG,
+            aggregate_fn_ctx: FunctionContext {
+                operator: None,
+                value_to_compare: 0,
+            },
+        },
+    },
+]
+[2m2024-06-28T07:44:44.203703Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 3.266653084s
+[2m2024-06-28T07:44:49.918121Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Storage Proofs Fetch): 5.714505958s
+[2m2024-06-28T07:44:49.918918Z[0m [32m INFO[0m [2mhdp_core::pre_processor[0m[2m:[0m Preprocessor completed successfully
+[2m2024-06-28T07:44:49.942620Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/55/input.json
+[2m2024-06-28T07:44:49.942828Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 9.009125875s

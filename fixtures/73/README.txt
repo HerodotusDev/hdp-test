@@ -1,7 +1,39 @@
 Running command: hdp encode -a -c fixtures/73\/input.json min -t 5409986 tx_receipt.success 6 40 1 1,1,1,1
 Running: hdp encode -a -c fixtures/73\/input.json min -t 5409986 tx_receipt.success 6 40 1 1,1,1,1
-[2m2024-06-27T11:55:08.140515Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 2.690458375s
-[2m2024-06-27T11:55:18.082244Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Transaction Receipts Proofs Fetch): 9.941408666s
-[2m2024-06-27T11:55:18.082732Z[0m [32m INFO[0m [2mhdp_core::pre_processor[0m[2m:[0m Preprocessor completed successfully
-[2m2024-06-27T11:55:18.086261Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m Finished processing the data, saved the input file in fixtures/73/input.json
-[2m2024-06-27T11:55:18.086295Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m HDP Cli Finished in: 12.639018333s
+s: 1,1,1,1
+included_types: [1, 1, 1, 1]
+[2m2024-06-28T07:46:37.930732Z[0m [32m INFO[0m [2mhdp_core::pre_processor[0m[2m:[0m Target tasks: [
+    DatalakeCompute {
+        datalake: Transactions(
+            TransactionsInBlockDatalake {
+                target_block: 5409986,
+                start_index: 6,
+                end_index: 40,
+                increment: 1,
+                included_types: IncludedTypes {
+                    inner: [
+                        1,
+                        1,
+                        1,
+                        1,
+                    ],
+                },
+                sampled_property: TranasactionReceipts(
+                    Success,
+                ),
+            },
+        ),
+        compute: Computation {
+            aggregate_fn_id: MIN,
+            aggregate_fn_ctx: FunctionContext {
+                operator: None,
+                value_to_compare: 0,
+            },
+        },
+    },
+]
+[2m2024-06-28T07:46:40.457983Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 2.527182791s
+[2m2024-06-28T07:46:50.470306Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Transaction Receipts Proofs Fetch): 10.012216584s
+[2m2024-06-28T07:46:50.470988Z[0m [32m INFO[0m [2mhdp_core::pre_processor[0m[2m:[0m Preprocessor completed successfully
+[2m2024-06-28T07:46:50.476631Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/73/input.json
+[2m2024-06-28T07:46:50.476674Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 12.549453542s
