@@ -39,7 +39,7 @@
   "tx_receipt_slr": [
     "hdp encode -a -c input.json slr none.1 -t 5253873 tx_receipt.success 49 79 4 0,1,1,1",
     "hdp encode -a -c input.json slr none.10 -t 5340342 tx_receipt.cumulative_gas_used 43 88 34 1,1,1,1",
-    "hdp encode -a -c input.json slr none.20 -t 5340342 tx_receipt.success 0 45 4 1,1,0,0",
+    "hdp encode -a -c input.json slr none.20 -t 5340342 tx_receipt.success 43 88 34 1,1,1,1",
     "hdp encode -a -c input.json slr none.30 -t 5858987 tx_receipt.cumulative_gas_used 2 100 1 0,0,0,1",
     "hdp encode -a -c input.json slr none.40 -t 5251607 tx_receipt.success 0 34 1 0,0,1,1",
     "hdp encode -a -c input.json slr none.50 -t 5605816 tx_receipt.cumulative_gas_used 12 53 1 0,0,1,1",
