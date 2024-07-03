@@ -25,7 +25,7 @@ Command: hdp encode -a -c fixtures/21\/input.json slr none.1000000 -b 5641516 56
 Running commands in scope: tx_slr
 Command: hdp encode -a -c fixtures/22\/input.json slr none.1 -t 5253873 tx.chain_id 49 79 4 0,1,1,1 executed and output saved in fixtures/22
 Command: hdp encode -a -c fixtures/23\/input.json slr none.10 -t 5340342 tx.gas_limit 43 88 34 1,1,1,1 executed and output saved in fixtures/23
-Command: hdp encode -a -c fixtures/24\/input.json slr none.20 -t 5340342 tx.gas_price 0 45 4 1,1,0,0 executed and output saved in fixtures/24
+Command: hdp encode -a -c fixtures/24\/input.json slr none.20 -t 5340342 tx.gas_price 0 60 4 1,1,0,0 executed and output saved in fixtures/24
 Command: hdp encode -a -c fixtures/25\/input.json slr none.30 -t 5858987 tx.max_fee_per_blob_gas 2 100 1 0,0,0,1 executed and output saved in fixtures/25
 Command: hdp encode -a -c fixtures/26\/input.json slr none.40 -t 5251607 tx.max_fee_per_gas 0 34 1 0,0,1,1 executed and output saved in fixtures/26
 Command: hdp encode -a -c fixtures/27\/input.json slr none.50 -t 5605816 tx.max_priority_fee_per_gas 12 53 1 0,0,1,1 executed and output saved in fixtures/27
