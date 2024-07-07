@@ -1,4 +1,5 @@
 {
+  "cairo_run_output_path": "cairo_run_output.json",
   "task_root": "0x3d6c00a7c00b37e85e07d01cfb118eff04cf4f6d061bf630f299155ece03000d",
   "proofs": {
     "mmr_meta": {
