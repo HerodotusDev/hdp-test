@@ -24,3 +24,10 @@ Running: hdp local-run-module 0x5EA8C2,0x5EA926,0x13cb6ae34a13a0977f4d7101ebc24b
     ),
 }
 [2m2024-07-07T08:32:33.779991Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
+[2m2024-07-07T08:32:46.932523Z[0m [32m INFO[0m [2mhdp_cairo_runner::dry_run[0m[2m:[0m Dry-runner executed successfully
+[2m2024-07-07T08:32:46.933005Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m 3. Fetching proofs from provider...
+[2m2024-07-07T08:32:47.246641Z[0m [32m INFO[0m [2mhdp_provider::evm::from_keys[0m[2m:[0m Time taken (Headers Proofs Fetch): 313.5585ms
+[2m2024-07-07T08:32:48.136921Z[0m [32m INFO[0m [2mhdp_provider::evm::from_keys[0m[2m:[0m Time taken (Accounts Proofs Fetch): 890.239375ms
+[2m2024-07-07T08:32:48.138223Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-07-07T08:32:48.187800Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/72/input.json
+[2m2024-07-07T08:32:48.188194Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 14.415544958s
