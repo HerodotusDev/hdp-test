@@ -60,7 +60,7 @@ mkdir -p fixtures
 
 # Check if the scope is 'all'
 if [ "$SCOPE" == "all" ]; then
-  SCOPES=("header_slr" "account_slr" "storage_slr" "tx_slr" "tx_receipt_slr" "header" "account" "storage" "tx" "tx_receipt", "module")
+  SCOPES=("header_slr" "account_slr" "storage_slr" "tx_slr" "tx_receipt_slr" "header" "account" "storage" "tx" "tx_receipt", "module", "new_module")
   for scope in "${SCOPES[@]}"; do
     execute_commands $scope $COMMANDS_JSON
   done
