@@ -13,7 +13,6 @@ venv/
 .venv/
 *.egg-info/
 dist/
-build/
 *.egg
 *.log
 
