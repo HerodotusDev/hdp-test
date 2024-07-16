@@ -1,34 +1,27 @@
-Running command: hdp run-module 0x4F21E5,0x4F21E8,0x13cb6ae34a13a0977f4d7101ebc24b87bb23f0d5 --class-hash 0xababb33ae5911fd14e6b9f2853b6271f553b9ec7835298134f4bb020100971 --rpc-url https://eth-sepolia.g.alchemy.com/v2/xar76cftwEtqTBWdF4ZFy9n8FLHAETDv --chain-id 11155111 -p fixtures/1\/input.json
-Running: hdp run-module 0x4F21E5,0x4F21E8,0x13cb6ae34a13a0977f4d7101ebc24b87bb23f0d5 --class-hash 0xababb33ae5911fd14e6b9f2853b6271f553b9ec7835298134f4bb020100971 --rpc-url https://eth-sepolia.g.alchemy.com/v2/xar76cftwEtqTBWdF4ZFy9n8FLHAETDv --chain-id 11155111 -p fixtures/1\/input.json
-[2m2024-07-16T16:30:14.195009Z[0m [32m INFO[0m [2mhdp_preprocessor::module_registry[0m[2m:[0m Fetching contract class from module registry... Contract Class Hash: FieldElement {
-    inner: 0x00ababb33ae5911fd14e6b9f2853b6271f553b9ec7835298134f4bb020100971,
-}
-[2m2024-07-16T16:30:14.457902Z[0m [32m INFO[0m [2mhdp_preprocessor::module_registry[0m[2m:[0m Contract class fetched successfully
-[2m2024-07-16T16:30:14.489389Z[0m [32m INFO[0m [2mhdp_preprocessor::module_registry[0m[2m:[0m Program Hash: FieldElement {
-    inner: 0x00af1333b8346c1ac941efe380f3122a71c1f7cbad19301543712e74f765bfca,
-}
-[2m2024-07-16T16:30:14.490139Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m target task: Module {
-    class_hash: FieldElement {
-        inner: 0x00af1333b8346c1ac941efe380f3122a71c1f7cbad19301543712e74f765bfca,
+Running command: hdp encode -a -p fixtures/1\/input.json slr none.1 -b 5858987 5858997 header.number 1
+Running: hdp encode -a -p fixtures/1\/input.json slr none.1 -b 5858987 5858997 header.number 1
+[2m2024-07-16T16:31:44.355006Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Encoded datalakes: 0x00000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005966ab00000000000000000000000000000000000000000000000000000000005966b5000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000a000000000000000000000000000000000000000000000000000000000000000020108000000000000000000000000000000000000000000000000000000000000
+[2m2024-07-16T16:31:44.355278Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Encoded computes: 0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001
+[2m2024-07-16T16:31:44.357372Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+    datalake: BlockSampled(
+        BlockSampledDatalake {
+            block_range_start: 5858987,
+            block_range_end: 5858997,
+            sampled_property: Header(
+                Number,
+            ),
+            increment: 1,
+        },
+    ),
+    compute: Computation {
+        aggregate_fn_id: SLR,
+        aggregate_fn_ctx: FunctionContext {
+            operator: None,
+            value_to_compare: 1,
+        },
     },
-    inputs: [
-        FieldElement {
-            inner: 0x00000000000000000000000000000000000000000000000000000000004f21e5,
-        },
-        FieldElement {
-            inner: 0x00000000000000000000000000000000000000000000000000000000004f21e8,
-        },
-        FieldElement {
-            inner: 0x00000000000000000000000013cb6ae34a13a0977f4d7101ebc24b87bb23f0d5,
-        },
-    ],
-    local_class_path: None,
 }
-[2m2024-07-16T16:30:14.490843Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
-[2m2024-07-16T16:30:17.721200Z[0m [32m INFO[0m [2mhdp_cairo_runner::dry_run[0m[2m:[0m Dry-runner executed successfully
-[2m2024-07-16T16:30:17.721451Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m 3. Fetching proofs from provider...
-[2m2024-07-16T16:30:18.035184Z[0m [32m INFO[0m [2mhdp_provider::evm::from_keys[0m[2m:[0m Time taken (Headers Proofs Fetch): 312.288875ms
-[2m2024-07-16T16:30:18.299259Z[0m [32m INFO[0m [2mhdp_provider::evm::from_keys[0m[2m:[0m Time taken (Accounts Proofs Fetch): 264.028583ms
-[2m2024-07-16T16:30:18.299440Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-07-16T16:30:18.301679Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/1/input.json
-[2m2024-07-16T16:30:18.301773Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 4.11802475s
+[2m2024-07-16T16:31:44.646100Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 281.320292ms
+[2m2024-07-16T16:31:44.647741Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-07-16T16:31:44.650792Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/1/input.json
+[2m2024-07-16T16:31:44.650843Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 300.785583ms
