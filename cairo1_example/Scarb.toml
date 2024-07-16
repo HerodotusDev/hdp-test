@@ -7,7 +7,7 @@ edition = "2023_11"
 
 [dependencies]
 starknet = "2.6.4"
-hdp_cairo = { git = "https://github.com/HerodotusDev/hdp-cairo", branch = "dry_run_entrypoint_memv2" }
+hdp_cairo = { git = "https://github.com/HerodotusDev/hdp-cairo", branch = "more_syscalls" }
 
 [dev-dependencies]
 snforge_std = { git = "https://github.com/foundry-rs/starknet-foundry", tag = "v0.25.0" }
