@@ -1,38 +1,33 @@
-Running command: hdp encode -a -c fixtures/67\/input.json slr none.1 -t 5253873 tx_receipt.success 49 79 4 0,1,1,1
-Running: hdp encode -a -c fixtures/67\/input.json slr none.1 -t 5253873 tx_receipt.success 49 79 4 0,1,1,1
-[2m2024-06-10T07:40:45.384100Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m Encoded datalakes: 0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000012000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000502af10000000000000000000000000000000000000000000000000000000000000031000000000000000000000000000000000000000000000000000000000000004f0000000000000000000000000000000000000000000000000000000000000004000000000000000000000000000000000000000000000000000000000001010100000000000000000000000000000000000000000000000000000000000000e000000000000000000000000000000000000000000000000000000000000000020200000000000000000000000000000000000000000000000000000000000000
-[2m2024-06-10T07:40:45.384163Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m Encoded tasks: 0x0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000060000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001
-[2m2024-06-10T07:40:45.387923Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m datalakes: [
-    Transactions(
-        TransactionsInBlockDatalake {
-            target_block: 5253873,
-            start_index: 49,
-            end_index: 79,
-            increment: 4,
-            included_types: IncludedTypes {
-                inner: [
-                    0,
-                    1,
-                    1,
-                    1,
-                ],
-            },
-            sampled_property: TranasactionReceipts(
-                Success,
-            ),
-        },
-    ),
-]
-[2m2024-06-10T07:40:45.387954Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m tasks: [
-    ComputationalTask {
-        aggregate_fn_id: SLR,
-        aggregate_fn_ctx: FunctionContext {
-            operator: None,
-            value_to_compare: 0x0000000000000000000000000000000000000000000000000000000000000001_U256,
-        },
+Running command: hdp run-module 0x4F21E5,0x4F21E8,0x13cb6ae34a13a0977f4d7101ebc24b87bb23f0d5 --local-class-path ./cairo1_example/target/dev/cairo1_example_contract.compiled_contract_class.json --rpc-url https://eth-sepolia.g.alchemy.com/v2/xar76cftwEtqTBWdF4ZFy9n8FLHAETDv --chain-id 11155111 -p fixtures/67\/input.json
+Running: hdp run-module 0x4F21E5,0x4F21E8,0x13cb6ae34a13a0977f4d7101ebc24b87bb23f0d5 --local-class-path ./cairo1_example/target/dev/cairo1_example_contract.compiled_contract_class.json --rpc-url https://eth-sepolia.g.alchemy.com/v2/xar76cftwEtqTBWdF4ZFy9n8FLHAETDv --chain-id 11155111 -p fixtures/67\/input.json
+[2m2024-07-16T09:05:55.959181Z[0m [32m INFO[0m [2mhdp_preprocessor::module_registry[0m[2m:[0m Contract class fetched successfully from local path: "./cairo1_example/target/dev/cairo1_example_contract.compiled_contract_class.json"
+[2m2024-07-16T09:05:55.963549Z[0m [32m INFO[0m [2mhdp_preprocessor::module_registry[0m[2m:[0m Program Hash: FieldElement {
+    inner: 0x04df21eb479ae4416fbdc00abab6fab43bff0b8083be4d1fd8602c8fbfbd2274,
+}
+[2m2024-07-16T09:05:55.963607Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m target task: Module {
+    class_hash: FieldElement {
+        inner: 0x04df21eb479ae4416fbdc00abab6fab43bff0b8083be4d1fd8602c8fbfbd2274,
     },
-]
-[2m2024-06-10T07:40:51.366511Z[0m [32m INFO[0m [2mhdp_provider::evm[0m[2m:[0m Successfully fetched MMR data from indexer
-[2m2024-06-10T07:40:51.366520Z[0m [32m INFO[0m [2mhdp_provider::evm[0m[2m:[0m Time taken (fetch from Indexer): 5.978280875s
-[2m2024-06-10T07:40:54.659662Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m Cairo input file saved to: fixtures/67/input.json
-[2m2024-06-10T07:40:54.659687Z[0m [32m INFO[0m [2mhdp[0m[2m:[0m HDP Cli Finished in: 9.279411208s
+    inputs: [
+        FieldElement {
+            inner: 0x00000000000000000000000000000000000000000000000000000000004f21e5,
+        },
+        FieldElement {
+            inner: 0x00000000000000000000000000000000000000000000000000000000004f21e8,
+        },
+        FieldElement {
+            inner: 0x00000000000000000000000013cb6ae34a13a0977f4d7101ebc24b87bb23f0d5,
+        },
+    ],
+    local_class_path: Some(
+        "./cairo1_example/target/dev/cairo1_example_contract.compiled_contract_class.json",
+    ),
+}
+[2m2024-07-16T09:05:55.963894Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
+[2m2024-07-16T09:05:58.843332Z[0m [32m INFO[0m [2mhdp_cairo_runner::dry_run[0m[2m:[0m Dry-runner executed successfully
+[2m2024-07-16T09:05:58.843666Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m 3. Fetching proofs from provider...
+[2m2024-07-16T09:05:59.069785Z[0m [32m INFO[0m [2mhdp_provider::evm::from_keys[0m[2m:[0m Time taken (Headers Proofs Fetch): 225.760167ms
+[2m2024-07-16T09:05:59.328079Z[0m [32m INFO[0m [2mhdp_provider::evm::from_keys[0m[2m:[0m Time taken (Accounts Proofs Fetch): 258.251875ms
+[2m2024-07-16T09:05:59.328422Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-07-16T09:05:59.331929Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/67/input.json
+[2m2024-07-16T09:05:59.332077Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 3.376236s
