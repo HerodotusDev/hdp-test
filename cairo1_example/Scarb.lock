@@ -12,7 +12,7 @@ dependencies = [
 [[package]]
 name = "hdp_cairo"
 version = "0.1.0"
-source = "git+https://github.com/HerodotusDev/hdp-cairo?branch=dry_run_entrypoint_memv2#ac99703a81776c8927dca75267bcb7e0994381d0"
+source = "git+https://github.com/HerodotusDev/hdp-cairo#e74db33f75b850b40e1e8beeaaaf3a36ed4e180f"
 
 [[package]]
 name = "snforge_std"
