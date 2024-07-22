@@ -1,25 +1,23 @@
-#[starknet::interface]
-pub trait IHelloStarknet<TContractState> {
-    fn increase_balance(ref self: TContractState, amount: felt252);
-    fn get_balance(self: @TContractState) -> felt252;
-}
-
 #[starknet::contract]
-mod HelloStarknet {
+mod get_slot {
+    use hdp_cairo::memorizer::storage_memorizer::StorageMemorizerTrait;
+    use hdp_cairo::{HDP, memorizer::storage_memorizer::{StorageKey, StorageMemorizerImpl}};
+    use starknet::syscalls::call_contract_syscall;
+    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+
     #[storage]
-    struct Storage {
-        balance: felt252, 
-    }
+    struct Storage {}
 
-    #[abi(embed_v0)]
-    impl HelloStarknetImpl of super::IHelloStarknet<ContractState> {
-        fn increase_balance(ref self: ContractState, amount: felt252) {
-            assert(amount != 0, 'Amount cannot be 0');
-            self.balance.write(self.balance.read() + amount);
-        }
-
-        fn get_balance(self: @ContractState) -> felt252 {
-            self.balance.read()
-        }
+    #[external(v0)]
+    pub fn main(
+        ref self: ContractState, hdp: HDP, block_number: u32, address: felt252, storage_slot: u256
+    ) -> u256 {
+        hdp
+            .storage_memorizer
+            .get_slot(
+                StorageKey {
+                    chain_id: 11155111, block_number: block_number.into(), address, storage_slot
+                }
+            )
     }
 }
