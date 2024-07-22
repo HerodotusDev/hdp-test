@@ -1,0 +1,13 @@
+[workspace]
+name = "contracts"
+version = "0.1.0"
+edition = "2023_11"
+
+members = [
+    "header_memorizer",
+    "account_memorizer",
+    "storage_memorizer",
+]
+
+[workspace.dependencies]
+hdp_cairo = { git = "https://github.com/HerodotusDev/hdp-cairo.git", branch = "more_syscalls" }
