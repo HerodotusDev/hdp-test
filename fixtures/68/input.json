@@ -1,7 +1,7 @@
 {
   "cairo_run_output_path": "cairo_run_output.json",
-  "task_root": "0x945d3c74309af94d7e6c810f8eec7f9e38bc050ccb23a2bfb52ae427be8ba65f",
-  "result_root": "0xc7e6226c1aa08f8be7094df82296cbee4e9291deb32206127f3efe6e410387bd",
+  "task_root": "0x709e031d3e06d7ee83105d2f9b40e4e06a74d201ee2bcbaf2d621b8f5077d5da",
+  "result_root": "0x6fdf2bbec3abbc6d53e290a8519f86620be697e0650d2748e3242b9c0c4cc3bb",
   "proofs": {
     "mmr_metas": [
       {
@@ -634,11 +634,33 @@
     {
       "type": "module",
       "context": {
-        "inputs": [
-          "0x5ea84f",
-          "0x5ea850",
-          "0x13cb6ae34a13a0977f4d7101ebc24b87bb23f0d5"
+        "encoded_task": [
+          "0x1a6c34b83313af00",
+          "0x2a12f380e3ef41c9",
+          "0x153019adcbf7c171",
+          "0xcabf65f7742e7143",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x4000000000000000",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x300000000000000",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x4fa85e0000000000",
+          "0x0",
+          "0x0",
+          "0x0",
+          "0x50a85e0000000000",
+          "0x0",
+          "0xe36acb1300000000",
+          "0x1714d7f97a0134a",
+          "0xd5f023bb874bc2eb"
         ],
+        "task_bytes_len": 192,
         "module_class": {
           "prime": "0x800000000000011000000000000000000000000000000000000000000000001",
           "compiler_version": "2.6.4",
@@ -1361,7 +1383,7 @@
             "0x400180037fff7ffc",
             "0x400180047fff7ffd",
             "0x480680017fff8000",
-            "0x0",
+            "0x1",
             "0x48127ffe7fff8000",
             "0x482480017ffd8000",
             "0x5",
