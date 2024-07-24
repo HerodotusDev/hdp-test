@@ -1,49 +1,26 @@
-Running command: hdp run-module 0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_gas_limit.compiled_contract_class.json --rpc-url https://eth-sepolia.g.alchemy.com/v2/xar76cftwEtqTBWdF4ZFy9n8FLHAETDv --chain-id 11155111 --dry-run-cairo-file build/compiled_cairo/contract_dry_run.json --sound-run-cairo-file build/compiled_cairo/hdp.json -p fixtures/8/input.json
-Running: hdp run-module 0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_gas_limit.compiled_contract_class.json --rpc-url https://eth-sepolia.g.alchemy.com/v2/xar76cftwEtqTBWdF4ZFy9n8FLHAETDv --chain-id 11155111 --dry-run-cairo-file build/compiled_cairo/contract_dry_run.json --sound-run-cairo-file build/compiled_cairo/hdp.json -p fixtures/8/input.json
-[2m2024-07-24T11:56:22.324312Z[0m [32m INFO[0m [2mhdp_preprocessor::module_registry[0m[2m:[0m Contract class fetched successfully from local path: "./contracts/target/dev/header_memorizer_get_gas_limit.compiled_contract_class.json"
-[2m2024-07-24T11:56:22.327042Z[0m [32m INFO[0m [2mhdp_preprocessor::module_registry[0m[2m:[0m Program Hash: FieldElement {
-    inner: 0x05a0bf51cf0804aa0f8dea4435fe178deb9e3f0456d7f23ea0172414608c5594,
-}
-[2m2024-07-24T11:56:22.327087Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m target task: Module {
-    program_hash: FieldElement {
-        inner: 0x05a0bf51cf0804aa0f8dea4435fe178deb9e3f0456d7f23ea0172414608c5594,
-    },
-    inputs: [
-        FieldElement {
-            inner: 0x00000000000000000000000000000000000000000000000000000000005222a4,
-        },
-    ],
-    local_class_path: Some(
-        "./contracts/target/dev/header_memorizer_get_gas_limit.compiled_contract_class.json",
-    ),
-}
-[2m2024-07-24T11:56:22.327221Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
-[2m2024-07-24T11:56:25.625153Z[0m [32m INFO[0m [2mhdp_cairo_runner::dry_run[0m[2m:[0m fetch keys: [
-    DryRunnedModule {
-        fetch_keys: [
-            Header(
-                HeaderMemorizerKey {
-                    chain_id: 11155111,
-                    block_number: 5382820,
-                },
+Running command: hdp run-datalake -a -p fixtures/8\/input.json slr none.10000000 -b 5858987 5858997 header.excess_blob_gas 2
+Running: hdp run-datalake -a -p fixtures/8\/input.json slr none.10000000 -b 5858987 5858997 header.excess_blob_gas 2
+[2m2024-07-24T12:48:20.663486Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+    datalake: BlockSampled(
+        BlockSampledDatalake {
+            chain_id: 11155111,
+            block_range_start: 5858987,
+            block_range_end: 5858997,
+            increment: 2,
+            sampled_property: Header(
+                ExcessBlobGas,
             ),
-        ],
-        result: Uint256 {
-            low: FieldElement {
-                inner: 0x0000000000000000000000000000000000000000000000000000000001c9c380,
-            },
-            high: FieldElement {
-                inner: 0x0000000000000000000000000000000000000000000000000000000000000000,
-            },
         },
-        program_hash: FieldElement {
-            inner: 0x05a0bf51cf0804aa0f8dea4435fe178deb9e3f0456d7f23ea0172414608c5594,
+    ),
+    compute: Computation {
+        aggregate_fn_id: SLR,
+        aggregate_fn_ctx: FunctionContext {
+            operator: None,
+            value_to_compare: 10000000,
         },
     },
-]
-[2m2024-07-24T11:56:25.625172Z[0m [32m INFO[0m [2mhdp_cairo_runner::dry_run[0m[2m:[0m Dry-runner executed successfully
-[2m2024-07-24T11:56:25.625219Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m 3. Fetching proofs from provider...
-[2m2024-07-24T11:56:25.925398Z[0m [32m INFO[0m [2mhdp_provider::evm::from_keys[0m[2m:[0m Time taken (Headers Proofs Fetch): 272.632122ms
-[2m2024-07-24T11:56:25.927565Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-07-24T11:56:25.929586Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/8/input.json
-[2m2024-07-24T11:56:25.931258Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 3.631467415s
+}
+[2m2024-07-24T12:48:20.897430Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 231.562625ms
+[2m2024-07-24T12:48:20.897521Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-07-24T12:48:20.898127Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/8/input.json
+[2m2024-07-24T12:48:20.898143Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 234.912084ms
