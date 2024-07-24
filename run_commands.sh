@@ -28,7 +28,6 @@ execute_commands() {
 
     # Copy input.json to the dynamic folder
     cp input.json $FOLDER/input.json
-    cp key.json $FOLDER/key.json
 
     # Modify the command to use the new input.json path
     MODIFIED_COMMAND="${command//input.json/$FOLDER\/input.json}"
@@ -40,6 +39,7 @@ execute_commands() {
     # Run the command and append the output to README
     echo "Running: $MODIFIED_COMMAND" | tee -a $README
     eval $MODIFIED_COMMAND 2>&1 | tee -a $README
+    cp key.json $FOLDER/key.json
 
     # Log in main README
     echo "Command: $MODIFIED_COMMAND executed and output saved in $FOLDER" >> $MAIN_README

@@ -1,1 +1,1 @@
-[{"fetch_keys": [{"type": "HeaderMemorizerKey", "key": {"chain_id": 11155111, "block_number": 5382820}}], "result": {"low": "0x5222a4", "high": "0x0"}, "program_hash": "0x4d2360ec3a16e509e0e4e83a04459bf7acf2c1406711ecb0b494de428752905"}]
+[{"fetch_keys": [{"type": "HeaderMemorizerKey", "key": {"chain_id": 11155111, "block_number": 5382820}}], "result": {"low": "0xc6e026503ef92114820e293142867d7b", "high": "0x603e55abfc8f74f3f65aafb594309e05"}, "program_hash": "0x5b9fb995fd6f2e3aea62c7fa5a86aa2ef6d212f0c5393fd9ac75da4f16804b0"}]
