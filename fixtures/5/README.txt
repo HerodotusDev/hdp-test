@@ -1,6 +1,6 @@
-Running command: hdp run-datalake -a -p fixtures/5\/input.json slr none.10000 -b 5858987 5858997 header.timestamp 2
-Running: hdp run-datalake -a -p fixtures/5\/input.json slr none.10000 -b 5858987 5858997 header.timestamp 2
-[2m2024-07-24T12:48:19.913374Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+Running command: hdp run-datalake -p fixtures/5\/input.json slr none.10000 -b 5858987 5858997 header.timestamp 2
+Running: hdp run-datalake -p fixtures/5\/input.json slr none.10000 -b 5858987 5858997 header.timestamp 2
+[2m2024-07-24T13:44:14.867375Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: BlockSampled(
         BlockSampledDatalake {
             chain_id: 11155111,
@@ -20,7 +20,7 @@ Running: hdp run-datalake -a -p fixtures/5\/input.json slr none.10000 -b 5858987
         },
     },
 }
-[2m2024-07-24T12:48:20.156300Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 240.539709ms
-[2m2024-07-24T12:48:20.156382Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-07-24T12:48:20.156968Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/5/input.json
-[2m2024-07-24T12:48:20.156979Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 243.825125ms
+[2m2024-07-24T13:44:15.137034Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 267.548791ms
+[2m2024-07-24T13:44:15.137113Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-07-24T13:44:15.137712Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/5/input.json
+[2m2024-07-24T13:44:15.137723Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 270.554625ms

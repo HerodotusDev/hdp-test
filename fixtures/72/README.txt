@@ -1,10 +1,10 @@
-Running command: hdp run-module 0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_coinbase.compiled_contract_class.json -p fixtures/72\/input.json
-Running: hdp run-module 0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_coinbase.compiled_contract_class.json -p fixtures/72\/input.json
-[2m2024-07-24T12:49:01.054186Z[0m [32m INFO[0m [2mhdp_preprocessor::module_registry[0m[2m:[0m Contract class fetched successfully from local path: "./contracts/target/dev/header_memorizer_get_coinbase.compiled_contract_class.json"
-[2m2024-07-24T12:49:01.057229Z[0m [32m INFO[0m [2mhdp_preprocessor::module_registry[0m[2m:[0m Program Hash: FieldElement {
+Running command: hdp run-module --module-inputs 0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_coinbase.compiled_contract_class.json -p fixtures/72\/input.json --save-fetch-keys-file key.json
+Running: hdp run-module --module-inputs 0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_coinbase.compiled_contract_class.json -p fixtures/72\/input.json --save-fetch-keys-file key.json
+[2m2024-07-24T13:44:56.287864Z[0m [32m INFO[0m [2mhdp_preprocessor::module_registry[0m[2m:[0m Contract class fetched successfully from local path: "./contracts/target/dev/header_memorizer_get_coinbase.compiled_contract_class.json"
+[2m2024-07-24T13:44:56.290899Z[0m [32m INFO[0m [2mhdp_preprocessor::module_registry[0m[2m:[0m Program Hash: FieldElement {
     inner: 0x023e14ce127bc48f0b30d8eb0cb3617d635f9a4ecdd091d601acfdd0937e6ae0,
 }
-[2m2024-07-24T12:49:01.057516Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m target task: Module {
+[2m2024-07-24T13:44:56.290943Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m target task: Module {
     program_hash: FieldElement {
         inner: 0x023e14ce127bc48f0b30d8eb0cb3617d635f9a4ecdd091d601acfdd0937e6ae0,
     },
@@ -17,33 +17,10 @@ Running: hdp run-module 0x5222A4 --local-class-path ./contracts/target/dev/heade
         "./contracts/target/dev/header_memorizer_get_coinbase.compiled_contract_class.json",
     ),
 }
-[2m2024-07-24T12:49:01.057725Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
-[2m2024-07-24T12:49:04.112442Z[0m [32m INFO[0m [2mhdp_cairo_runner::dry_run[0m[2m:[0m fetch keys: [
-    DryRunnedModule {
-        fetch_keys: [
-            Header(
-                HeaderMemorizerKey {
-                    chain_id: 11155111,
-                    block_number: 5382820,
-                },
-            ),
-        ],
-        result: Uint256 {
-            low: FieldElement {
-                inner: 0x00000000000000000000000000000000ec451987e8c0b772ffcf7f080c46447a,
-            },
-            high: FieldElement {
-                inner: 0x000000000000000000000000000000000000000000000000000000000c06b6d4,
-            },
-        },
-        program_hash: FieldElement {
-            inner: 0x023e14ce127bc48f0b30d8eb0cb3617d635f9a4ecdd091d601acfdd0937e6ae0,
-        },
-    },
-]
-[2m2024-07-24T12:49:04.112476Z[0m [32m INFO[0m [2mhdp_cairo_runner::dry_run[0m[2m:[0m Dry-runner executed successfully
-[2m2024-07-24T12:49:04.113025Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m 3. Fetching proofs from provider...
-[2m2024-07-24T12:49:04.339936Z[0m [32m INFO[0m [2mhdp_provider::evm::from_keys[0m[2m:[0m Time taken (Headers Proofs Fetch): 226.843791ms
-[2m2024-07-24T12:49:04.340035Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-07-24T12:49:04.340625Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/72/input.json
-[2m2024-07-24T12:49:04.340664Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 3.289775458s
+[2m2024-07-24T13:44:56.291156Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
+[2m2024-07-24T13:44:59.251185Z[0m [32m INFO[0m [2mhdp_cairo_runner::dry_run[0m[2m:[0m Dry-runner executed successfully
+[2m2024-07-24T13:44:59.251220Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::module[0m[2m:[0m 3. Fetching proofs from provider...
+[2m2024-07-24T13:44:59.443666Z[0m [32m INFO[0m [2mhdp_provider::evm::from_keys[0m[2m:[0m Time taken (Headers Proofs Fetch): 192.392166ms
+[2m2024-07-24T13:44:59.443758Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-07-24T13:44:59.444268Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/72/input.json
+[2m2024-07-24T13:44:59.444307Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 3.15939375s

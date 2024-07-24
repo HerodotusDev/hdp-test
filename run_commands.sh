@@ -28,6 +28,7 @@ execute_commands() {
 
     # Copy input.json to the dynamic folder
     cp input.json $FOLDER/input.json
+    cp key.json $FOLDER/key.json
 
     # Modify the command to use the new input.json path
     MODIFIED_COMMAND="${command//input.json/$FOLDER\/input.json}"
