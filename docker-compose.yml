@@ -1,0 +1,11 @@
+services:
+  test:
+    build:
+      context: .
+      dockerfile: ./test.dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./input.json:/hdp-test/input.json
+      - ./output.json:/hdp-test/output.json
+      - ./cairo.pie:/hdp-test/cairo.pie

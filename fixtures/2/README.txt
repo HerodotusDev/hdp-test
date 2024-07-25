@@ -1,6 +1,6 @@
-Running command: hdp run-datalake -p fixtures/2/input.json slr none.10 -b 5858987 5858997 header.difficulty 2
-Running: hdp run-datalake -p fixtures/2/input.json slr none.10 -b 5858987 5858997 header.difficulty 2
-[2m2024-07-24T14:25:51.514509Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+Running command: hdp run-datalake -p fixtures/2\/input.json slr none.10 -b 5858987 5858997 header.difficulty 2
+Running: hdp run-datalake -p fixtures/2\/input.json slr none.10 -b 5858987 5858997 header.difficulty 2
+[2m2024-07-25T09:29:10.508430Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: BlockSampled(
         BlockSampledDatalake {
             chain_id: 11155111,
@@ -20,7 +20,7 @@ Running: hdp run-datalake -p fixtures/2/input.json slr none.10 -b 5858987 585899
         },
     },
 }
-[2m2024-07-24T14:25:51.943684Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 379.554634ms
-[2m2024-07-24T14:25:51.945399Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-07-24T14:25:51.947221Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/2/input.json
-[2m2024-07-24T14:25:51.947260Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 433.576937ms
+[2m2024-07-25T09:29:10.817508Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 307.042834ms
+[2m2024-07-25T09:29:10.817591Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-07-25T09:29:10.818196Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/2/input.json
+[2m2024-07-25T09:29:10.818208Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 309.990125ms
