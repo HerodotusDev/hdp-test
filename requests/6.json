@@ -1,0 +1,31 @@
+{
+  "destinationChainId": 11155111,
+  "tasks": [
+    {
+      "type": "DatalakeCompute",
+      "datalake": {
+        "type": "TransactionsInBlock",
+
+        "chainId": 11155111,
+        "targetBlock": 5253873,
+        "startIndex": 49,
+        "endIndex": 79,
+        "increment": 4,
+        "includedTypes": {
+          "legacy": false,
+          "eip2930": true,
+          "eip1559": true,
+          "eip4844": true
+        },
+        "sampledProperty": "tx_receipt.success"
+      },
+      "compute": {
+        "aggregateFnId": "count",
+        "aggregateFnCtx": {
+          "operator": "gt",
+          "valueToCompare": "1000000000000000000"
+        }
+      }
+    }
+  ]
+}
