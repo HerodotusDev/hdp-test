@@ -1,6 +1,6 @@
 Running command: hdp run-datalake -p fixtures/53\/input.json min -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 3
 Running: hdp run-datalake -p fixtures/53\/input.json min -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 3
-[2m2024-07-31T14:56:48.266412Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+[2m2024-08-02T01:08:48.794290Z[0m [32m INFO[0m [2mhdp_preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: BlockSampled(
         BlockSampledDatalake {
             chain_id: 11155111,
@@ -21,8 +21,8 @@ Running: hdp run-datalake -p fixtures/53\/input.json min -b 5244634 5244652 acco
         },
     },
 }
-[2m2024-07-31T14:56:48.985374Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 716.365875ms
-[2m2024-07-31T14:56:49.533311Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Account Proofs Fetch): 547.883958ms
-[2m2024-07-31T14:56:49.533858Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-07-31T14:56:49.541463Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/53/input.json
-[2m2024-07-31T14:56:49.541575Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 1.276147875s
+[2m2024-08-02T01:08:49.507663Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 710.0785ms
+[2m2024-08-02T01:08:50.077749Z[0m [32m INFO[0m [2mhdp_provider::evm::provider[0m[2m:[0m Time taken (Account Proofs Fetch): 570.023ms
+[2m2024-08-02T01:08:50.078500Z[0m [32m INFO[0m [2mhdp_preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-08-02T01:08:50.091309Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/53/input.json
+[2m2024-08-02T01:08:50.091408Z[0m [32m INFO[0m [2mhdp_cli::common[0m[2m:[0m HDP Cli Finished in: 1.298830292s
