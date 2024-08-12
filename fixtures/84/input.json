@@ -1,7 +1,7 @@
 {
   "cairo_run_output_path": "cairo_run_output.json",
-  "task_root": "0xcc392fc5c447c5b129739adb810c745e43a6a3bbb98b5d26ae00c7c0b08491e0",
-  "result_root": "0x63cbd4ce7dcddf233f3c39d4ee6fcb836d0a82b97df9ef7f4212622c7ef8ddea",
+  "task_root": "0x3944893f0899f7909dd69067bb480747b0b961a4d4f258e4b6cef9ad35804e6f",
+  "result_root": "0xfbff4b137b875e809805ebaf86c0ff5e87b26e73be508abb00c1a063ab9e8b69",
   "proofs": {
     "mmr_metas": [
       {
@@ -668,15 +668,11 @@
           "0x0",
           "0x0",
           "0x0",
-          "0x400000000000000",
+          "0x300000000000000",
           "0x0",
           "0x0",
           "0x0",
           "0xa422520000000000",
-          "0x0",
-          "0xdbc1ce7500000000",
-          "0x65aa0e2003b7ce9d",
-          "0x20b962c98568f695",
           "0x0",
           "0x0",
           "0x0",
@@ -686,7 +682,25 @@
           "0x0",
           "0x0"
         ],
-        "task_bytes_len": 224,
+        "task_bytes_len": 192,
+        "inputs": [
+          {
+            "visibility": "public",
+            "value": "0x5222a4"
+          },
+          {
+            "visibility": "private",
+            "value": "0x75cec1db9dceb703200eaa6595f66885c962b920"
+          },
+          {
+            "visibility": "public",
+            "value": "0x1"
+          },
+          {
+            "visibility": "public",
+            "value": "0x0"
+          }
+        ],
         "module_class": {
           "prime": "0x800000000000011000000000000000000000000000000000000000000000001",
           "compiler_version": "2.6.4",
