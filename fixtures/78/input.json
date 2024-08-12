@@ -163,9 +163,15 @@
           "0xa422520000000000"
         ],
         "task_bytes_len": 128,
+        "inputs": [
+          {
+            "visibility": "public",
+            "value": "0x5222a4"
+          }
+        ],
         "module_class": {
           "prime": "0x800000000000011000000000000000000000000000000000000000000000001",
-          "compiler_version": "2.6.4",
+          "compiler_version": "2.6.3",
           "bytecode": [
             "0xa0680017fff8000",
             "0x7",
