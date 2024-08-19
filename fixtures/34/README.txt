@@ -1,7 +1,7 @@
 Running command: hdp run-datalake -p fixtures/34\/input.json slr none.40 -t 5251607 tx_receipt.success 0 34 1 0,0,1,1
 Running: hdp run-datalake -p fixtures/34\/input.json slr none.40 -t 5251607 tx_receipt.success 0 34 1 0,0,1,1
-[2m2024-08-12T17:23:13.323879Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m running on log level: info
-[2m2024-08-12T17:23:13.324087Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m Target task: DatalakeCompute {
+[2m2024-08-19T22:14:29.851157Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m running on log level: info
+[2m2024-08-19T22:14:29.851347Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: TransactionsInBlock(
         TransactionsInBlockDatalake {
             chain_id: 11155111,
@@ -28,8 +28,8 @@ Running: hdp run-datalake -p fixtures/34\/input.json slr none.40 -t 5251607 tx_r
         },
     },
 }
-[2m2024-08-12T17:23:13.772321Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m Time taken (Headers Proofs Fetch): 444.745459ms
-[2m2024-08-12T17:23:14.848341Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m Time taken (Transaction Receipts Proofs Fetch): 1.075950625s
-[2m2024-08-12T17:23:14.849030Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-08-12T17:23:14.857454Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m Finished pre processing the data, saved the input file in fixtures/34/input.json
-[2m2024-08-12T17:23:14.857514Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 1.534892583s
+[2m2024-08-19T22:14:30.354948Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 500.746166ms
+[2m2024-08-19T22:14:31.693070Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Transaction Receipts Proofs Fetch): 1.3380235s
+[2m2024-08-19T22:14:31.693784Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-08-19T22:14:31.702638Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the input file in fixtures/34/input.json
+[2m2024-08-19T22:14:31.702693Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 1.852682125s
