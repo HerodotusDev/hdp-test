@@ -1,7 +1,7 @@
 {
   "cairo_run_output_path": "cairo_run_output.json",
-  "task_root": "0x797d6425ce5a2b1aa65465cb63961ab40ea6d1b832350fbd17af2ab9f5923d94",
-  "result_root": "0x5c643c1a0f608eb8c76b5cf3bffaf12b7a4bbe4d83d9e7ff22be8988e78cc212",
+  "task_root": "0xbc4dfea2ea22e052cefe25491803bd2d78f4ae1bed37e570bbca4b281e4fa5ba",
+  "result_root": "0x2aa63cc2abe0148129d6c8d865b7bef48fd8f3e1efc4449b68cdc880fae2ae02",
   "proofs": {
     "mmr_metas": [
       {
@@ -145,10 +145,10 @@
       "type": "module",
       "context": {
         "encoded_task": [
-          "0xe3f2d65f99fbb905",
-          "0xa26aa8a57f2ca6ae",
-          "0xfd93530c2f216def",
-          "0xb00468f1a45dc79a",
+          "0x506ea1c30e36d204",
+          "0xbf5944a0834e0e9e",
+          "0xcb1e7106142ccf7a",
+          "0x5297528e44d490b",
           "0x0",
           "0x0",
           "0x0",
@@ -685,7 +685,7 @@
             "0x400180027fff7ffc",
             "0x400180037fff7ffd",
             "0x480680017fff8000",
-            "0x0",
+            "0x8",
             "0x48127ffe7fff8000",
             "0x482480017ffd8000",
             "0x4",
