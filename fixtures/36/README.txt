@@ -1,7 +1,6 @@
-Running command: hdp run-datalake -p fixtures/36\/input.json slr none.60 -t 5409986 tx_receipt.success 6 40 1 1,1,1,1
-Running: hdp run-datalake -p fixtures/36\/input.json slr none.60 -t 5409986 tx_receipt.success 6 40 1 1,1,1,1
-[2m2024-08-27T07:45:18.213241Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m running on log level: info
-[2m2024-08-27T07:45:18.213393Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+Running command: hdp run-datalake -p fixtures/36\/input.json --cairo-format slr none.60 -t 5409986 tx_receipt.success 6 40 1 1,1,1,1
+Running: hdp run-datalake -p fixtures/36\/input.json --cairo-format slr none.60 -t 5409986 tx_receipt.success 6 40 1 1,1,1,1
+[2m2024-08-29T07:59:30.783184Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: TransactionsInBlock(
         TransactionsInBlockDatalake {
             chain_id: 11155111,
@@ -28,8 +27,8 @@ Running: hdp run-datalake -p fixtures/36\/input.json slr none.60 -t 5409986 tx_r
         },
     },
 }
-[2m2024-08-27T07:45:19.290001Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.073533625s
-[2m2024-08-27T07:45:34.410916Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Transaction Receipts Proofs Fetch): 15.120767125s
-[2m2024-08-27T07:45:34.411552Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-08-27T07:45:34.416257Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the input file in fixtures/36/input.json
-[2m2024-08-27T07:45:34.416280Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 16.203808375s
+[2m2024-08-29T07:59:32.026073Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.240330917s
+[2m2024-08-29T07:59:36.180960Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Transaction Receipts Proofs Fetch): 4.154828625s
+[2m2024-08-29T07:59:36.182025Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-08-29T07:59:36.185763Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the input file in fixtures/36/input.json
+[2m2024-08-29T07:59:36.185788Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 5.4036515s
