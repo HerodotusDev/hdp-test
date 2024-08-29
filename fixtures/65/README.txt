@@ -1,6 +1,6 @@
 Running command: hdp run-datalake -p fixtures/65\/input.json sum -t 5605816 tx.max_priority_fee_per_gas 12 53 1 0,0,1,1
 Running: hdp run-datalake -p fixtures/65\/input.json sum -t 5605816 tx.max_priority_fee_per_gas 12 53 1 0,0,1,1
-[2m2024-08-28T08:37:58.596126Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+[2m2024-08-29T03:23:00.836956Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: TransactionsInBlock(
         TransactionsInBlockDatalake {
             chain_id: 11155111,
@@ -27,8 +27,8 @@ Running: hdp run-datalake -p fixtures/65\/input.json sum -t 5605816 tx.max_prior
         },
     },
 }
-[2m2024-08-28T08:37:59.679592Z[0m [32m INFO[0m [2mhdp::provider::envelope::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.07876975s
-[2m2024-08-28T08:38:02.237587Z[0m [32m INFO[0m [2mhdp::provider::envelope::evm::provider[0m[2m:[0m time taken (Transactions Proofs Fetch): 2.557971959s
-[2m2024-08-28T08:38:02.238647Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-08-28T08:38:02.253439Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the input file in fixtures/65/input.json
-[2m2024-08-28T08:38:02.253507Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 3.659444791s
+[2m2024-08-29T03:23:02.117814Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.278538167s
+[2m2024-08-29T03:23:04.794356Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Transactions Proofs Fetch): 2.676514417s
+[2m2024-08-29T03:23:04.794849Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-08-29T03:23:04.801263Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the input file in fixtures/65/input.json
+[2m2024-08-29T03:23:04.801311Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 3.965355333s

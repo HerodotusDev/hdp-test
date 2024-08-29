@@ -1,6 +1,6 @@
 Running command: hdp run-datalake -p fixtures/61\/input.json sum -t 5340342 tx.gas_limit 43 88 34 1,1,1,1
 Running: hdp run-datalake -p fixtures/61\/input.json sum -t 5340342 tx.gas_limit 43 88 34 1,1,1,1
-[2m2024-08-28T08:37:42.600630Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+[2m2024-08-29T03:22:41.998807Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: TransactionsInBlock(
         TransactionsInBlockDatalake {
             chain_id: 11155111,
@@ -27,8 +27,8 @@ Running: hdp run-datalake -p fixtures/61\/input.json sum -t 5340342 tx.gas_limit
         },
     },
 }
-[2m2024-08-28T08:37:43.791578Z[0m [32m INFO[0m [2mhdp::provider::envelope::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.188559s
-[2m2024-08-28T08:37:46.482350Z[0m [32m INFO[0m [2mhdp::provider::envelope::evm::provider[0m[2m:[0m time taken (Transactions Proofs Fetch): 2.690749s
-[2m2024-08-28T08:37:46.482613Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-08-28T08:37:46.484929Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the input file in fixtures/61/input.json
-[2m2024-08-28T08:37:46.484957Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 3.885369542s
+[2m2024-08-29T03:22:43.223038Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.221737542s
+[2m2024-08-29T03:22:46.424972Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Transactions Proofs Fetch): 3.201884333s
+[2m2024-08-29T03:22:46.425424Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-08-29T03:22:46.428404Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the input file in fixtures/61/input.json
+[2m2024-08-29T03:22:46.428435Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 4.430637542s
