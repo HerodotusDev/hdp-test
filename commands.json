@@ -1,31 +1,31 @@
 {
   "header": [
-    "hdp run-datalake -p input.json avg -b 5858987 5858997 header.number 1",
-    "hdp run-datalake -p input.json sum -b 5858987 5858997 header.difficulty 2",
-    "hdp run-datalake -p input.json min -b 5858987 5858997 header.gas_limit 3",
-    "hdp run-datalake -p input.json max -b 5858987 5858997 header.gas_used 1",
-    "hdp run-datalake -p input.json sum -b 5858987 5858997 header.timestamp 2",
-    "hdp run-datalake -p input.json min -b 5858987 5858997 header.base_fee_per_gas 3",
-    "hdp run-datalake -p input.json max -b 5858987 5858997 header.blob_gas_used 1",
-    "hdp run-datalake -p input.json avg -b 5858987 5858997 header.excess_blob_gas 2",
-    "hdp run-datalake -p input.json sum -b 5858987 5858997 header.nonce 3"
+    "hdp run-datalake -p input.json avg -s 5858987 5858997 header.number 1",
+    "hdp run-datalake -p input.json sum -s 5858987 5858997 header.difficulty 2",
+    "hdp run-datalake -p input.json min -s 5858987 5858997 header.gas_limit 3",
+    "hdp run-datalake -p input.json max -s 5858987 5858997 header.gas_used 1",
+    "hdp run-datalake -p input.json sum -s 5858987 5858997 header.timestamp 2",
+    "hdp run-datalake -p input.json min -s 5858987 5858997 header.base_fee_per_gas 3",
+    "hdp run-datalake -p input.json max -s 5858987 5858997 header.blob_gas_used 1",
+    "hdp run-datalake -p input.json avg -s 5858987 5858997 header.excess_blob_gas 2",
+    "hdp run-datalake -p input.json sum -s 5858987 5858997 header.nonce 3"
   ],
   "account": [
-    "hdp run-datalake -p input.json avg -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1",
-    "hdp run-datalake -p input.json sum -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 2",
-    "hdp run-datalake -p input.json min -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 3",
-    "hdp run-datalake -p input.json max -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 4",
-    "hdp run-datalake -p input.json avg -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 1",
-    "hdp run-datalake -p input.json sum -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 2",
-    "hdp run-datalake -p input.json min -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 3",
-    "hdp run-datalake -p input.json max -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 4",
-    "hdp run-datalake -p input.json max -b 5000000 5000010 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 4"
+    "hdp run-datalake -p input.json avg -s 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1",
+    "hdp run-datalake -p input.json sum -s 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 2",
+    "hdp run-datalake -p input.json min -s 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 3",
+    "hdp run-datalake -p input.json max -s 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 4",
+    "hdp run-datalake -p input.json avg -s 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 1",
+    "hdp run-datalake -p input.json sum -s 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 2",
+    "hdp run-datalake -p input.json min -s 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 3",
+    "hdp run-datalake -p input.json max -s 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 4",
+    "hdp run-datalake -p input.json max -s 5000000 5000010 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 4"
   ],
   "storage": [
-    "hdp run-datalake -p input.json avg -b 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000000 1",
-    "hdp run-datalake -p input.json sum -b 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000001 2",
-    "hdp run-datalake -p input.json min -b 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000002 3",
-    "hdp run-datalake -p input.json max -b 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000000 4"
+    "hdp run-datalake -p input.json avg -s 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000000 1",
+    "hdp run-datalake -p input.json sum -s 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000001 2",
+    "hdp run-datalake -p input.json min -s 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000002 3",
+    "hdp run-datalake -p input.json max -s 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000000 4"
   ],
   "tx": [
     "hdp run-datalake -p input.json avg -t 5253873 tx.chain_id 49 79 4 0,1,1,1",
