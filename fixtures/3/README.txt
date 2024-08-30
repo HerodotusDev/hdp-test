@@ -1,6 +1,6 @@
-Running command: hdp run-datalake -p fixtures/3\/input.json min -s 5858987 5858997 header.gas_limit 3
-Running: hdp run-datalake -p fixtures/3\/input.json min -s 5858987 5858997 header.gas_limit 3
-[2m2024-08-30T05:02:36.186500Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+Running command: hdp run-datalake -p fixtures/3\/input.json -b batch.json min -s 5858987 5858997 header.gas_limit 3
+Running: hdp run-datalake -p fixtures/3\/input.json -b batch.json min -s 5858987 5858997 header.gas_limit 3
+[2m2024-08-30T05:13:07.981291Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: BlockSampled(
         BlockSampledDatalake {
             chain_id: 11155111,
@@ -20,7 +20,8 @@ Running: hdp run-datalake -p fixtures/3\/input.json min -s 5858987 5858997 heade
         },
     },
 }
-[2m2024-08-30T05:02:37.651796Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.462806917s
-[2m2024-08-30T05:02:37.651898Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-08-30T05:02:37.652482Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/3/input.json
-[2m2024-08-30T05:02:37.652494Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 1.466959041s
+[2m2024-08-30T05:13:09.419855Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.436008667s
+[2m2024-08-30T05:13:09.419970Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-08-30T05:13:09.420563Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
+[2m2024-08-30T05:13:09.420568Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/3/input.json
+[2m2024-08-30T05:13:09.420576Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 1.440317542s

@@ -1,6 +1,6 @@
-Running command: hdp run-datalake -p fixtures/29\/input.json min -t 5409986 tx.nonce 6 40 1 1,1,1,1
-Running: hdp run-datalake -p fixtures/29\/input.json min -t 5409986 tx.nonce 6 40 1 1,1,1,1
-[2m2024-08-30T05:03:51.455220Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+Running command: hdp run-datalake -p fixtures/29\/input.json -b batch.json min -t 5409986 tx.nonce 6 40 1 1,1,1,1
+Running: hdp run-datalake -p fixtures/29\/input.json -b batch.json min -t 5409986 tx.nonce 6 40 1 1,1,1,1
+[2m2024-08-30T05:14:22.445458Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: TransactionsInBlock(
         TransactionsInBlockDatalake {
             chain_id: 11155111,
@@ -27,8 +27,9 @@ Running: hdp run-datalake -p fixtures/29\/input.json min -t 5409986 tx.nonce 6 4
         },
     },
 }
-[2m2024-08-30T05:03:52.644878Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.186979792s
-[2m2024-08-30T05:03:55.292175Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Transactions Proofs Fetch): 2.647236208s
-[2m2024-08-30T05:03:55.292478Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-08-30T05:03:55.297659Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/29/input.json
-[2m2024-08-30T05:03:55.297698Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 3.843434125s
+[2m2024-08-30T05:14:23.592247Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.144340209s
+[2m2024-08-30T05:14:26.175372Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Transactions Proofs Fetch): 2.583061917s
+[2m2024-08-30T05:14:26.175748Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-08-30T05:14:26.181539Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
+[2m2024-08-30T05:14:26.181547Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/29/input.json
+[2m2024-08-30T05:14:26.181572Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 3.737042666s
