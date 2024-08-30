@@ -1,28 +1,31 @@
-Running command: hdp run-datalake -p fixtures/47\/input.json --cairo-format avg -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1
-Running: hdp run-datalake -p fixtures/47\/input.json --cairo-format avg -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1
-[2m2024-08-29T07:59:54.100397Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
-    datalake: BlockSampled(
-        BlockSampledDatalake {
-            chain_id: 11155111,
-            block_range_start: 5244634,
-            block_range_end: 5244652,
-            increment: 1,
-            sampled_property: Account(
-                0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4,
-                Nonce,
-            ),
-        },
-    ),
-    compute: Computation {
-        aggregate_fn_id: AVG,
-        aggregate_fn_ctx: FunctionContext {
-            operator: None,
-            value_to_compare: 0,
-        },
-    },
+Running command: hdp run-module --module-inputs public.0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_uncle.compiled_contract_class.json -p fixtures/47\/input.json -b batch.json --save-fetch-keys-file key.json
+Running: hdp run-module --module-inputs public.0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_uncle.compiled_contract_class.json -p fixtures/47\/input.json -b batch.json --save-fetch-keys-file key.json
+[2m2024-08-30T05:16:04.749814Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/header_memorizer_get_uncle.compiled_contract_class.json"
+[2m2024-08-30T05:16:04.751844Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m program Hash: FieldElement {
+    inner: 0x03789c9876025f1af911ebcb9074b51a6985d1c07699d84026b0dbb645edf884,
 }
-[2m2024-08-29T07:59:55.951728Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.848409083s
-[2m2024-08-29T07:59:57.422217Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Account Proofs Fetch): 1.470459292s
-[2m2024-08-29T07:59:57.423496Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-08-29T07:59:57.448253Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the input file in fixtures/47/input.json
-[2m2024-08-29T07:59:57.448359Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 3.349147333s
+[2m2024-08-30T05:16:04.751882Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target task: Module {
+    program_hash: FieldElement {
+        inner: 0x03789c9876025f1af911ebcb9074b51a6985d1c07699d84026b0dbb645edf884,
+    },
+    inputs: [
+        ModuleInput {
+            visibility: Public,
+            value: FieldElement {
+                inner: 0x00000000000000000000000000000000000000000000000000000000005222a4,
+            },
+        },
+    ],
+    local_class_path: Some(
+        "./contracts/target/dev/header_memorizer_get_uncle.compiled_contract_class.json",
+    ),
+}
+[2m2024-08-30T05:16:04.752091Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
+[2m2024-08-30T05:16:09.189946Z[0m [32m INFO[0m [2mhdp::cairo_runner::dry_run[0m[2m:[0m dry-runner executed successfully
+[2m2024-08-30T05:16:09.189994Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 3. Fetching proofs from provider...
+[2m2024-08-30T05:16:09.190002Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target provider chain id: 11155111
+[2m2024-08-30T05:16:10.346739Z[0m [32m INFO[0m [2mhdp::provider::evm::from_keys[0m[2m:[0m time taken (Headers Proofs Fetch): 1.156662375s
+[2m2024-08-30T05:16:10.346862Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-08-30T05:16:10.347575Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
+[2m2024-08-30T05:16:10.347586Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/47/input.json
+[2m2024-08-30T05:16:10.347698Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 5.601573542s

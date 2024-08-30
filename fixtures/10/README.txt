@@ -1,6 +1,6 @@
-Running command: hdp run-datalake -p fixtures/10\/input.json --cairo-format slr none.1 -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1
-Running: hdp run-datalake -p fixtures/10\/input.json --cairo-format slr none.1 -b 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1
-[2m2024-08-29T07:57:49.711375Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+Running command: hdp run-datalake -p fixtures/10\/input.json -b batch.json avg -s 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1
+Running: hdp run-datalake -p fixtures/10\/input.json -b batch.json avg -s 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1
+[2m2024-08-30T05:13:18.183017Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: BlockSampled(
         BlockSampledDatalake {
             chain_id: 11155111,
@@ -14,15 +14,16 @@ Running: hdp run-datalake -p fixtures/10\/input.json --cairo-format slr none.1 -
         },
     ),
     compute: Computation {
-        aggregate_fn_id: SLR,
+        aggregate_fn_id: AVG,
         aggregate_fn_ctx: FunctionContext {
             operator: None,
-            value_to_compare: 1,
+            value_to_compare: 0,
         },
     },
 }
-[2m2024-08-29T07:57:51.467421Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.753645666s
-[2m2024-08-29T07:57:52.841236Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Account Proofs Fetch): 1.373797458s
-[2m2024-08-29T07:57:52.841581Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-08-29T07:57:52.850386Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the input file in fixtures/10/input.json
-[2m2024-08-29T07:57:52.850459Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 3.140073583s
+[2m2024-08-30T05:13:19.903079Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.71721375s
+[2m2024-08-30T05:13:21.235823Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Account Proofs Fetch): 1.332716708s
+[2m2024-08-30T05:13:21.236142Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-08-30T05:13:21.243713Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
+[2m2024-08-30T05:13:21.243719Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/10/input.json
+[2m2024-08-30T05:13:21.243779Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 3.061696291s

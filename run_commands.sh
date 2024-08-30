@@ -28,6 +28,7 @@ execute_commands() {
 
     # Copy input.json to the dynamic folder
     cp input.json $FOLDER/input.json
+   
 
     # Modify the command to use the new input.json path
     MODIFIED_COMMAND="${command//input.json/$FOLDER\/input.json}"
@@ -40,6 +41,7 @@ execute_commands() {
     echo "Running: $MODIFIED_COMMAND" | tee -a $README
     eval $MODIFIED_COMMAND 2>&1 | tee -a $README
     cp key.json $FOLDER/key.json
+    cp batch.json $FOLDER/batch.json
 
     # Log in main README
     echo "Command: $MODIFIED_COMMAND executed and output saved in $FOLDER" >> $MAIN_README
@@ -61,7 +63,7 @@ mkdir -p fixtures
 
 # Check if the scope is 'all'
 if [ "$SCOPE" == "all" ]; then
-  SCOPES=("header_slr" "account_slr" "storage_slr" "tx_slr" "tx_receipt_slr" "header" "account" "storage" "tx" "tx_receipt", "module")
+  SCOPES=("header" "account" "storage" "tx" "tx_receipt", "module")
   for scope in "${SCOPES[@]}"; do
     execute_commands $scope $COMMANDS_JSON
   done
