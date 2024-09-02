@@ -1,9 +1,9 @@
 Running command: hdp run-datalake -p fixtures/20\/input.json -b batch.json sum -s 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000001 2
 Running: hdp run-datalake -p fixtures/20\/input.json -b batch.json sum -s 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000001 2
-[2m2024-08-30T05:13:48.893111Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+[2m2024-09-02T07:53:09.474308Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: BlockSampled(
         BlockSampledDatalake {
-            chain_id: 11155111,
+            chain_id: ETH_SEPOLIA,
             block_range_start: 5641516,
             block_range_end: 5641561,
             increment: 2,
@@ -21,9 +21,9 @@ Running: hdp run-datalake -p fixtures/20\/input.json -b batch.json sum -s 564151
         },
     },
 }
-[2m2024-08-30T05:13:50.885558Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 1.989860084s
-[2m2024-08-30T05:13:52.229572Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Storage Proofs Fetch): 1.343976875s
-[2m2024-08-30T05:13:52.229985Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-08-30T05:13:52.240038Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
-[2m2024-08-30T05:13:52.240054Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/20/input.json
-[2m2024-08-30T05:13:52.240166Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 3.348005833s
+[2m2024-09-02T07:53:11.861285Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 2.384340208s
+[2m2024-09-02T07:53:14.010144Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Storage Proofs Fetch): 2.148856875s
+[2m2024-09-02T07:53:14.011480Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-09-02T07:53:14.025295Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
+[2m2024-09-02T07:53:14.025304Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/20/input.json
+[2m2024-09-02T07:53:14.025365Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 4.552054625s
