@@ -17,6 +17,7 @@ dist/
 *.log
 
 # Rust
+!/contracts/target/
 /target/
 .cargo/
 Cargo.lock
@@ -25,5 +26,5 @@ Cargo.lock
 *.pie
 .env
 
-target
+
 .snfoundry_cache/
