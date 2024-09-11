@@ -9,7 +9,7 @@ CAIRO_FILES := $(shell find ./tests/cairo_programs -name "*.cairo")
 # Setup environment
 setup:
 	@echo "Setting up the environment..."
-	./tools/make/setup.sh $(VENV_PATH)
+	./scripts/setup.sh $(VENV_PATH)
 	@echo "Setup complete."
 
 # Generate Fixtures
