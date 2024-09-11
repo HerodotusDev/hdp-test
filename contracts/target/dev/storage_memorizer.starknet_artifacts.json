@@ -1,0 +1,1 @@
+{"version":1,"contracts":[{"id":"kqmejg9cl0f16","package_name":"storage_memorizer","contract_name":"get_slot","module_path":"storage_memorizer::get_slot","artifacts":{"sierra":"storage_memorizer_get_slot.contract_class.json","casm":"storage_memorizer_get_slot.compiled_contract_class.json"}}]}
