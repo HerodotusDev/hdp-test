@@ -17,3 +17,9 @@ generate:
 	@echo "Setting up the environment..."
 	./run_commands.sh all commands.json
 	@echo "Setup complete."
+
+cleanup:
+	@echo "Cleanup environment..."
+	./scripts/cleanup.sh
+	@echo "Cleanup complete."
+
