@@ -2,8 +2,6 @@
 
 # Variables
 VENV_PATH ?= venv
-BUILD_DIR := build/compiled_cairo_files
-CAIRO_FILES := $(shell find ./tests/cairo_programs -name "*.cairo")
 
 
 # Setup environment
@@ -17,3 +15,9 @@ generate:
 	@echo "Setting up the environment..."
 	./run_commands.sh all commands.json
 	@echo "Setup complete."
+
+cleanup:
+	@echo "Cleanup environment..."
+	./scripts/cleanup.sh
+	@echo "Cleanup complete."
+
