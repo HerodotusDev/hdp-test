@@ -14,7 +14,7 @@ setup:
 # Generate Fixtures
 generate:
 	@echo "Setting up the environment..."
-	chmod +x ./scripts/run_commands.sh
+	chmod +x ./run_commands.sh
 	./run_commands.sh all commands.json
 	@echo "Setup complete."
 
