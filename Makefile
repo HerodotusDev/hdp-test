@@ -7,17 +7,20 @@ VENV_PATH ?= venv
 # Setup environment
 setup:
 	@echo "Setting up the environment..."
+	chmod +x ./scripts/setup.sh
 	./scripts/setup.sh $(VENV_PATH)
 	@echo "Setup complete."
 
 # Generate Fixtures
 generate:
 	@echo "Setting up the environment..."
+	chmod +x ./scripts/run_commands.sh
 	./run_commands.sh all commands.json
 	@echo "Setup complete."
 
 cleanup:
 	@echo "Cleanup environment..."
+	chmod +x ./scripts/cleanup.sh
 	./scripts/cleanup.sh
 	@echo "Cleanup complete."
 
