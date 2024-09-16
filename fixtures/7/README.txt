@@ -1,6 +1,6 @@
 Running command: hdp run-datalake -p fixtures/7/input.json -b batch.json max -s ETHEREUM_SEPOLIA 5858987 5858997 header.blob_gas_used 1
 Running: hdp run-datalake -p fixtures/7/input.json -b batch.json max -s ETHEREUM_SEPOLIA 5858987 5858997 header.blob_gas_used 1
-[2m2024-09-15T16:03:24.106929Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+[2m2024-09-16T11:59:10.530195Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: BlockSampled(
         BlockSampledDatalake {
             chain_id: ETHEREUM_SEPOLIA,
@@ -20,8 +20,8 @@ Running: hdp run-datalake -p fixtures/7/input.json -b batch.json max -s ETHEREUM
         },
     },
 }
-[2m2024-09-15T16:03:24.683017Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 523.806944ms
-[2m2024-09-15T16:03:24.684027Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-09-15T16:03:24.685828Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
-[2m2024-09-15T16:03:24.685840Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/7/input.json
-[2m2024-09-15T16:03:24.685849Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 580.421383ms
+[2m2024-09-16T11:59:11.069435Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 488.468893ms
+[2m2024-09-16T11:59:11.070516Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-09-16T11:59:11.071678Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
+[2m2024-09-16T11:59:11.071691Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/7/input.json
+[2m2024-09-16T11:59:11.071705Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 543.007693ms
