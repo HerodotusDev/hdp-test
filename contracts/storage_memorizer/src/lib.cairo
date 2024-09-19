@@ -2,8 +2,7 @@
 mod get_slot {
     use hdp_cairo::memorizer::storage_memorizer::StorageMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::storage_memorizer::{StorageKey, StorageMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -16,7 +15,7 @@ mod get_slot {
             .storage_memorizer
             .get_slot(
                 StorageKey {
-                    chain_id: 11155111, block_number: block_number.into(), address, storage_slot
+                    chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into(), address, storage_slot
                 }
             )
     }
