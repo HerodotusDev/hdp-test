@@ -2,8 +2,7 @@
 mod get_nonce {
     use hdp_cairo::memorizer::account_memorizer::AccountMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::account_memorizer::{AccountKey, AccountMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -13,7 +12,7 @@ mod get_nonce {
         hdp
             .account_memorizer
             .get_nonce(
-                AccountKey { chain_id: 11155111, block_number: block_number.into(), address }
+                AccountKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into(), address }
             )
     }
 }
@@ -22,8 +21,7 @@ mod get_nonce {
 mod get_balance {
     use hdp_cairo::memorizer::account_memorizer::AccountMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::account_memorizer::{AccountKey, AccountMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -33,7 +31,7 @@ mod get_balance {
         hdp
             .account_memorizer
             .get_balance(
-                AccountKey { chain_id: 11155111, block_number: block_number.into(), address }
+                AccountKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into(), address }
             )
     }
 }
@@ -42,8 +40,7 @@ mod get_balance {
 mod get_state_root {
     use hdp_cairo::memorizer::account_memorizer::AccountMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::account_memorizer::{AccountKey, AccountMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -53,7 +50,7 @@ mod get_state_root {
         hdp
             .account_memorizer
             .get_state_root(
-                AccountKey { chain_id: 11155111, block_number: block_number.into(), address }
+                AccountKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into(), address }
             )
     }
 }
@@ -62,8 +59,7 @@ mod get_state_root {
 mod get_code_hash {
     use hdp_cairo::memorizer::account_memorizer::AccountMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::account_memorizer::{AccountKey, AccountMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -73,7 +69,7 @@ mod get_code_hash {
         hdp
             .account_memorizer
             .get_code_hash(
-                AccountKey { chain_id: 11155111, block_number: block_number.into(), address }
+                AccountKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into(), address }
             )
     }
 }

@@ -2,8 +2,7 @@
 mod get_parent {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -12,7 +11,7 @@ mod get_parent {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32) -> u256 {
         hdp
             .header_memorizer
-            .get_parent(HeaderKey { chain_id: 11155111, block_number: block_number.into() })
+            .get_parent(HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() })
     }
 }
 
@@ -20,8 +19,7 @@ mod get_parent {
 mod get_uncle {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -30,7 +28,7 @@ mod get_uncle {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32) -> u256 {
         hdp
             .header_memorizer
-            .get_uncle(HeaderKey { chain_id: 11155111, block_number: block_number.into() })
+            .get_uncle(HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() })
     }
 }
 
@@ -38,8 +36,7 @@ mod get_uncle {
 mod get_coinbase {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -48,7 +45,7 @@ mod get_coinbase {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32) -> u256 {
         hdp
             .header_memorizer
-            .get_coinbase(HeaderKey { chain_id: 11155111, block_number: block_number.into() })
+            .get_coinbase(HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() })
     }
 }
 
@@ -56,8 +53,7 @@ mod get_coinbase {
 mod get_state_root {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -66,7 +62,7 @@ mod get_state_root {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32) -> u256 {
         hdp
             .header_memorizer
-            .get_state_root(HeaderKey { chain_id: 11155111, block_number: block_number.into() })
+            .get_state_root(HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() })
     }
 }
 
@@ -74,8 +70,7 @@ mod get_state_root {
 mod get_transaction_root {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -85,7 +80,7 @@ mod get_transaction_root {
         hdp
             .header_memorizer
             .get_transaction_root(
-                HeaderKey { chain_id: 11155111, block_number: block_number.into() }
+                HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() }
             )
     }
 }
@@ -94,8 +89,7 @@ mod get_transaction_root {
 mod get_receipt_root {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -104,7 +98,7 @@ mod get_receipt_root {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32) -> u256 {
         hdp
             .header_memorizer
-            .get_receipt_root(HeaderKey { chain_id: 11155111, block_number: block_number.into() })
+            .get_receipt_root(HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() })
     }
 }
 
@@ -112,8 +106,7 @@ mod get_receipt_root {
 mod get_difficulty {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -122,7 +115,7 @@ mod get_difficulty {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32) -> u256 {
         hdp
             .header_memorizer
-            .get_difficulty(HeaderKey { chain_id: 11155111, block_number: block_number.into() })
+            .get_difficulty(HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() })
     }
 }
 
@@ -130,8 +123,7 @@ mod get_difficulty {
 mod get_number {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -140,7 +132,7 @@ mod get_number {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32) -> u256 {
         hdp
             .header_memorizer
-            .get_number(HeaderKey { chain_id: 11155111, block_number: block_number.into() })
+            .get_number(HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() })
     }
 }
 
@@ -148,8 +140,7 @@ mod get_number {
 mod get_gas_limit {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -158,7 +149,7 @@ mod get_gas_limit {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32) -> u256 {
         hdp
             .header_memorizer
-            .get_gas_limit(HeaderKey { chain_id: 11155111, block_number: block_number.into() })
+            .get_gas_limit(HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() })
     }
 }
 
@@ -166,8 +157,7 @@ mod get_gas_limit {
 mod get_gas_used {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -176,7 +166,7 @@ mod get_gas_used {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32) -> u256 {
         hdp
             .header_memorizer
-            .get_gas_used(HeaderKey { chain_id: 11155111, block_number: block_number.into() })
+            .get_gas_used(HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() })
     }
 }
 
@@ -184,8 +174,7 @@ mod get_gas_used {
 mod get_mix_hash {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -194,7 +183,7 @@ mod get_mix_hash {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32) -> u256 {
         hdp
             .header_memorizer
-            .get_mix_hash(HeaderKey { chain_id: 11155111, block_number: block_number.into() })
+            .get_mix_hash(HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() })
     }
 }
 
@@ -202,8 +191,7 @@ mod get_mix_hash {
 mod get_nonce {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -212,7 +200,7 @@ mod get_nonce {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32) -> u256 {
         hdp
             .header_memorizer
-            .get_nonce(HeaderKey { chain_id: 11155111, block_number: block_number.into() })
+            .get_nonce(HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() })
     }
 }
 
@@ -220,8 +208,7 @@ mod get_nonce {
 mod get_base_fee_per_gas {
     use hdp_cairo::memorizer::header_memorizer::HeaderMemorizerTrait;
     use hdp_cairo::{HDP, memorizer::header_memorizer::{HeaderKey, HeaderMemorizerImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
+    use hdp_cairo::utils::chain_id::ChainIdTrait;
 
     #[storage]
     struct Storage {}
@@ -231,7 +218,7 @@ mod get_base_fee_per_gas {
         hdp
             .header_memorizer
             .get_base_fee_per_gas(
-                HeaderKey { chain_id: 11155111, block_number: block_number.into() }
+                HeaderKey { chain_id: ChainIdTrait::from_str('ETHEREUM_SEPOLIA').unwrap(), block_number: block_number.into() }
             )
     }
 }
