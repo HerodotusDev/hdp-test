@@ -1,8 +1,8 @@
 Running command: hdp run-module --module-inputs public.0x5222A4,public.0x13cb6ae34a13a0977f4d7101ebc24b87bb23f0d5 --local-class-path ./contracts/target/dev/account_memorizer_get_balance.compiled_contract_class.json -p fixtures/31/input.json -b batch.json --save-fetch-keys-file key.json
 Running: hdp run-module --module-inputs public.0x5222A4,public.0x13cb6ae34a13a0977f4d7101ebc24b87bb23f0d5 --local-class-path ./contracts/target/dev/account_memorizer_get_balance.compiled_contract_class.json -p fixtures/31/input.json -b batch.json --save-fetch-keys-file key.json
-[2m2024-09-17T04:59:34.712545Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/account_memorizer_get_balance.compiled_contract_class.json"
-[2m2024-09-17T04:59:34.715156Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m program Hash: 0x64041a339b1edd10de83cf031cfa938645450f971d2527c90d4c2ce68d7d412
-[2m2024-09-17T04:59:34.715214Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target task: Module {
+[2m2024-10-03T16:21:15.802667Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/account_memorizer_get_balance.compiled_contract_class.json"
+[2m2024-10-03T16:21:15.805319Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m program Hash: 0x64041a339b1edd10de83cf031cfa938645450f971d2527c90d4c2ce68d7d412
+[2m2024-10-03T16:21:15.805371Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target task: Module {
     program_hash: 0x64041a339b1edd10de83cf031cfa938645450f971d2527c90d4c2ce68d7d412,
     inputs: [
         ModuleInput {
@@ -18,7 +18,7 @@ Running: hdp run-module --module-inputs public.0x5222A4,public.0x13cb6ae34a13a09
         "./contracts/target/dev/account_memorizer_get_balance.compiled_contract_class.json",
     ),
 }
-[2m2024-09-17T04:59:34.715507Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
+[2m2024-10-03T16:21:15.805782Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
 ./src/contract_dry_run.cairo:104:5: Error at pc=0:4009:
 Got an exception while executing a hint.
 Traceback (most recent call last):
