@@ -1,12 +1,12 @@
 {
   "raw_results": [
-    "0x00000000000000000000000000000000000000000000000006f05b59d3b20000"
+    "0x0000000000000000000000000c06b6d4ec451987e8c0b772ffcf7f080c46447a"
   ],
   "results_commitments": [
-    "0x94172a733e9ac1be7a1dca416d21e23ffa86ebd1a3697add6fa81bd83d33545f"
+    "0x9a2f7c16f2ddbabcfe72a011a7a40aeeffe0e9dcc9b96577f7d75a6c6e0d7dab"
   ],
   "tasks_commitments": [
-    "0xbd2ea8ac093ede25e97b229a5b25022a01d7f102aef572b798ff6adccdd95214"
+    "0x560ad606def7dc9de053b061f5c55d5496797e756a0a0938c6e80a0295956c70"
   ],
   "task_inclusion_proofs": [
     []
@@ -14,8 +14,8 @@
   "results_inclusion_proofs": [
     []
   ],
-  "results_root": "0x8509182681eaf2d6f524fc5fef1286b897fd919bb02fd00662afd06351c25d43",
-  "tasks_root": "0xd708b55f3c1cee504e7fa0dcca3837f08101dbdfde8baa3cbf57e531bf03229a",
+  "results_root": "0x12ca6ff87f9c2bff4e8198180b6a0822063756ee9561553c520aa43c6254d396",
+  "tasks_root": "0x51f79f008b174e582dbf61c04533b7cab5f5344f96144308d76a9c8a6b149750",
   "mmr_metas": [
     {
       "id": 27,
