@@ -1,6 +1,79 @@
-Running command: hdp run-datalake -p fixtures/24/input.json -b batch.json sum -t ETHEREUM_SEPOLIA 5340342 tx.gas_limit 43 88 34 1,1,1,1
-Running: hdp run-datalake -p fixtures/24/input.json -b batch.json sum -t ETHEREUM_SEPOLIA 5340342 tx.gas_limit 43 88 34 1,1,1,1
-[2m2024-10-03T17:02:48.794896Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
+Running command: hdp run-datalake -p fixtures/24\/input.json -b batch.json sum -t ETHEREUM_SEPOLIA 5340342 tx.gas_limit 43 88 34 1,1,1,1
+Running: hdp run-datalake -p fixtures/24\/input.json -b batch.json sum -t ETHEREUM_SEPOLIA 5340342 tx.gas_limit 43 88 34 1,1,1,1
+[2m2024-10-03T17:07:28.563706Z[0m [34mDEBUG[0m [2mhdp_cli::cli[0m[2m:[0m running on log level: debug
+[2m2024-10-03T17:07:28.563883Z[0m [34mDEBUG[0m [2mhdp::hdp_run[0m[2m:[0m Running with configuration: HdpRunConfig {
+    provider_config: {
+        ETHEREUM_MAINNET: ProviderConfig {
+            provider_url: Url {
+                scheme: "https",
+                cannot_be_a_base: false,
+                username: "",
+                password: None,
+                host: Some(
+                    Domain(
+                        "eth-mainnet.g.alchemy.com",
+                    ),
+                ),
+                port: None,
+                path: "/v2/FZEXaYqCaVKtHHr0B6uPaTavacl9uDAX",
+                query: None,
+                fragment: None,
+            },
+            chain_id: ETHEREUM_MAINNET,
+            max_requests: 100,
+        },
+        ETHEREUM_SEPOLIA: ProviderConfig {
+            provider_url: Url {
+                scheme: "https",
+                cannot_be_a_base: false,
+                username: "",
+                password: None,
+                host: Some(
+                    Domain(
+                        "sepolia.ethereum.iosis.tech",
+                    ),
+                ),
+                port: None,
+                path: "/",
+                query: None,
+                fragment: None,
+            },
+            chain_id: ETHEREUM_SEPOLIA,
+            max_requests: 2000,
+        },
+        STARKNET_SEPOLIA: ProviderConfig {
+            provider_url: Url {
+                scheme: "https",
+                cannot_be_a_base: false,
+                username: "",
+                password: None,
+                host: Some(
+                    Domain(
+                        "starknet-sepolia.g.alchemy.com",
+                    ),
+                ),
+                port: None,
+                path: "/starknet/version/rpc/v0_7/FZEXaYqCaVKtHHr0B6uPaTavacl9uDAX",
+                query: None,
+                fragment: None,
+            },
+            chain_id: STARKNET_SEPOLIA,
+            max_requests: 100,
+        },
+    },
+    dry_run_program_path: "build/contract_dry_run.json",
+    sound_run_program_path: "build/hdp.json",
+    program_input_file: "fixtures/24/input.json",
+    is_not_cairo_format: true,
+    batch_proof_file: Some(
+        "batch.json",
+    ),
+    cairo_pie_file: None,
+    save_fetch_keys_file: Some(
+        "dry_run_output.json",
+    ),
+}
+[2m2024-10-03T17:07:28.563922Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
     datalake: TransactionsInBlock(
         TransactionsInBlockDatalake {
             chain_id: ETHEREUM_SEPOLIA,
@@ -27,6 +100,71 @@ Running: hdp run-datalake -p fixtures/24/input.json -b batch.json sum -t ETHEREU
         },
     },
 }
-thread 'main' panicked at /home/runner/work/hdp/hdp/hdp/src/preprocessor/compile/datalake.rs:22:14:
-target task's chain had not been configured.
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+[2m2024-10-03T17:07:28.566885Z[0m [34mDEBUG[0m [2mhdp::provider::indexer[0m[2m:[0m request params to indexer: [
+    (
+        "deployed_on_chain",
+        "11155111",
+    ),
+    (
+        "accumulates_chain",
+        "11155111",
+    ),
+    (
+        "hashing_function",
+        "poseidon",
+    ),
+    (
+        "contract_type",
+        "AGGREGATOR",
+    ),
+    (
+        "from_block_number_inclusive",
+        "5340342",
+    ),
+    (
+        "to_block_number_inclusive",
+        "5340342",
+    ),
+    (
+        "is_meta_included",
+        "true",
+    ),
+    (
+        "is_whole_tree",
+        "true",
+    ),
+    (
+        "is_rlp_included",
+        "true",
+    ),
+    (
+        "is_pure_rlp",
+        "true",
+    ),
+]
+[2m2024-10-03T17:07:28.567033Z[0m [34mDEBUG[0m [2mhyper::client::connect::dns[0m[2m:[0m resolving host="rs-indexer.api.herodotus.cloud"
+[2m2024-10-03T17:07:28.568666Z[0m [34mDEBUG[0m [2mhyper::client::connect::http[0m[2m:[0m connecting to 163.172.131.114:443
+[2m2024-10-03T17:07:28.722414Z[0m [34mDEBUG[0m [2mhyper::client::connect::http[0m[2m:[0m connected to 163.172.131.114:443
+[2m2024-10-03T17:07:29.043785Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 342 bytes
+[2m2024-10-03T17:07:29.269752Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 8 headers
+[2m2024-10-03T17:07:29.269762Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is content-length (4022 bytes)
+[2m2024-10-03T17:07:29.269774Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body completed
+[2m2024-10-03T17:07:29.269812Z[0m [34mDEBUG[0m [2mhyper::client::pool[0m[2m:[0m pooling idle connection for ("https", rs-indexer.api.herodotus.cloud)
+[2m2024-10-03T17:07:29.269879Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 703.021083ms
+[2m2024-10-03T17:07:29.269910Z[0m [34mDEBUG[0m [2malloy_rpc_client::call[0m[2m:[0m sending request [3mmethod[0m[2m=[0meth_getBlockByNumber [3mid[0m[2m=[0m0
+[2m2024-10-03T17:07:29.269985Z[0m [34mDEBUG[0m [1mReqwestTransport[0m[1m{[0m[3murl[0m[2m=[0mhttps://sepolia.ethereum.iosis.tech/[1m}[0m[2m:[0m[1mresolve[0m[1m{[0m[3mhost[0m[2m=[0msepolia.ethereum.iosis.tech[1m}[0m[2m:[0m [2mhyper_util::client::legacy::connect::dns[0m[2m:[0m resolving [3mhost[0m[2m=[0m"sepolia.ethereum.iosis.tech"
+[2m2024-10-03T17:07:29.271138Z[0m [34mDEBUG[0m [1mReqwestTransport[0m[1m{[0m[3murl[0m[2m=[0mhttps://sepolia.ethereum.iosis.tech/[1m}[0m[2m:[0m [2mhyper_util::client::legacy::connect::http[0m[2m:[0m connecting to 83.238.171.134:443
+[2m2024-10-03T17:07:29.456886Z[0m [34mDEBUG[0m [1mReqwestTransport[0m[1m{[0m[3murl[0m[2m=[0mhttps://sepolia.ethereum.iosis.tech/[1m}[0m[2m:[0m [2mhyper_util::client::legacy::connect::http[0m[2m:[0m connected to 83.238.171.134:443
+[2m2024-10-03T17:07:30.042945Z[0m [34mDEBUG[0m [1mReqwestTransport[0m[1m{[0m[3murl[0m[2m=[0mhttps://sepolia.ethereum.iosis.tech/[1m}[0m[2m:[0m [2malloy_transport_http::reqwest_transport[0m[2m:[0m received response from server [3mstatus[0m[2m=[0m200 OK
+[2m2024-10-03T17:07:30.981436Z[0m [34mDEBUG[0m [2mhyper_util::client::legacy::pool[0m[2m:[0m pooling idle connection for ("https", sepolia.ethereum.iosis.tech)
+[2m2024-10-03T17:07:30.981578Z[0m [34mDEBUG[0m [1mReqwestTransport[0m[1m{[0m[3murl[0m[2m=[0mhttps://sepolia.ethereum.iosis.tech/[1m}[0m[2m:[0m [2malloy_transport_http::reqwest_transport[0m[2m:[0m retrieved response body. Use `trace` for full body [3mbytes[0m[2m=[0m507849
+[2m2024-10-03T17:07:30.984066Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Transactions Proofs Fetch): 1.714159042s
+[2m2024-10-03T17:07:30.984140Z[0m [34mDEBUG[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m values to aggregate : [
+    159921,
+    11000000,
+]
+[2m2024-10-03T17:07:30.984190Z[0m [34mDEBUG[0m [2mhdp::preprocessor[0m[2m:[0m compiled_result: 11159921
+[2m2024-10-03T17:07:30.984198Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-10-03T17:07:30.984570Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
+[2m2024-10-03T17:07:30.984577Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/24/input.json
+[2m2024-10-03T17:07:30.984584Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 2.421679875s
