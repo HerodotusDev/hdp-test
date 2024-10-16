@@ -1,29 +1,5 @@
 Running command: hdp run-datalake -p fixtures/10/input.json -b batch.json avg -s ETHEREUM_SEPOLIA 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1
 Running: hdp run-datalake -p fixtures/10/input.json -b batch.json avg -s ETHEREUM_SEPOLIA 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1
-[2m2024-10-16T07:00:59.873388Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
-    datalake: BlockSampled(
-        BlockSampledDatalake {
-            chain_id: ETHEREUM_SEPOLIA,
-            block_range_start: 5244634,
-            block_range_end: 5244652,
-            increment: 1,
-            sampled_property: Account(
-                0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4,
-                Nonce,
-            ),
-        },
-    ),
-    compute: Computation {
-        aggregate_fn_id: AVG,
-        aggregate_fn_ctx: FunctionContext {
-            operator: None,
-            value_to_compare: 0,
-        },
-    },
-}
-[2m2024-10-16T07:01:00.446758Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 517.601383ms
-[2m2024-10-16T07:01:00.841929Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Account Proofs Fetch): 395.155893ms
-[2m2024-10-16T07:01:00.842189Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-10-16T07:01:00.847649Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
-[2m2024-10-16T07:01:00.847660Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/10/input.json
-[2m2024-10-16T07:01:00.847684Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 975.769503ms
+thread 'main' panicked at hdp/src/hdp_run.rs:62:50:
+Invalid URL in RPC_URL env var: RelativeUrlWithoutBase
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
