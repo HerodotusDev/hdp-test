@@ -1,8 +1,8 @@
 Running command: hdp run-module --module-inputs public.0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_difficulty.compiled_contract_class.json -p fixtures/37/input.json -b batch.json --save-fetch-keys-file key.json
 Running: hdp run-module --module-inputs public.0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_difficulty.compiled_contract_class.json -p fixtures/37/input.json -b batch.json --save-fetch-keys-file key.json
-[2m2024-10-03T16:21:49.928861Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/header_memorizer_get_difficulty.compiled_contract_class.json"
-[2m2024-10-03T16:21:49.931388Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m program Hash: 0x4acd96f704afdb64f8042a4604c6ba37891e778b85938aa300e2c804a6b7d8
-[2m2024-10-03T16:21:49.931435Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target task: Module {
+[2m2024-10-16T07:14:41.014348Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/header_memorizer_get_difficulty.compiled_contract_class.json"
+[2m2024-10-16T07:14:41.016865Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m program Hash: 0x4acd96f704afdb64f8042a4604c6ba37891e778b85938aa300e2c804a6b7d8
+[2m2024-10-16T07:14:41.016930Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target task: Module {
     program_hash: 0x4acd96f704afdb64f8042a4604c6ba37891e778b85938aa300e2c804a6b7d8,
     inputs: [
         ModuleInput {
@@ -14,17 +14,12 @@ Running: hdp run-module --module-inputs public.0x5222A4 --local-class-path ./con
         "./contracts/target/dev/header_memorizer_get_difficulty.compiled_contract_class.json",
     ),
 }
-[2m2024-10-03T16:21:49.931809Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
-./src/contract_dry_run.cairo:104:5: Error at pc=0:4009:
-Got an exception while executing a hint.
-Traceback (most recent call last):
-  File "./src/contract_dry_run.cairo", line 105, in <module>
-  File "/home/runner/work/hdp/hdp/hdp-test/venv/lib/python3.9/site-packages/contract_bootloader/dryrun_syscall_handler.py", line 43, in <module>
-    raise ValueError(
-ValueError: RPC_URL environment variable is not set. Please set it in your environment or in a .env file.
-Error: Failed to compile the tasks
-
-Caused by:
-    0: Cairo Runner Error: Error while temp file creation: No such file or directory (os error 2)
-    1: Error while temp file creation: No such file or directory (os error 2)
-    2: No such file or directory (os error 2)
+[2m2024-10-16T07:14:41.017201Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
+[2m2024-10-16T07:14:47.882929Z[0m [32m INFO[0m [2mhdp::cairo_runner::dry_run[0m[2m:[0m dry-runner executed successfully
+[2m2024-10-16T07:14:47.883001Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 3. Fetching proofs from provider...
+[2m2024-10-16T07:14:47.883010Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target provider chain id: ETHEREUM_SEPOLIA
+[2m2024-10-16T07:14:48.309243Z[0m [32m INFO[0m [2mhdp::provider::evm::from_keys[0m[2m:[0m time taken (Headers Proofs Fetch): 372.906279ms
+[2m2024-10-16T07:14:48.310513Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-10-16T07:14:48.311532Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
+[2m2024-10-16T07:14:48.311545Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/37/input.json
+[2m2024-10-16T07:14:48.312495Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 7.329951786s

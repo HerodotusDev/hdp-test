@@ -1,0 +1,1 @@
+[{"fetch_keys": [{"type": "AccountMemorizerKey", "key": {"chain_id": 11155111, "block_number": 5382820, "address": "0x13CB6AE34A13a0977F4d7101eBc24B87Bb23F0d5"}}], "result": {"low": "0x1264", "high": "0x0"}, "program_hash": "0x177cc5feb5e2e162969c204dd9072164a3d0c710657af3e5d6e2421422b6bc"}]

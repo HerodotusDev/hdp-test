@@ -1,8 +1,8 @@
 Running command: hdp run-module --module-inputs public.0x5222A4,public.0x13cb6ae34a13a0977f4d7101ebc24b87bb23f0d5 --local-class-path ./contracts/target/dev/account_memorizer_get_state_root.compiled_contract_class.json -p fixtures/34/input.json -b batch.json --save-fetch-keys-file key.json
 Running: hdp run-module --module-inputs public.0x5222A4,public.0x13cb6ae34a13a0977f4d7101ebc24b87bb23f0d5 --local-class-path ./contracts/target/dev/account_memorizer_get_state_root.compiled_contract_class.json -p fixtures/34/input.json -b batch.json --save-fetch-keys-file key.json
-[2m2024-10-03T16:21:33.182590Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/account_memorizer_get_state_root.compiled_contract_class.json"
-[2m2024-10-03T16:21:33.185228Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m program Hash: 0x41b2ce78097c8679c25ba3658214964faa4b65ba7dc44b40404510c70f92e5b
-[2m2024-10-03T16:21:33.185298Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target task: Module {
+[2m2024-10-16T07:14:18.406555Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/account_memorizer_get_state_root.compiled_contract_class.json"
+[2m2024-10-16T07:14:18.409190Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m program Hash: 0x41b2ce78097c8679c25ba3658214964faa4b65ba7dc44b40404510c70f92e5b
+[2m2024-10-16T07:14:18.409266Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target task: Module {
     program_hash: 0x41b2ce78097c8679c25ba3658214964faa4b65ba7dc44b40404510c70f92e5b,
     inputs: [
         ModuleInput {
@@ -18,17 +18,13 @@ Running: hdp run-module --module-inputs public.0x5222A4,public.0x13cb6ae34a13a09
         "./contracts/target/dev/account_memorizer_get_state_root.compiled_contract_class.json",
     ),
 }
-[2m2024-10-03T16:21:33.185632Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
-./src/contract_dry_run.cairo:104:5: Error at pc=0:4009:
-Got an exception while executing a hint.
-Traceback (most recent call last):
-  File "./src/contract_dry_run.cairo", line 105, in <module>
-  File "/home/runner/work/hdp/hdp/hdp-test/venv/lib/python3.9/site-packages/contract_bootloader/dryrun_syscall_handler.py", line 43, in <module>
-    raise ValueError(
-ValueError: RPC_URL environment variable is not set. Please set it in your environment or in a .env file.
-Error: Failed to compile the tasks
-
-Caused by:
-    0: Cairo Runner Error: Error while temp file creation: No such file or directory (os error 2)
-    1: Error while temp file creation: No such file or directory (os error 2)
-    2: No such file or directory (os error 2)
+[2m2024-10-16T07:14:18.409608Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
+[2m2024-10-16T07:14:25.287023Z[0m [32m INFO[0m [2mhdp::cairo_runner::dry_run[0m[2m:[0m dry-runner executed successfully
+[2m2024-10-16T07:14:25.287075Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 3. Fetching proofs from provider...
+[2m2024-10-16T07:14:25.287080Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target provider chain id: ETHEREUM_SEPOLIA
+[2m2024-10-16T07:14:25.713114Z[0m [32m INFO[0m [2mhdp::provider::evm::from_keys[0m[2m:[0m time taken (Headers Proofs Fetch): 374.14478ms
+[2m2024-10-16T07:14:26.116214Z[0m [32m INFO[0m [2mhdp::provider::evm::from_keys[0m[2m:[0m time taken (Accounts Proofs Fetch): 403.07595ms
+[2m2024-10-16T07:14:26.116350Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-10-16T07:14:26.117931Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
+[2m2024-10-16T07:14:26.117944Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/34/input.json
+[2m2024-10-16T07:14:26.118942Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 7.741988075s
