@@ -1,7 +1,7 @@
 Running command: hdp run-module --module-inputs public.0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_difficulty.compiled_contract_class.json -p fixtures/7\/input.json -b batch.json --save-fetch-keys-file key.json
 Running: hdp run-module --module-inputs public.0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_difficulty.compiled_contract_class.json -p fixtures/7\/input.json -b batch.json --save-fetch-keys-file key.json
-[2m2024-10-21T13:57:41.004664Z[0m [34mDEBUG[0m [2mhdp_cli::cli[0m[2m:[0m running on log level: debug
-[2m2024-10-21T13:57:41.004839Z[0m [34mDEBUG[0m [2mhdp::hdp_run[0m[2m:[0m Running with configuration: HdpRunConfig {
+[2m2024-10-21T14:37:29.519833Z[0m [34mDEBUG[0m [2mhdp_cli::cli[0m[2m:[0m running on log level: debug
+[2m2024-10-21T14:37:29.520070Z[0m [34mDEBUG[0m [2mhdp::hdp_run[0m[2m:[0m Running with configuration: HdpRunConfig {
     provider_config: {
         ETHEREUM_SEPOLIA: ProviderConfig {
             provider_url: Url {
@@ -35,9 +35,9 @@ Running: hdp run-module --module-inputs public.0x5222A4 --local-class-path ./con
         "key.json",
     ),
 }
-[2m2024-10-21T13:57:41.008131Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/header_memorizer_get_difficulty.compiled_contract_class.json"
-[2m2024-10-21T13:57:41.010708Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m program Hash: 0x7db2adee87dd0aa2139bd4e5c51f526e0165c2ad5b6840834fd5945c9be19ce
-[2m2024-10-21T13:57:41.010737Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target task: Module {
+[2m2024-10-21T14:37:29.524195Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/header_memorizer_get_difficulty.compiled_contract_class.json"
+[2m2024-10-21T14:37:29.526887Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m program Hash: 0x7db2adee87dd0aa2139bd4e5c51f526e0165c2ad5b6840834fd5945c9be19ce
+[2m2024-10-21T14:37:29.526921Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target task: Module {
     program_hash: 0x7db2adee87dd0aa2139bd4e5c51f526e0165c2ad5b6840834fd5945c9be19ce,
     inputs: [
         ModuleInput {
@@ -49,12 +49,11 @@ Running: hdp run-module --module-inputs public.0x5222A4 --local-class-path ./con
         "./contracts/target/dev/header_memorizer_get_difficulty.compiled_contract_class.json",
     ),
 }
-[2m2024-10-21T13:57:41.010935Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
-Executing: cairo-run --program ../build/compiled_cairo_files/contract_dry_run.json --layout starknet_with_keccak --program_input /var/folders/1b/x22lvb2j0g1bpsq8kbylw2r00000gn/T/.tmp8uQLdE --print_output
-[2m2024-10-21T13:57:43.635663Z[0m [32m INFO[0m [2mhdp::cairo_runner::dry_run[0m[2m:[0m dry-runner executed successfully
-[2m2024-10-21T13:57:43.635684Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 3. Fetching proofs from provider...
-[2m2024-10-21T13:57:43.635686Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target provider chain id: ETHEREUM_SEPOLIA
-[2m2024-10-21T13:57:43.636653Z[0m [34mDEBUG[0m [2mhdp::provider::indexer[0m[2m:[0m request params to indexer: [
+[2m2024-10-21T14:37:29.527108Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
+[2m2024-10-21T14:37:32.490551Z[0m [32m INFO[0m [2mhdp::cairo_runner::dry_run[0m[2m:[0m dry-runner executed successfully
+[2m2024-10-21T14:37:32.490579Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 3. Fetching proofs from provider...
+[2m2024-10-21T14:37:32.490581Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target provider chain id: ETHEREUM_SEPOLIA
+[2m2024-10-21T14:37:32.490665Z[0m [34mDEBUG[0m [2mhdp::provider::indexer[0m[2m:[0m request params to indexer: [
     (
         "deployed_on_chain",
         "11155111",
@@ -96,19 +95,19 @@ Executing: cairo-run --program ../build/compiled_cairo_files/contract_dry_run.js
         "true",
     ),
 ]
-[2m2024-10-21T13:57:43.637002Z[0m [34mDEBUG[0m [2mhyper::client::connect::dns[0m[2m:[0m resolving host="rs-indexer.api.herodotus.cloud"
-[2m2024-10-21T13:57:43.638570Z[0m [34mDEBUG[0m [2mhyper::client::connect::http[0m[2m:[0m connecting to 163.172.131.114:443
-[2m2024-10-21T13:57:43.672013Z[0m [34mDEBUG[0m [2mhyper::client::connect::http[0m[2m:[0m connected to 163.172.131.114:443
-[2m2024-10-21T13:57:43.744955Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 342 bytes
-[2m2024-10-21T13:57:43.868317Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 8 headers
-[2m2024-10-21T13:57:43.868503Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is content-length (4371 bytes)
-[2m2024-10-21T13:57:43.868567Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body completed
-[2m2024-10-21T13:57:43.868724Z[0m [34mDEBUG[0m [2mhyper::client::pool[0m[2m:[0m pooling idle connection for ("https", rs-indexer.api.herodotus.cloud)
-[2m2024-10-21T13:57:43.868983Z[0m [32m INFO[0m [2mhdp::provider::evm::from_keys[0m[2m:[0m time taken (Headers Proofs Fetch): 232.354458ms
-[2m2024-10-21T13:57:43.869337Z[0m [34mDEBUG[0m [2mhdp::primitives::solidity_types::module[0m[2m:[0m encoded_task: "07db2adee87dd0aa2139bd4e5c51f526e0165c2ad5b6840834fd5945c9be19ce0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000005222a4"
-[2m2024-10-21T13:57:43.869373Z[0m [34mDEBUG[0m [2mhdp::primitives::solidity_types::module[0m[2m:[0m encoded_task: "07db2adee87dd0aa2139bd4e5c51f526e0165c2ad5b6840834fd5945c9be19ce0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000005222a4"
-[2m2024-10-21T13:57:43.869379Z[0m [34mDEBUG[0m [2mhdp::preprocessor[0m[2m:[0m compiled_result: 0
-[2m2024-10-21T13:57:43.869400Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-10-21T13:57:43.871695Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
-[2m2024-10-21T13:57:43.871716Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/7/input.json
-[2m2024-10-21T13:57:43.871767Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 2.868240333s
+[2m2024-10-21T14:37:32.490778Z[0m [34mDEBUG[0m [2mhyper::client::connect::dns[0m[2m:[0m resolving host="rs-indexer.api.herodotus.cloud"
+[2m2024-10-21T14:37:32.492940Z[0m [34mDEBUG[0m [2mhyper::client::connect::http[0m[2m:[0m connecting to 163.172.131.114:443
+[2m2024-10-21T14:37:32.537057Z[0m [34mDEBUG[0m [2mhyper::client::connect::http[0m[2m:[0m connected to 163.172.131.114:443
+[2m2024-10-21T14:37:32.608612Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m flushed 342 bytes
+[2m2024-10-21T14:37:32.707696Z[0m [34mDEBUG[0m [2mhyper::proto::h1::io[0m[2m:[0m parsed 8 headers
+[2m2024-10-21T14:37:32.708960Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body is content-length (4371 bytes)
+[2m2024-10-21T14:37:32.709025Z[0m [34mDEBUG[0m [2mhyper::proto::h1::conn[0m[2m:[0m incoming body completed
+[2m2024-10-21T14:37:32.709164Z[0m [34mDEBUG[0m [2mhyper::client::pool[0m[2m:[0m pooling idle connection for ("https", rs-indexer.api.herodotus.cloud)
+[2m2024-10-21T14:37:32.709391Z[0m [32m INFO[0m [2mhdp::provider::evm::from_keys[0m[2m:[0m time taken (Headers Proofs Fetch): 218.738709ms
+[2m2024-10-21T14:37:32.713066Z[0m [34mDEBUG[0m [2mhdp::primitives::solidity_types::module[0m[2m:[0m encoded_task: "07db2adee87dd0aa2139bd4e5c51f526e0165c2ad5b6840834fd5945c9be19ce0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000005222a4"
+[2m2024-10-21T14:37:32.713099Z[0m [34mDEBUG[0m [2mhdp::primitives::solidity_types::module[0m[2m:[0m encoded_task: "07db2adee87dd0aa2139bd4e5c51f526e0165c2ad5b6840834fd5945c9be19ce0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000005222a4"
+[2m2024-10-21T14:37:32.713133Z[0m [34mDEBUG[0m [2mhdp::preprocessor[0m[2m:[0m compiled_result: 0
+[2m2024-10-21T14:37:32.713149Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-10-21T14:37:32.714720Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
+[2m2024-10-21T14:37:32.714733Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/7/input.json
+[2m2024-10-21T14:37:32.714784Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 3.196796542s
