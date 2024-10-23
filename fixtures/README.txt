@@ -486,3 +486,10 @@ Command: hdp run-module --module-inputs public.0x522299,public.0xD9 --local-clas
 Command: hdp run-module --module-inputs public.0x522299,public.0x28 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_max_fee_per_blob_gas.compiled_contract_class.json -p fixtures/30\/input.json -b batch.json --save-fetch-keys-file key.json executed and output saved in fixtures/30
 Command: hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_tx_type.compiled_contract_class.json -p fixtures/31\/input.json -b batch.json --save-fetch-keys-file key.json executed and output saved in fixtures/31
 Command: hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_sender.compiled_contract_class.json -p fixtures/32\/input.json -b batch.json --save-fetch-keys-file key.json executed and output saved in fixtures/32
+Running commands in scope: header
+Running commands in scope: account
+Running commands in scope: storage
+Running commands in scope: tx
+Running commands in scope: tx_receipt,
+Running commands in scope: module
+Command: hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_sender.compiled_contract_class.json -p fixtures/1\/input.json -b batch.json --save-fetch-keys-file key.json executed and output saved in fixtures/1

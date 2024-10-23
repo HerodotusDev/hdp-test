@@ -3,7 +3,7 @@ name = "contracts"
 version = "0.1.0"
 edition = "2023_11"
 
-members = ["header_memorizer", "account_memorizer", "storage_memorizer", "block_tx_memorizer"]
+members = ["block_tx_memorizer"]
 
 [workspace.dependencies]
 hdp_cairo = { path = "../../." }
