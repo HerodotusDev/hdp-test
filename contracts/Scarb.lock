@@ -10,9 +10,24 @@ dependencies = [
 ]
 
 [[package]]
+name = "block_receipt_memorizer"
+version = "0.1.0"
+dependencies = [
+ "hdp_cairo",
+ "snforge_std",
+]
+
+[[package]]
+name = "block_tx_memorizer"
+version = "0.1.0"
+dependencies = [
+ "hdp_cairo",
+ "snforge_std",
+]
+
+[[package]]
 name = "hdp_cairo"
 version = "0.1.0"
-source = "git+https://github.com/HerodotusDev/hdp-cairo.git?branch=more_syscalls#255a584d8b6e98cf9d0bbf15fcecd5c412872d25"
 
 [[package]]
 name = "header_memorizer"

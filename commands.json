@@ -1,52 +1,4 @@
 {
-  "header": [
-    "hdp run-datalake -p input.json -b batch.json avg -s ETHEREUM_SEPOLIA 5858987 5858997 header.number 1",
-    "hdp run-datalake -p input.json -b batch.json sum -s ETHEREUM_SEPOLIA 5858987 5858997 header.difficulty 2",
-    "hdp run-datalake -p input.json -b batch.json min -s ETHEREUM_SEPOLIA 5858987 5858997 header.gas_limit 3",
-    "hdp run-datalake -p input.json -b batch.json max -s ETHEREUM_SEPOLIA 5858987 5858997 header.gas_used 1",
-    "hdp run-datalake -p input.json -b batch.json sum -s ETHEREUM_SEPOLIA 5858987 5858997 header.timestamp 2",
-    "hdp run-datalake -p input.json -b batch.json min -s ETHEREUM_SEPOLIA 5858987 5858997 header.base_fee_per_gas 3",
-    "hdp run-datalake -p input.json -b batch.json max -s ETHEREUM_SEPOLIA 5858987 5858997 header.blob_gas_used 1",
-    "hdp run-datalake -p input.json -b batch.json avg -s ETHEREUM_SEPOLIA 5858987 5858997 header.excess_blob_gas 2",
-    "hdp run-datalake -p input.json -b batch.json sum -s ETHEREUM_SEPOLIA 5858987 5858997 header.nonce 3"
-  ],
-  "account": [
-    "hdp run-datalake -p input.json -b batch.json avg -s ETHEREUM_SEPOLIA 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 1",
-    "hdp run-datalake -p input.json -b batch.json sum -s ETHEREUM_SEPOLIA 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 2",
-    "hdp run-datalake -p input.json -b batch.json min -s ETHEREUM_SEPOLIA 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 3",
-    "hdp run-datalake -p input.json -b batch.json max -s ETHEREUM_SEPOLIA 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce 4",
-    "hdp run-datalake -p input.json -b batch.json avg -s ETHEREUM_SEPOLIA 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 1",
-    "hdp run-datalake -p input.json -b batch.json sum -s ETHEREUM_SEPOLIA 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 2",
-    "hdp run-datalake -p input.json -b batch.json min -s ETHEREUM_SEPOLIA 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 3",
-    "hdp run-datalake -p input.json -b batch.json max -s ETHEREUM_SEPOLIA 5244634 5244652 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 4",
-    "hdp run-datalake -p input.json -b batch.json max -s ETHEREUM_SEPOLIA 5000000 5000010 account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.balance 4"
-  ],
-  "storage": [
-    "hdp run-datalake -p input.json -b batch.json avg -s ETHEREUM_SEPOLIA 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000000 1",
-    "hdp run-datalake -p input.json -b batch.json sum -s ETHEREUM_SEPOLIA 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000001 2",
-    "hdp run-datalake -p input.json -b batch.json min -s ETHEREUM_SEPOLIA 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000002 3",
-    "hdp run-datalake -p input.json -b batch.json max -s ETHEREUM_SEPOLIA 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000000 4"
-  ],
-  "tx": [
-    "hdp run-datalake -p input.json -b batch.json avg -t ETHEREUM_SEPOLIA 5253873 tx.chain_id 49 79 4 0,1,1,1",
-    "hdp run-datalake -p input.json -b batch.json sum -t ETHEREUM_SEPOLIA 5340342 tx.gas_limit 43 88 34 1,1,1,1",
-    "hdp run-datalake -p input.json -b batch.json min -t ETHEREUM_SEPOLIA 5340342 tx.gas_price 0 45 4 1,1,0,0",
-    "hdp run-datalake -p input.json -b batch.json max -t ETHEREUM_SEPOLIA 5858987 tx.max_fee_per_blob_gas 2 100 1 0,0,0,1",
-    "hdp run-datalake -p input.json -b batch.json avg -t ETHEREUM_SEPOLIA 5251607 tx.max_fee_per_gas 0 50 8 0,0,1,1",
-    "hdp run-datalake -p input.json -b batch.json sum -t ETHEREUM_SEPOLIA 5605816 tx.max_priority_fee_per_gas 12 53 1 0,0,1,1",
-    "hdp run-datalake -p input.json -b batch.json min -t ETHEREUM_SEPOLIA 5409986 tx.nonce 6 40 1 1,1,1,1",
-    "hdp run-datalake -p input.json -b batch.json max -t ETHEREUM_SEPOLIA 5461248 tx.value 21 29 1 1,1,1,1"
-  ],
-  "tx_receipt": [
-    "hdp run-datalake -p input.json -b batch.json avg -t ETHEREUM_SEPOLIA 5253873 tx_receipt.success 49 79 4 0,1,1,1",
-    "hdp run-datalake -p input.json -b batch.json sum -t ETHEREUM_SEPOLIA 5340342 tx_receipt.cumulative_gas_used 43 88 34 1,1,1,1",
-    "hdp run-datalake -p input.json -b batch.json min -t ETHEREUM_SEPOLIA 5340342 tx_receipt.success 0 45 4 1,1,0,0",
-    "hdp run-datalake -p input.json -b batch.json max -t ETHEREUM_SEPOLIA 5858987 tx_receipt.cumulative_gas_used 2 100 1 0,0,0,1",
-    "hdp run-datalake -p input.json -b batch.json avg -t ETHEREUM_SEPOLIA 5251607 tx_receipt.success 0 50 8 0,0,1,1",
-    "hdp run-datalake -p input.json -b batch.json sum -t ETHEREUM_SEPOLIA 5605816 tx_receipt.cumulative_gas_used 12 53 1 0,0,1,1",
-    "hdp run-datalake -p input.json -b batch.json min -t ETHEREUM_SEPOLIA 5409986 tx_receipt.success 6 40 1 1,1,1,1",
-    "hdp run-datalake -p input.json -b batch.json max -t ETHEREUM_SEPOLIA 5461248 tx_receipt.cumulative_gas_used 21 29 1 1,1,1,1"
-  ],
   "module": [
     "hdp run-module --module-inputs public.0x5222A4,public.0x13cb6ae34a13a0977f4d7101ebc24b87bb23f0d5 --local-class-path ./contracts/target/dev/account_memorizer_get_balance.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
     "hdp run-module --module-inputs public.0x5222A4,public.0x13cb6ae34a13a0977f4d7101ebc24b87bb23f0d5 --local-class-path ./contracts/target/dev/account_memorizer_get_code_hash.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
@@ -65,6 +17,22 @@
     "hdp run-module --module-inputs public.0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_state_root.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
     "hdp run-module --module-inputs public.0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_transaction_root.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
     "hdp run-module --module-inputs public.0x5222A4 --local-class-path ./contracts/target/dev/header_memorizer_get_uncle.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
-    "hdp run-module --module-inputs public.0x5222A4,private.0x75cec1db9dceb703200eaa6595f66885c962b920,public.0x1,public.0x0 --local-class-path ./contracts/target/dev/storage_memorizer_get_slot.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json"
+    "hdp run-module --module-inputs public.0x5222A4,private.0x75cec1db9dceb703200eaa6595f66885c962b920,public.0x1,public.0x0 --local-class-path ./contracts/target/dev/storage_memorizer_get_slot.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_nonce.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x32CAB3,public.0x08 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_gas_price.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_gas_limit.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_receiver.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_value.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_v.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_r.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_s.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_chain_id.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_max_fee_per_gas.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_max_priority_fee_per_gas.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0x28 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_max_fee_per_blob_gas.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_tx_type.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_sender.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_receipt_memorizer_get_status.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
+    "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_receipt_memorizer_get_cumulative_gas_used.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json"
   ]
 }

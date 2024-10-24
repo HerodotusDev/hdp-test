@@ -1,29 +1,30 @@
-Running command: hdp run-datalake -p fixtures/19/input.json -b batch.json avg -s ETHEREUM_SEPOLIA 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000000 1
-Running: hdp run-datalake -p fixtures/19/input.json -b batch.json avg -s ETHEREUM_SEPOLIA 5641516 5641561 storage.0x75cec1db9dceb703200eaa6595f66885c962b920.0x0000000000000000000000000000000000000000000000000000000000000000 1
-[2m2024-10-16T07:01:08.870601Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
-    datalake: BlockSampled(
-        BlockSampledDatalake {
-            chain_id: ETHEREUM_SEPOLIA,
-            block_range_start: 5641516,
-            block_range_end: 5641561,
-            increment: 1,
-            sampled_property: Storage(
-                0x75cec1db9dceb703200eaa6595f66885c962b920,
-                0x0000000000000000000000000000000000000000000000000000000000000000,
-            ),
+Running command: hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_nonce.compiled_contract_class.json -p fixtures/19\/input.json -b batch.json --save-fetch-keys-file key.json
+Running: hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_nonce.compiled_contract_class.json -p fixtures/19\/input.json -b batch.json --save-fetch-keys-file key.json
+[2m2024-10-24T13:14:12.783167Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/block_tx_memorizer_get_nonce.compiled_contract_class.json"
+[2m2024-10-24T13:14:12.786251Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m program Hash: 0x2c437d8f7137c1fdc77ff024adc150038d6c9819c9fe0a541f1f3f8af255d8e
+[2m2024-10-24T13:14:12.786286Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target task: Module {
+    program_hash: 0x2c437d8f7137c1fdc77ff024adc150038d6c9819c9fe0a541f1f3f8af255d8e,
+    inputs: [
+        ModuleInput {
+            visibility: Public,
+            value: 0x522299,
         },
+        ModuleInput {
+            visibility: Public,
+            value: 0xd9,
+        },
+    ],
+    local_class_path: Some(
+        "./contracts/target/dev/block_tx_memorizer_get_nonce.compiled_contract_class.json",
     ),
-    compute: Computation {
-        aggregate_fn_id: AVG,
-        aggregate_fn_ctx: FunctionContext {
-            operator: None,
-            value_to_compare: 0,
-        },
-    },
 }
-[2m2024-10-16T07:01:09.557077Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 631.832785ms
-[2m2024-10-16T07:01:09.976136Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Storage Proofs Fetch): 419.042533ms
-[2m2024-10-16T07:01:09.976687Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-10-16T07:01:09.989188Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
-[2m2024-10-16T07:01:09.989200Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/19/input.json
-[2m2024-10-16T07:01:09.989269Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 1.120196928s
+[2m2024-10-24T13:14:12.786569Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
+[2m2024-10-24T13:14:16.274745Z[0m [32m INFO[0m [2mhdp::cairo_runner::dry_run[0m[2m:[0m dry-runner executed successfully
+[2m2024-10-24T13:14:16.274768Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 3. Fetching proofs from provider...
+[2m2024-10-24T13:14:16.274770Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target provider chain id: ETHEREUM_SEPOLIA
+[2m2024-10-24T13:14:16.529233Z[0m [32m INFO[0m [2mhdp::provider::evm::from_keys[0m[2m:[0m time taken (Headers Proofs Fetch): 253.487666ms
+[2m2024-10-24T13:14:17.020356Z[0m [32m INFO[0m [2mhdp::provider::evm::from_keys[0m[2m:[0m time taken (Transaction Fetch): 491.098792ms
+[2m2024-10-24T13:14:17.020437Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
+[2m2024-10-24T13:14:17.021057Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
+[2m2024-10-24T13:14:17.021063Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/19/input.json
+[2m2024-10-24T13:14:17.021082Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 4.24349525s
