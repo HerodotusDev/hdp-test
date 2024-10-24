@@ -1,0 +1,1 @@
+[{"fetch_keys": [{"type": "EvmBlockReceiptKey", "key": {"chain_id": 11155111, "block_number": 5382809, "index": 217}}], "result": {"low": "0x1", "high": "0x0"}, "program_hash": "0x19aae1421e5a6e7795927ac31eba885a80d54bb3a97a45f41d76394cbed3a93"}]
