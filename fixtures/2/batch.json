@@ -1,12 +1,12 @@
 {
   "raw_results": [
-    "0x0000000000000000000000000000000000000000000000000000000000000000"
+    "0xc5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470"
   ],
   "results_commitments": [
-    "0x1bf9d3def7a832759f3bcf70a180b5b6f55cb817db34ea5085fd159edb9ae22e"
+    "0xfd33277c588ab5a83692404524e10e7b468dd1d131b68339e92c668c9368683b"
   ],
   "tasks_commitments": [
-    "0xc2a4c7eb5ebaadb0be9f0a2440540cc78b3382c095d5ae3c76c15c00fc07d632"
+    "0xc768b42fc7e13add2d53cc36afa029ea45f08defd2a2379b46392dda68e0a1d2"
   ],
   "task_inclusion_proofs": [
     []
@@ -14,8 +14,8 @@
   "results_inclusion_proofs": [
     []
   ],
-  "results_root": "0x4d63156be1bffe02f11f333365bf40cd7d84a752898e1ea69eb934cf8f2121c1",
-  "tasks_root": "0xd3cb560a865a6d81646ed39eecf880bbb4f72d9926fbaf65d54a54222f60c6be",
+  "results_root": "0x40b2610e173c2b2425fdbc61a410c86879fafca97a06a4a413f0a95c9013ca93",
+  "tasks_root": "0xf494bdda2ae95967337a8a65e8f7348cae1092ae4e785ea97cf6eba5419db8a1",
   "mmr_metas": [
     {
       "id": 27,
@@ -35,8 +35,7 @@
         "0x25cd2f0b579c902c41ac26df96ed5b21e16a3127dce2b471973dc86eb4c099f",
         "0x5fdedfd0123b7461d5b3162fe82f7f3172c42fda6209415367870086f7c7918",
         "0x7c0a415d5a6c4c90fd2dde1b340c3be305a72aa3b758dd26b8d7b4a78b53681"
-      ],
-      "chain_id": 11155111
+      ]
     }
   ]
 }

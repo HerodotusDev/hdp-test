@@ -1,35 +1,50 @@
-Running command: hdp run-datalake -p fixtures/30/input.json -b batch.json max -t ETHEREUM_SEPOLIA 5461248 tx.value 21 29 1 1,1,1,1
-Running: hdp run-datalake -p fixtures/30/input.json -b batch.json max -t ETHEREUM_SEPOLIA 5461248 tx.value 21 29 1 1,1,1,1
-[2m2024-10-16T07:01:23.169247Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::datalake[0m[2m:[0m target task: DatalakeCompute {
-    datalake: TransactionsInBlock(
-        TransactionsInBlockDatalake {
-            chain_id: ETHEREUM_SEPOLIA,
-            target_block: 5461248,
-            start_index: 21,
-            end_index: 29,
-            increment: 1,
-            included_types: IncludedTypes {
-                legacy: true,
-                eip2930: true,
-                eip1559: true,
-                eip4844: true,
-            },
-            sampled_property: Transactions(
-                Value,
-            ),
+Running command: hdp run-module --module-inputs public.0x522299,public.0x28 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_max_fee_per_blob_gas.compiled_contract_class.json -p fixtures/30\/input.json -b batch.json --save-fetch-keys-file key.json
+Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_max_fee_per_blob_gas.compiled_contract_class.json -p fixtures/30\/input.json -b batch.json --save-fetch-keys-file key.json
+[2m2024-10-24T13:14:57.987026Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/block_tx_memorizer_get_max_fee_per_blob_gas.compiled_contract_class.json"
+[2m2024-10-24T13:14:57.990478Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m program Hash: 0x749ec1168bc590386e2adab79c3e1f978c96a9c857d1a7cef8e0df990645629
+[2m2024-10-24T13:14:57.990515Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m target task: Module {
+    program_hash: 0x749ec1168bc590386e2adab79c3e1f978c96a9c857d1a7cef8e0df990645629,
+    inputs: [
+        ModuleInput {
+            visibility: Public,
+            value: 0x522299,
         },
+        ModuleInput {
+            visibility: Public,
+            value: 0x28,
+        },
+    ],
+    local_class_path: Some(
+        "./contracts/target/dev/block_tx_memorizer_get_max_fee_per_blob_gas.compiled_contract_class.json",
     ),
-    compute: Computation {
-        aggregate_fn_id: MAX,
-        aggregate_fn_ctx: FunctionContext {
-            operator: None,
-            value_to_compare: 0,
-        },
-    },
 }
-[2m2024-10-16T07:01:23.554134Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Headers Proofs Fetch): 331.168498ms
-[2m2024-10-16T07:01:24.446300Z[0m [32m INFO[0m [2mhdp::provider::evm::provider[0m[2m:[0m time taken (Transactions Proofs Fetch): 892.145897ms
-[2m2024-10-16T07:01:24.447608Z[0m [32m INFO[0m [2mhdp::preprocessor[0m[2m:[0m 1️⃣  Preprocessor completed successfully
-[2m2024-10-16T07:01:24.448865Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m saved the batch proof file in batch.json
-[2m2024-10-16T07:01:24.448879Z[0m [32m INFO[0m [2mhdp::hdp_run[0m[2m:[0m finished pre processing the data, saved the program input file in fixtures/30/input.json
-[2m2024-10-16T07:01:24.448888Z[0m [32m INFO[0m [2mhdp_cli::cli[0m[2m:[0m HDP Cli Finished in: 1.281142349s
+[2m2024-10-24T13:14:57.990775Z[0m [32m INFO[0m [2mhdp::preprocessor::compile::module[0m[2m:[0m 2. Running dry-run... 
+Error at pc=18:494:
+Got an exception while executing a hint.
+Cairo traceback (most recent call last):
+./src/contract_dry_run.cairo:127:39: (pc=0:2366)
+/Users/paul/Documents/projects/offchain-evm-headers-processor-mirror/venv/lib/python3.9/site-packages/contract_bootloader/contract_bootloader.cairo:111:39: (pc=0:2243)
+        let (retdata_size, retdata) = execute_entry_point(
+                                      ^******************^
+/Users/paul/Documents/projects/offchain-evm-headers-processor-mirror/venv/lib/python3.9/site-packages/contract_bootloader/execute_entry_point.cairo:202:5: (pc=0:2072)
+        syscall_ptr=syscall_ptr,
+    ^***************************^
+Unknown location (pc=18:158)
+
+Traceback (most recent call last):
+  File "<hint98>", line 1, in <module>
+  File "/Users/paul/Documents/projects/offchain-evm-headers-processor-mirror/venv/lib/python3.9/site-packages/contract_bootloader/syscall_handler_base.py", line 100, in syscall
+    response_header, response = syscall_info.execute_callback(
+  File "/Users/paul/Documents/projects/offchain-evm-headers-processor-mirror/venv/lib/python3.9/site-packages/contract_bootloader/syscall_handler_base.py", line 113, in call_contract
+    return self.call_contract_helper(
+  File "/Users/paul/Documents/projects/offchain-evm-headers-processor-mirror/venv/lib/python3.9/site-packages/contract_bootloader/syscall_handler_base.py", line 120, in call_contract_helper
+    result = self._call_contract_helper(request=request, syscall_name=syscall_name)
+  File "/Users/paul/Documents/projects/offchain-evm-headers-processor-mirror/venv/lib/python3.9/site-packages/contract_bootloader/dryrun_syscall_handler.py", line 237, in _call_contract_helper
+    retdata=list(retdata),
+TypeError: 'NoneType' object is not iterable
+Error: Failed to compile the tasks
+
+Caused by:
+    0: Cairo Runner Error: Error while temp file creation: No such file or directory (os error 2)
+    1: Error while temp file creation: No such file or directory (os error 2)
+    2: No such file or directory (os error 2)

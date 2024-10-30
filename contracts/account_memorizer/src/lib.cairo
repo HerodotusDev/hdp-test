@@ -1,7 +1,7 @@
 #[starknet::contract]
 mod get_nonce {
-    use hdp_cairo::memorizer::account_memorizer::AccountMemorizerTrait;
-    use hdp_cairo::{HDP, memorizer::account_memorizer::{AccountKey, AccountMemorizerImpl}};
+    use hdp_cairo::evm::account::AccountTrait;
+    use hdp_cairo::{HDP, evm::account::{AccountKey, AccountImpl}};
     use starknet::syscalls::call_contract_syscall;
     use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
@@ -11,8 +11,8 @@ mod get_nonce {
     #[external(v0)]
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, address: felt252) -> u256 {
         hdp
-            .account_memorizer
-            .get_nonce(
+            .evm
+            .account_get_nonce(
                 AccountKey { chain_id: 11155111, block_number: block_number.into(), address }
             )
     }
@@ -20,8 +20,8 @@ mod get_nonce {
 
 #[starknet::contract]
 mod get_balance {
-    use hdp_cairo::memorizer::account_memorizer::AccountMemorizerTrait;
-    use hdp_cairo::{HDP, memorizer::account_memorizer::{AccountKey, AccountMemorizerImpl}};
+    use hdp_cairo::evm::account::AccountTrait;
+    use hdp_cairo::{HDP, evm::account::{AccountKey, AccountImpl}};
     use starknet::syscalls::call_contract_syscall;
     use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
@@ -31,8 +31,8 @@ mod get_balance {
     #[external(v0)]
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, address: felt252) -> u256 {
         hdp
-            .account_memorizer
-            .get_balance(
+            .evm
+            .account_get_balance(
                 AccountKey { chain_id: 11155111, block_number: block_number.into(), address }
             )
     }
@@ -40,8 +40,8 @@ mod get_balance {
 
 #[starknet::contract]
 mod get_state_root {
-    use hdp_cairo::memorizer::account_memorizer::AccountMemorizerTrait;
-    use hdp_cairo::{HDP, memorizer::account_memorizer::{AccountKey, AccountMemorizerImpl}};
+    use hdp_cairo::evm::account::AccountTrait;
+    use hdp_cairo::{HDP, evm::account::{AccountKey, AccountImpl}};
     use starknet::syscalls::call_contract_syscall;
     use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
@@ -51,8 +51,8 @@ mod get_state_root {
     #[external(v0)]
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, address: felt252) -> u256 {
         hdp
-            .account_memorizer
-            .get_state_root(
+            .evm
+            .account_get_state_root(
                 AccountKey { chain_id: 11155111, block_number: block_number.into(), address }
             )
     }
@@ -60,8 +60,8 @@ mod get_state_root {
 
 #[starknet::contract]
 mod get_code_hash {
-    use hdp_cairo::memorizer::account_memorizer::AccountMemorizerTrait;
-    use hdp_cairo::{HDP, memorizer::account_memorizer::{AccountKey, AccountMemorizerImpl}};
+    use hdp_cairo::evm::account::AccountTrait;
+    use hdp_cairo::{HDP, evm::account::{AccountKey, AccountImpl}};
     use starknet::syscalls::call_contract_syscall;
     use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
@@ -71,8 +71,8 @@ mod get_code_hash {
     #[external(v0)]
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, address: felt252) -> u256 {
         hdp
-            .account_memorizer
-            .get_code_hash(
+            .evm
+            .account_get_code_hash(
                 AccountKey { chain_id: 11155111, block_number: block_number.into(), address }
             )
     }
