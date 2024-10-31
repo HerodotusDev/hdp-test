@@ -40,7 +40,6 @@ execute_commands() {
     # Run the command and append the output to README
     echo "Running: $MODIFIED_COMMAND" | tee -a $README
     eval $MODIFIED_COMMAND 2>&1 | tee -a $README
-    cp key.json $FOLDER/key.json
     cp batch.json $FOLDER/batch.json
 
     # Log in main README
@@ -63,7 +62,7 @@ mkdir -p fixtures
 
 # Check if the scope is 'all'
 if [ "$SCOPE" == "all" ]; then
-  SCOPES=("header" "account" "storage" "tx" "tx_receipt", "module")
+  SCOPES=("module","module-local")
   for scope in "${SCOPES[@]}"; do
     execute_commands $scope $COMMANDS_JSON
   done

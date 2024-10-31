@@ -1,0 +1,15 @@
+{
+  "destinationChainId": "ETHEREUM_SEPOLIA",
+  "tasks": [
+    {
+      "type": "Module",
+      "localClassPath": "./contracts/target/dev/header_memorizer_get_base_fee_per_gas.compiled_contract_class.json",
+      "inputs": [
+        {
+          "visibility": "public",
+          "value": "0x5222A4"
+        }
+      ]
+    }
+  ]
+}

@@ -34,5 +34,10 @@
     "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_sender.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
     "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_receipt_memorizer_get_status.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json",
     "hdp run-module --module-inputs public.0x522299,public.0xD9 --local-class-path ./contracts/target/dev/block_receipt_memorizer_get_cumulative_gas_used.compiled_contract_class.json -p input.json -b batch.json --save-fetch-keys-file key.json"
+  ],
+  "module-local": [
+    "hdp run -r requests/8.json -p input.json -b batch.json",
+    "hdp run -r requests/9.json -p input.json -b batch.json",
+    "hdp run -r requests/10.json -p input.json -b batch.json"
   ]
 }

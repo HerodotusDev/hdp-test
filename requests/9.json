@@ -3,7 +3,7 @@
   "tasks": [
     {
       "type": "Module",
-      "localClassPath": "./contracts/target/dev/account_memorizer_get_balance.compiled_contract_class.json",
+      "localClassPath": "./contracts/target/dev/account_memorizer_get_code_hash.compiled_contract_class.json",
       "inputs": [
         {
           "visibility": "public",
