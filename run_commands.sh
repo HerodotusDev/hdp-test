@@ -62,7 +62,7 @@ mkdir -p fixtures
 
 # Check if the scope is 'all'
 if [ "$SCOPE" == "all" ]; then
-  SCOPES=("module","module-local")
+  SCOPES=("module" , "module-local")
   for scope in "${SCOPES[@]}"; do
     execute_commands $scope $COMMANDS_JSON
   done
