@@ -2,8 +2,6 @@
 mod get_slot {
     use hdp_cairo::evm::storage::StorageTrait;
     use hdp_cairo::{HDP, evm::storage::{StorageKey, StorageImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
