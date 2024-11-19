@@ -1,21 +1,17 @@
-Running command: hdp run-module --module-inputs public.0x522299,public.0x28 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_max_fee_per_blob_gas.compiled_contract_class.json -p fixtures/30/input.json -b batch.json --save-fetch-keys-file key.json --destination-chain-id ETHEREUM_SEPOLIA
-Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-class-path ./contracts/target/dev/block_tx_memorizer_get_max_fee_per_blob_gas.compiled_contract_class.json -p fixtures/30/input.json -b batch.json --save-fetch-keys-file key.json --destination-chain-id ETHEREUM_SEPOLIA
-[2m2024-11-19T08:17:42.587394Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/block_tx_memorizer_get_max_fee_per_blob_gas.compiled_contract_class.json"
-[2m2024-11-19T08:17:42.587501Z[0m [32m INFO[0m [2mhdp::preprocessor::module_compile[0m[2m:[0m target task: ExtendedModule {
+Running command: hdp run-module --module-inputs public.0x316F5 --local-class-path ./contracts/target/dev/header_memorizer_starknet_get_storage.compiled_contract_class.json -p fixtures/36/input.json -b batch.json --save-fetch-keys-file key.json --destination-chain-id ETHEREUM_SEPOLIA
+Running: hdp run-module --module-inputs public.0x316F5 --local-class-path ./contracts/target/dev/header_memorizer_starknet_get_storage.compiled_contract_class.json -p fixtures/36/input.json -b batch.json --save-fetch-keys-file key.json --destination-chain-id ETHEREUM_SEPOLIA
+[2m2024-11-19T08:18:17.412852Z[0m [32m INFO[0m [2mhdp::preprocessor::module_registry[0m[2m:[0m contract class fetched successfully from local path: "./contracts/target/dev/header_memorizer_starknet_get_storage.compiled_contract_class.json"
+[2m2024-11-19T08:18:17.412927Z[0m [32m INFO[0m [2mhdp::preprocessor::module_compile[0m[2m:[0m target task: ExtendedModule {
     task: Module {
-        program_hash: 0x58d9c1789920a972a6cfc30b761227ddc2432bfe88243f86aad3ca40183eaa4,
+        program_hash: 0x51613fb7bd65e341d6401b9fe8f5a703f712cfc3c4859c5ea22a4b187f29ed2,
         inputs: [
             ModuleInput {
                 visibility: Public,
-                value: 0x522299,
-            },
-            ModuleInput {
-                visibility: Public,
-                value: 0x28,
+                value: 0x316f5,
             },
         ],
         local_class_path: Some(
-            "./contracts/target/dev/block_tx_memorizer_get_max_fee_per_blob_gas.compiled_contract_class.json",
+            "./contracts/target/dev/header_memorizer_starknet_get_storage.compiled_contract_class.json",
         ),
     },
     module_class: CasmContractClass {
@@ -32,7 +28,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 5198983563776262144,
             },
             BigUintAsHex {
-                value: 340282366920938463463374607431768209936,
+                value: 340282366920938463463374607431768211456,
             },
             BigUintAsHex {
                 value: 4612389708016222207,
@@ -41,13 +37,13 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 74168662805676031,
             },
             BigUintAsHex {
-                value: 249,
+                value: 182,
             },
             BigUintAsHex {
                 value: 5198702088799944698,
             },
             BigUintAsHex {
-                value: 1520,
+                value: 0,
             },
             BigUintAsHex {
                 value: 4612389708016222207,
@@ -62,7 +58,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 1226245742482522112,
             },
             BigUintAsHex {
-                value: 257,
+                value: 190,
             },
             BigUintAsHex {
                 value: 5198983563776196608,
@@ -74,145 +70,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 145944781866893306,
             },
             BigUintAsHex {
-                value: 224,
-            },
-            BigUintAsHex {
-                value: 5201798274889056249,
-            },
-            BigUintAsHex {
-                value: 145944781866893311,
-            },
-            BigUintAsHex {
-                value: 4,
-            },
-            BigUintAsHex {
-                value: 74168662805676031,
-            },
-            BigUintAsHex {
-                value: 10,
-            },
-            BigUintAsHex {
-                value: 5198420613822644224,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5193354021292703744,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 0,
-            },
-            BigUintAsHex {
-                value: 5193354008407801856,
-            },
-            BigUintAsHex {
-                value: 74168662805676031,
-            },
-            BigUintAsHex {
-                value: 8,
-            },
-            BigUintAsHex {
-                value: 5193354021292703744,
-            },
-            BigUintAsHex {
-                value: 5193354021292703744,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 0,
-            },
-            BigUintAsHex {
-                value: 145944781866893310,
-            },
-            BigUintAsHex {
-                value: 186,
-            },
-            BigUintAsHex {
-                value: 5188287510366617600,
-            },
-            BigUintAsHex {
-                value: 722405534170316800,
-            },
-            BigUintAsHex {
-                value: 18,
-            },
-            BigUintAsHex {
-                value: 5198420613823234046,
-            },
-            BigUintAsHex {
-                value: 4294967296,
-            },
-            BigUintAsHex {
-                value: 5207427813077975042,
-            },
-            BigUintAsHex {
-                value: 10633823966279327296825105735305134080,
-            },
-            BigUintAsHex {
-                value: 5201798309248860158,
-            },
-            BigUintAsHex {
-                value: 5188287510365962239,
-            },
-            BigUintAsHex {
-                value: 5198420613823102976,
-            },
-            BigUintAsHex {
-                value: 319014718988379808869724395965452910591,
-            },
-            BigUintAsHex {
-                value: 5188287514660798463,
-            },
-            BigUintAsHex {
-                value: 4611826766652276731,
-            },
-            BigUintAsHex {
-                value: 4621959861519745019,
-            },
-            BigUintAsHex {
-                value: 340282366920938463463374607431768211455,
-            },
-            BigUintAsHex {
-                value: 145944781866893311,
-            },
-            BigUintAsHex {
-                value: 165,
-            },
-            BigUintAsHex {
-                value: 4622804286449876991,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 4611826758062735358,
-            },
-            BigUintAsHex {
-                value: 5198420613823102976,
-            },
-            BigUintAsHex {
-                value: 340282366920938463463374607427473244160,
-            },
-            BigUintAsHex {
-                value: 4611826762357637119,
-            },
-            BigUintAsHex {
-                value: 5198420613822644224,
-            },
-            BigUintAsHex {
-                value: 2,
+                value: 157,
             },
             BigUintAsHex {
                 value: 5201798274889056249,
@@ -386,7 +244,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 5193354042767540224,
             },
             BigUintAsHex {
-                value: 5193353780774535168,
+                value: 5193353819429240832,
             },
             BigUintAsHex {
                 value: 5191102238658887680,
@@ -413,13 +271,13 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 1226245742482522112,
             },
             BigUintAsHex {
-                value: 556,
+                value: 422,
             },
             BigUintAsHex {
                 value: 5198420613823168512,
             },
             BigUintAsHex {
-                value: 555,
+                value: 421,
             },
             BigUintAsHex {
                 value: 5188287510366617600,
@@ -431,10 +289,10 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 9,
             },
             BigUintAsHex {
-                value: 5198420613823233981,
+                value: 5198420613823233990,
             },
             BigUintAsHex {
-                value: 18630,
+                value: 15860,
             },
             BigUintAsHex {
                 value: 5198420613823168512,
@@ -452,10 +310,10 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 42,
             },
             BigUintAsHex {
-                value: 5198420613823233981,
+                value: 5198420613823233990,
             },
             BigUintAsHex {
-                value: 18630,
+                value: 15860,
             },
             BigUintAsHex {
                 value: 4611826758062735359,
@@ -473,40 +331,43 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 5191102238658887680,
             },
             BigUintAsHex {
-                value: 5193353918213488640,
+                value: 5193353965458128896,
             },
             BigUintAsHex {
-                value: 5193353918213488640,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 13,
+                value: 5193353965458128896,
             },
             BigUintAsHex {
                 value: 5189976364521848832,
             },
             BigUintAsHex {
-                value: 11155111,
+                value: 393402133025997798000961,
             },
             BigUintAsHex {
-                value: 5193353943983292416,
+                value: 5193353986932965376,
             },
             BigUintAsHex {
-                value: 5193353978343030784,
+                value: 5189976364521848832,
+            },
+            BigUintAsHex {
+                value: 3039884826551048459741326842028488752290386757965810152093583017735152456935,
+            },
+            BigUintAsHex {
+                value: 5189976364521848832,
+            },
+            BigUintAsHex {
+                value: 1372507038454478393110902314737625782692837668213164564931275197711553103114,
             },
             BigUintAsHex {
                 value: 1226245742482522112,
             },
             BigUintAsHex {
-                value: 292,
+                value: 270,
             },
             BigUintAsHex {
                 value: 145944781866893309,
             },
             BigUintAsHex {
-                value: 15,
+                value: 14,
             },
             BigUintAsHex {
                 value: 290341444919459839,
@@ -515,10 +376,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 1,
             },
             BigUintAsHex {
-                value: 4611826758063194109,
-            },
-            BigUintAsHex {
-                value: 4611826762358161406,
+                value: 4611826758063194110,
             },
             BigUintAsHex {
                 value: 5193354029882638336,
@@ -542,7 +400,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 5198420613822840832,
             },
             BigUintAsHex {
-                value: 2,
+                value: 1,
             },
             BigUintAsHex {
                 value: 2345108766317314046,
@@ -593,70 +451,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 1,
             },
             BigUintAsHex {
-                value: 5193353750709764096,
-            },
-            BigUintAsHex {
-                value: 5191102238658887680,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5193354034177605632,
-            },
-            BigUintAsHex {
-                value: 5198420613822775296,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 2345108766317314046,
-            },
-            BigUintAsHex {
-                value: 5198420613822316544,
-            },
-            BigUintAsHex {
-                value: 3,
-            },
-            BigUintAsHex {
-                value: 74168662805676031,
-            },
-            BigUintAsHex {
-                value: 5,
-            },
-            BigUintAsHex {
-                value: 290341444919459839,
-            },
-            BigUintAsHex {
-                value: 8,
-            },
-            BigUintAsHex {
-                value: 5193353999817867264,
-            },
-            BigUintAsHex {
-                value: 290341444919459839,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 485748461484230571791265682659113160264223489397539653310998840191492915,
-            },
-            BigUintAsHex {
-                value: 4611826758063128575,
-            },
-            BigUintAsHex {
-                value: 5193354047062507520,
-            },
-            BigUintAsHex {
-                value: 5193353763594665984,
+                value: 5193353789364469760,
             },
             BigUintAsHex {
                 value: 5191102238658887680,
@@ -1376,7 +1171,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 5189976364521848832,
             },
             BigUintAsHex {
-                value: 3,
+                value: 1,
             },
             BigUintAsHex {
                 value: 722405534170316804,
@@ -1418,7 +1213,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 74168662805676031,
             },
             BigUintAsHex {
-                value: 204,
+                value: 91,
             },
             BigUintAsHex {
                 value: 5207427813077909505,
@@ -1457,22 +1252,31 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 4612108237334872057,
             },
             BigUintAsHex {
-                value: 4612108241629839355,
+                value: 4612108241629839354,
             },
             BigUintAsHex {
-                value: 4612108245924806652,
+                value: 4612108245924806651,
             },
             BigUintAsHex {
-                value: 4612108250219773949,
+                value: 4612108250219773948,
             },
             BigUintAsHex {
-                value: 5193354055652442112,
+                value: 4612108254514741245,
             },
             BigUintAsHex {
-                value: 5198420613823102976,
+                value: 5189976364521848832,
             },
             BigUintAsHex {
-                value: 5,
+                value: 0,
+            },
+            BigUintAsHex {
+                value: 5193354051357474816,
+            },
+            BigUintAsHex {
+                value: 5198420613823037440,
+            },
+            BigUintAsHex {
+                value: 6,
             },
             BigUintAsHex {
                 value: 5198983563775934464,
@@ -1493,10 +1297,10 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 4612671187287769078,
             },
             BigUintAsHex {
-                value: 4612389716606025717,
+                value: 4612389716606025716,
             },
             BigUintAsHex {
-                value: 4612671195877703674,
+                value: 4612389720900993019,
             },
             BigUintAsHex {
                 value: 4612389725195960316,
@@ -1511,7 +1315,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 145944781866893311,
             },
             BigUintAsHex {
-                value: 162,
+                value: 46,
             },
             BigUintAsHex {
                 value: 5188850494679252992,
@@ -1535,13 +1339,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 10,
             },
             BigUintAsHex {
-                value: 5188850494679252992,
-            },
-            BigUintAsHex {
-                value: 5188850498974220288,
-            },
-            BigUintAsHex {
-                value: 5201798279184023546,
+                value: 5201798287773958140,
             },
             BigUintAsHex {
                 value: 722405534170316800,
@@ -1550,405 +1348,63 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 6,
             },
             BigUintAsHex {
-                value: 5201798300658860025,
+                value: 5201798300658860027,
             },
             BigUintAsHex {
-                value: 4611826758062407679,
-            },
-            BigUintAsHex {
-                value: 74168662805676031,
-            },
-            BigUintAsHex {
-                value: 129,
-            },
-            BigUintAsHex {
-                value: 5198420613822775296,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5201798304953827325,
-            },
-            BigUintAsHex {
-                value: 4611826758062342143,
-            },
-            BigUintAsHex {
-                value: 5201798270593368064,
-            },
-            BigUintAsHex {
-                value: 5188287510366617600,
-            },
-            BigUintAsHex {
-                value: 722405534170316800,
-            },
-            BigUintAsHex {
-                value: 22,
-            },
-            BigUintAsHex {
-                value: 5188287514660536323,
-            },
-            BigUintAsHex {
-                value: 5188287518955438083,
-            },
-            BigUintAsHex {
-                value: 5207427813078040574,
-            },
-            BigUintAsHex {
-                value: 340282366920938463463374607431768211456,
-            },
-            BigUintAsHex {
-                value: 5201798313543565307,
-            },
-            BigUintAsHex {
-                value: 5198420613823168509,
-            },
-            BigUintAsHex {
-                value: 3618502788666131213697322783095070105612473391365317372676266950400566886401,
-            },
-            BigUintAsHex {
-                value: 145944781866893308,
-            },
-            BigUintAsHex {
-                value: 6,
-            },
-            BigUintAsHex {
-                value: 4621959861519745021,
-            },
-            BigUintAsHex {
-                value: 340282366920938463463374607431768211455,
+                value: 4611826758062538751,
             },
             BigUintAsHex {
                 value: 74168662805676031,
-            },
-            BigUintAsHex {
-                value: 4,
-            },
-            BigUintAsHex {
-                value: 4621959861519679485,
-            },
-            BigUintAsHex {
-                value: 329648542954659136166549501696463077376,
-            },
-            BigUintAsHex {
-                value: 4611826770946719741,
-            },
-            BigUintAsHex {
-                value: 145944781866893310,
-            },
-            BigUintAsHex {
-                value: 86,
-            },
-            BigUintAsHex {
-                value: 4622804286449876991,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 4611826762357112830,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5201798266299121655,
-            },
-            BigUintAsHex {
-                value: 722405534170316800,
-            },
-            BigUintAsHex {
-                value: 6,
-            },
-            BigUintAsHex {
-                value: 5201798300658860029,
-            },
-            BigUintAsHex {
-                value: 4611826766651817983,
-            },
-            BigUintAsHex {
-                value: 74168662805676031,
-            },
-            BigUintAsHex {
-                value: 57,
-            },
-            BigUintAsHex {
-                value: 5198420613823037440,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5201798304953827325,
-            },
-            BigUintAsHex {
-                value: 4611826766651752447,
-            },
-            BigUintAsHex {
-                value: 5201798287773040640,
-            },
-            BigUintAsHex {
-                value: 5188287510366617600,
-            },
-            BigUintAsHex {
-                value: 722405534170316800,
-            },
-            BigUintAsHex {
-                value: 22,
-            },
-            BigUintAsHex {
-                value: 5188287523249946627,
-            },
-            BigUintAsHex {
-                value: 5188287527544848387,
-            },
-            BigUintAsHex {
-                value: 5207427813078040574,
-            },
-            BigUintAsHex {
-                value: 340282366920938463463374607431768211456,
-            },
-            BigUintAsHex {
-                value: 5201798313543565307,
-            },
-            BigUintAsHex {
-                value: 5198420613823168509,
-            },
-            BigUintAsHex {
-                value: 3618502788666131213697322783095070105612473391365317372676266950400566886401,
-            },
-            BigUintAsHex {
-                value: 145944781866893308,
-            },
-            BigUintAsHex {
-                value: 6,
-            },
-            BigUintAsHex {
-                value: 4621959861519745021,
-            },
-            BigUintAsHex {
-                value: 340282366920938463463374607431768211455,
-            },
-            BigUintAsHex {
-                value: 74168662805676031,
-            },
-            BigUintAsHex {
-                value: 4,
-            },
-            BigUintAsHex {
-                value: 4621959861519679485,
-            },
-            BigUintAsHex {
-                value: 329648542954659136166549501696463077376,
-            },
-            BigUintAsHex {
-                value: 4611826779536130045,
-            },
-            BigUintAsHex {
-                value: 145944781866893310,
-            },
-            BigUintAsHex {
-                value: 16,
-            },
-            BigUintAsHex {
-                value: 4622804286449876991,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 4611826770946523134,
-            },
-            BigUintAsHex {
-                value: 290341444919459839,
-            },
-            BigUintAsHex {
-                value: 7,
-            },
-            BigUintAsHex {
-                value: 5198420613821136896,
-            },
-            BigUintAsHex {
-                value: 4,
-            },
-            BigUintAsHex {
-                value: 5193353943983292416,
-            },
-            BigUintAsHex {
-                value: 5193353943983292416,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 0,
-            },
-            BigUintAsHex {
-                value: 5193353969753096192,
-            },
-            BigUintAsHex {
-                value: 5193353999817867264,
-            },
-            BigUintAsHex {
-                value: 2345108766317314046,
-            },
-            BigUintAsHex {
-                value: 290341444919459839,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 29721761890975875353235833581453094220424382983267374,
-            },
-            BigUintAsHex {
-                value: 4611826758063128575,
-            },
-            BigUintAsHex {
-                value: 5198420613821136896,
-            },
-            BigUintAsHex {
-                value: 6,
-            },
-            BigUintAsHex {
-                value: 5193353943983292416,
-            },
-            BigUintAsHex {
-                value: 5193353943983292416,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5193354034177605632,
-            },
-            BigUintAsHex {
-                value: 5198420613822775296,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 2345108766317314046,
-            },
-            BigUintAsHex {
-                value: 290341444919459839,
-            },
-            BigUintAsHex {
-                value: 9,
-            },
-            BigUintAsHex {
-                value: 290341444919459839,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 1637570914057682275393755530660268060279989363,
-            },
-            BigUintAsHex {
-                value: 4611826758063128575,
-            },
-            BigUintAsHex {
-                value: 5198420613821136896,
-            },
-            BigUintAsHex {
-                value: 3,
-            },
-            BigUintAsHex {
-                value: 5193353943983292416,
-            },
-            BigUintAsHex {
-                value: 5193353943983292416,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5193354034177605632,
-            },
-            BigUintAsHex {
-                value: 5198420613822775296,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 2345108766317314046,
-            },
-            BigUintAsHex {
-                value: 290341444919459839,
-            },
-            BigUintAsHex {
-                value: 8,
-            },
-            BigUintAsHex {
-                value: 290341444919459839,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 29721761890975875353235833581453094220424382983267374,
-            },
-            BigUintAsHex {
-                value: 4611826758063128575,
-            },
-            BigUintAsHex {
-                value: 5198420613821136896,
-            },
-            BigUintAsHex {
-                value: 4,
-            },
-            BigUintAsHex {
-                value: 5193353943983292416,
-            },
-            BigUintAsHex {
-                value: 5193353943983292416,
-            },
-            BigUintAsHex {
-                value: 5189976364521848832,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 5193354034177605632,
-            },
-            BigUintAsHex {
-                value: 5198420613822775296,
-            },
-            BigUintAsHex {
-                value: 1,
-            },
-            BigUintAsHex {
-                value: 2345108766317314046,
-            },
-            BigUintAsHex {
-                value: 290341444919459839,
             },
             BigUintAsHex {
                 value: 17,
             },
             BigUintAsHex {
+                value: 5198420613822906368,
+            },
+            BigUintAsHex {
+                value: 1,
+            },
+            BigUintAsHex {
+                value: 5201798304953827325,
+            },
+            BigUintAsHex {
+                value: 4611826758062473215,
+            },
+            BigUintAsHex {
+                value: 5201798279183433728,
+            },
+            BigUintAsHex {
+                value: 5198420613822382080,
+            },
+            BigUintAsHex {
+                value: 1,
+            },
+            BigUintAsHex {
+                value: 5193354025587671040,
+            },
+            BigUintAsHex {
+                value: 5193354025587671040,
+            },
+            BigUintAsHex {
+                value: 5189976364521848832,
+            },
+            BigUintAsHex {
+                value: 0,
+            },
+            BigUintAsHex {
+                value: 5189976364521848832,
+            },
+            BigUintAsHex {
+                value: 0,
+            },
+            BigUintAsHex {
+                value: 5188287510366289920,
+            },
+            BigUintAsHex {
+                value: 2345108766317314046,
+            },
+            BigUintAsHex {
                 value: 290341444919459839,
             },
             BigUintAsHex {
@@ -1964,16 +1420,16 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 4611826758063128575,
             },
             BigUintAsHex {
-                value: 5198420613821136896,
+                value: 5198420613822382080,
             },
             BigUintAsHex {
                 value: 1,
             },
             BigUintAsHex {
-                value: 5193353943983292416,
+                value: 5193354025587671040,
             },
             BigUintAsHex {
-                value: 5193353943983292416,
+                value: 5193354025587671040,
             },
             BigUintAsHex {
                 value: 5189976364521848832,
@@ -1997,10 +1453,10 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 290341444919459839,
             },
             BigUintAsHex {
-                value: 29,
+                value: 10,
             },
             BigUintAsHex {
-                value: 5193353922508455936,
+                value: 5193354004112834560,
             },
             BigUintAsHex {
                 value: 5188850486089318400,
@@ -2030,7 +1486,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 value: 290341444919459839,
             },
             BigUintAsHex {
-                value: 32,
+                value: 14,
             },
             BigUintAsHex {
                 value: 290341444919459839,
@@ -2082,13 +1538,13 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
             Node(
                 [
                     Leaf(
-                        269,
+                        202,
                     ),
                     Leaf(
                         181,
                     ),
                     Leaf(
-                        235,
+                        122,
                     ),
                 ],
             ),
@@ -2102,7 +1558,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                             TestLessThanOrEqual {
                                 lhs: Immediate(
                                     BigIntAsHex {
-                                        value: 1520,
+                                        value: 0,
                                     },
                                 ),
                                 rhs: Deref(
@@ -2190,76 +1646,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                86,
-                [
-                    Core(
-                        Core(
-                            TestLessThan {
-                                lhs: BinOp(
-                                    BinOpOperand {
-                                        op: Add,
-                                        a: CellRef {
-                                            register: AP,
-                                            offset: -1,
-                                        },
-                                        b: Immediate(
-                                            BigIntAsHex {
-                                                value: 0,
-                                            },
-                                        ),
-                                    },
-                                ),
-                                rhs: Immediate(
-                                    BigIntAsHex {
-                                        value: 4294967296,
-                                    },
-                                ),
-                                dst: CellRef {
-                                    register: AP,
-                                    offset: 0,
-                                },
-                            },
-                        ),
-                    ),
-                ],
-            ),
-            (
-                90,
-                [
-                    Core(
-                        Core(
-                            LinearSplit {
-                                value: Deref(
-                                    CellRef {
-                                        register: AP,
-                                        offset: -1,
-                                    },
-                                ),
-                                scalar: Immediate(
-                                    BigIntAsHex {
-                                        value: 10633823966279327296825105735305134080,
-                                    },
-                                ),
-                                max_x: Immediate(
-                                    BigIntAsHex {
-                                        value: 340282366920938463463374607431768211454,
-                                    },
-                                ),
-                                x: CellRef {
-                                    register: AP,
-                                    offset: 0,
-                                },
-                                y: CellRef {
-                                    register: AP,
-                                    offset: 1,
-                                },
-                            },
-                        ),
-                    ),
-                ],
-            ),
-            (
-                115,
+                69,
                 [
                     Core(
                         Core(
@@ -2274,20 +1661,20 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                134,
+                88,
                 [
                     Core(
                         Core(
                             TestLessThanOrEqual {
                                 lhs: Immediate(
                                     BigIntAsHex {
-                                        value: 18630,
+                                        value: 15860,
                                     },
                                 ),
                                 rhs: Deref(
                                     CellRef {
                                         register: AP,
-                                        offset: -66,
+                                        offset: -57,
                                     },
                                 ),
                                 dst: CellRef {
@@ -2300,7 +1687,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                162,
+                117,
                 [
                     Core(
                         Core(
@@ -2315,7 +1702,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                183,
+                137,
                 [
                     Core(
                         Core(
@@ -2330,7 +1717,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                205,
+                159,
                 [
                     Core(
                         Core(
@@ -2345,7 +1732,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                226,
+                173,
                 [
                     Core(
                         Core(
@@ -2360,7 +1747,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                240,
+                187,
                 [
                     Core(
                         Core(
@@ -2375,22 +1762,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                254,
-                [
-                    Core(
-                        Core(
-                            AllocSegment {
-                                dst: CellRef {
-                                    register: AP,
-                                    offset: 0,
-                                },
-                            },
-                        ),
-                    ),
-                ],
-            ),
-            (
-                452,
+                385,
                 [
                     Core(
                         Core(
@@ -2416,7 +1788,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                456,
+                389,
                 [
                     Core(
                         Core(
@@ -2451,7 +1823,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                466,
+                399,
                 [
                     Core(
                         Core(
@@ -2486,7 +1858,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                474,
+                407,
                 [
                     Core(
                         Core(
@@ -2501,7 +1873,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                494,
+                430,
                 [
                     Starknet(
                         SystemCall {
@@ -2516,7 +1888,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                507,
+                441,
                 [
                     Core(
                         Core(
@@ -2524,7 +1896,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                                 lhs: Deref(
                                     CellRef {
                                         register: AP,
-                                        offset: -6,
+                                        offset: -4,
                                     },
                                 ),
                                 rhs: Deref(
@@ -2543,146 +1915,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                519,
-                [
-                    Core(
-                        Core(
-                            TestLessThan {
-                                lhs: Deref(
-                                    CellRef {
-                                        register: AP,
-                                        offset: -1,
-                                    },
-                                ),
-                                rhs: Immediate(
-                                    BigIntAsHex {
-                                        value: 340282366920938463463374607431768211456,
-                                    },
-                                ),
-                                dst: CellRef {
-                                    register: AP,
-                                    offset: 0,
-                                },
-                            },
-                        ),
-                    ),
-                ],
-            ),
-            (
-                521,
-                [
-                    Core(
-                        Core(
-                            DivMod {
-                                lhs: Deref(
-                                    CellRef {
-                                        register: AP,
-                                        offset: -2,
-                                    },
-                                ),
-                                rhs: Immediate(
-                                    BigIntAsHex {
-                                        value: 340282366920938463463374607431768211456,
-                                    },
-                                ),
-                                quotient: CellRef {
-                                    register: AP,
-                                    offset: 3,
-                                },
-                                remainder: CellRef {
-                                    register: AP,
-                                    offset: 4,
-                                },
-                            },
-                        ),
-                    ),
-                ],
-            ),
-            (
-                545,
-                [
-                    Core(
-                        Core(
-                            TestLessThan {
-                                lhs: Deref(
-                                    CellRef {
-                                        register: AP,
-                                        offset: -2,
-                                    },
-                                ),
-                                rhs: Deref(
-                                    CellRef {
-                                        register: AP,
-                                        offset: -1,
-                                    },
-                                ),
-                                dst: CellRef {
-                                    register: AP,
-                                    offset: 0,
-                                },
-                            },
-                        ),
-                    ),
-                ],
-            ),
-            (
-                557,
-                [
-                    Core(
-                        Core(
-                            TestLessThan {
-                                lhs: Deref(
-                                    CellRef {
-                                        register: AP,
-                                        offset: -1,
-                                    },
-                                ),
-                                rhs: Immediate(
-                                    BigIntAsHex {
-                                        value: 340282366920938463463374607431768211456,
-                                    },
-                                ),
-                                dst: CellRef {
-                                    register: AP,
-                                    offset: 0,
-                                },
-                            },
-                        ),
-                    ),
-                ],
-            ),
-            (
-                559,
-                [
-                    Core(
-                        Core(
-                            DivMod {
-                                lhs: Deref(
-                                    CellRef {
-                                        register: AP,
-                                        offset: -2,
-                                    },
-                                ),
-                                rhs: Immediate(
-                                    BigIntAsHex {
-                                        value: 340282366920938463463374607431768211456,
-                                    },
-                                ),
-                                quotient: CellRef {
-                                    register: AP,
-                                    offset: 3,
-                                },
-                                remainder: CellRef {
-                                    register: AP,
-                                    offset: 4,
-                                },
-                            },
-                        ),
-                    ),
-                ],
-            ),
-            (
-                591,
+                462,
                 [
                     Core(
                         Core(
@@ -2697,52 +1930,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 ],
             ),
             (
-                608,
-                [
-                    Core(
-                        Core(
-                            AllocSegment {
-                                dst: CellRef {
-                                    register: AP,
-                                    offset: 0,
-                                },
-                            },
-                        ),
-                    ),
-                ],
-            ),
-            (
-                625,
-                [
-                    Core(
-                        Core(
-                            AllocSegment {
-                                dst: CellRef {
-                                    register: AP,
-                                    offset: 0,
-                                },
-                            },
-                        ),
-                    ),
-                ],
-            ),
-            (
-                642,
-                [
-                    Core(
-                        Core(
-                            AllocSegment {
-                                dst: CellRef {
-                                    register: AP,
-                                    offset: 0,
-                                },
-                            },
-                        ),
-                    ),
-                ],
-            ),
-            (
-                670,
+                490,
                 [
                     Core(
                         Core(
@@ -2762,7 +1950,7 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                 (
                     0,
                     [
-                        "memory[ap + 0] = 1520 <= memory[fp + -6]",
+                        "memory[ap + 0] = 0 <= memory[fp + -6]",
                     ],
                 ),
                 (
@@ -2778,157 +1966,91 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
                     ],
                 ),
                 (
-                    86,
-                    [
-                        "memory[ap + 0] = (memory[ap + -1] + 0) % PRIME < 4294967296",
-                    ],
-                ),
-                (
-                    90,
-                    [
-                        "\n(value, scalar) = (memory[ap + -1], 10633823966279327296825105735305134080)\nx = min(value // scalar, 340282366920938463463374607431768211454)\ny = value - x * scalar\nmemory[ap + 0] = x\nmemory[ap + 1] = y\n",
-                    ],
-                ),
-                (
-                    115,
+                    69,
                     [
                         "memory[ap + 0] = segments.add()",
                     ],
                 ),
                 (
-                    134,
+                    88,
                     [
-                        "memory[ap + 0] = 18630 <= memory[ap + -66]",
+                        "memory[ap + 0] = 15860 <= memory[ap + -57]",
                     ],
                 ),
                 (
-                    162,
-                    [
-                        "memory[ap + 0] = segments.add()",
-                    ],
-                ),
-                (
-                    183,
+                    117,
                     [
                         "memory[ap + 0] = segments.add()",
                     ],
                 ),
                 (
-                    205,
+                    137,
                     [
                         "memory[ap + 0] = segments.add()",
                     ],
                 ),
                 (
-                    226,
+                    159,
                     [
                         "memory[ap + 0] = segments.add()",
                     ],
                 ),
                 (
-                    240,
+                    173,
                     [
                         "memory[ap + 0] = segments.add()",
                     ],
                 ),
                 (
-                    254,
+                    187,
                     [
                         "memory[ap + 0] = segments.add()",
                     ],
                 ),
                 (
-                    452,
+                    385,
                     [
                         "memory[ap + 4] = memory[ap + -1] < 3618502788666131106986593281521497120414687020801267626233049500247285301248",
                     ],
                 ),
                 (
-                    456,
+                    389,
                     [
                         "\n(value, scalar) = (memory[ap + 3], 313594649253062377472)\nx = min(value // scalar, 340282366920938463463374607431768211455)\ny = value - x * scalar\nmemory[ap + -2] = x\nmemory[ap + -1] = y\n",
                     ],
                 ),
                 (
-                    466,
+                    399,
                     [
                         "\n(value, scalar) = (memory[ap + -2], 10633823966279326983230456482242756608)\nx = min(value // scalar, 340282366920938463463374607431768211455)\ny = value - x * scalar\nmemory[ap + -1] = x\nmemory[ap + 0] = y\n",
                     ],
                 ),
                 (
-                    474,
+                    407,
                     [
                         "memory[ap + 0] = segments.add()",
                     ],
                 ),
                 (
-                    494,
+                    430,
                     [
                         "syscall_handler.syscall(syscall_ptr=memory[fp + -9])",
                     ],
                 ),
                 (
-                    507,
+                    441,
                     [
-                        "memory[ap + 0] = memory[ap + -6] < memory[ap + -1]",
+                        "memory[ap + 0] = memory[ap + -4] < memory[ap + -1]",
                     ],
                 ),
                 (
-                    519,
-                    [
-                        "memory[ap + 0] = memory[ap + -1] < 340282366920938463463374607431768211456",
-                    ],
-                ),
-                (
-                    521,
-                    [
-                        "(memory[ap + 3], memory[ap + 4]) = divmod(memory[ap + -2], 340282366920938463463374607431768211456)",
-                    ],
-                ),
-                (
-                    545,
-                    [
-                        "memory[ap + 0] = memory[ap + -2] < memory[ap + -1]",
-                    ],
-                ),
-                (
-                    557,
-                    [
-                        "memory[ap + 0] = memory[ap + -1] < 340282366920938463463374607431768211456",
-                    ],
-                ),
-                (
-                    559,
-                    [
-                        "(memory[ap + 3], memory[ap + 4]) = divmod(memory[ap + -2], 340282366920938463463374607431768211456)",
-                    ],
-                ),
-                (
-                    591,
+                    462,
                     [
                         "memory[ap + 0] = segments.add()",
                     ],
                 ),
                 (
-                    608,
-                    [
-                        "memory[ap + 0] = segments.add()",
-                    ],
-                ),
-                (
-                    625,
-                    [
-                        "memory[ap + 0] = segments.add()",
-                    ],
-                ),
-                (
-                    642,
-                    [
-                        "memory[ap + 0] = segments.add()",
-                    ],
-                ),
-                (
-                    670,
+                    490,
                     [
                         "memory[ap + 0] = segments.add()",
                     ],
@@ -2950,10 +2072,29 @@ Running: hdp run-module --module-inputs public.0x522299,public.0x28 --local-clas
         },
     },
 }
-[2m2024-11-19T08:17:42.589409Z[0m [32m INFO[0m [2mhdp::preprocessor::module_compile[0m[2m:[0m 2. Running dry-run... 
+[2m2024-11-19T08:18:17.413651Z[0m [32m INFO[0m [2mhdp::preprocessor::module_compile[0m[2m:[0m 2. Running dry-run... 
+Error at pc=18:430:
+Got an exception while executing a hint.
+Cairo traceback (most recent call last):
+./src/contract_dry_run.cairo:127:39: (pc=0:2366)
+/Users/paul/Documents/projects/offchain-evm-headers-processor-mirror/venv/lib/python3.9/site-packages/contract_bootloader/contract_bootloader.cairo:111:39: (pc=0:2243)
+/Users/paul/Documents/projects/offchain-evm-headers-processor-mirror/venv/lib/python3.9/site-packages/contract_bootloader/execute_entry_point.cairo:202:5: (pc=0:2072)
+Unknown location (pc=18:113)
+
+Traceback (most recent call last):
+  File "<hint95>", line 1, in <module>
+  File "/home/runner/work/hdp/hdp/hdp-test/venv/lib/python3.9/site-packages/contract_bootloader/syscall_handler_base.py", line 100, in syscall
+    response_header, response = syscall_info.execute_callback(
+  File "/home/runner/work/hdp/hdp/hdp-test/venv/lib/python3.9/site-packages/contract_bootloader/syscall_handler_base.py", line 113, in call_contract
+    return self.call_contract_helper(
+  File "/home/runner/work/hdp/hdp/hdp-test/venv/lib/python3.9/site-packages/contract_bootloader/syscall_handler_base.py", line 120, in call_contract_helper
+    result = self._call_contract_helper(request=request, syscall_name=syscall_name)
+  File "/home/runner/work/hdp/hdp/hdp-test/venv/lib/python3.9/site-packages/contract_bootloader/dryrun_syscall_handler.py", line 134, in _call_contract_helper
+    raise ValueError(
+ValueError: Memorizer read must be initialized with a list of 5 integers
 Error: Failed to compile the tasks
 
 Caused by:
-    0: Cairo Runner Error: Error while parsing json: invalid type: integer `11155111`, expected a string at line 1 column 112
-    1: Error while parsing json: invalid type: integer `11155111`, expected a string at line 1 column 112
-    2: invalid type: integer `11155111`, expected a string at line 1 column 112
+    0: Cairo Runner Error: Error while parsing json: invalid type: integer `11155111`, expected a string at line 1 column 118
+    1: Error while parsing json: invalid type: integer `11155111`, expected a string at line 1 column 118
+    2: invalid type: integer `11155111`, expected a string at line 1 column 118
