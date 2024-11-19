@@ -2,8 +2,6 @@
 mod get_nonce {
     use hdp_cairo::evm::account::AccountTrait;
     use hdp_cairo::{HDP, evm::account::{AccountKey, AccountImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -22,8 +20,6 @@ mod get_nonce {
 mod get_balance {
     use hdp_cairo::evm::account::AccountTrait;
     use hdp_cairo::{HDP, evm::account::{AccountKey, AccountImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -42,8 +38,6 @@ mod get_balance {
 mod get_state_root {
     use hdp_cairo::evm::account::AccountTrait;
     use hdp_cairo::{HDP, evm::account::{AccountKey, AccountImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -62,8 +56,6 @@ mod get_state_root {
 mod get_code_hash {
     use hdp_cairo::evm::account::AccountTrait;
     use hdp_cairo::{HDP, evm::account::{AccountKey, AccountImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}

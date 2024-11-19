@@ -2,8 +2,6 @@
 mod get_nonce {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -12,7 +10,11 @@ mod get_nonce {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_nonce(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_nonce(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -20,8 +22,6 @@ mod get_nonce {
 mod get_gas_price {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -30,7 +30,11 @@ mod get_gas_price {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_gas_price(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_gas_price(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -38,8 +42,6 @@ mod get_gas_price {
 mod get_gas_limit {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -48,7 +50,11 @@ mod get_gas_limit {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_gas_limit(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_gas_limit(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -56,8 +62,6 @@ mod get_gas_limit {
 mod get_receiver {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -66,7 +70,11 @@ mod get_receiver {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_receiver(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_receiver(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -74,8 +82,6 @@ mod get_receiver {
 mod get_value {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -84,7 +90,11 @@ mod get_value {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_value(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_value(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -92,8 +102,6 @@ mod get_value {
 mod get_v {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -102,7 +110,11 @@ mod get_v {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_v(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_v(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -110,8 +122,6 @@ mod get_v {
 mod get_r {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -120,7 +130,11 @@ mod get_r {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_r(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_r(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -128,8 +142,6 @@ mod get_r {
 mod get_s {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -138,7 +150,11 @@ mod get_s {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_s(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_s(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -146,8 +162,6 @@ mod get_s {
 mod get_chain_id {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -156,7 +170,11 @@ mod get_chain_id {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_chain_id(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_chain_id(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -164,8 +182,6 @@ mod get_chain_id {
 mod get_max_fee_per_gas {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -174,7 +190,11 @@ mod get_max_fee_per_gas {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_max_fee_per_gas(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_max_fee_per_gas(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -182,8 +202,6 @@ mod get_max_fee_per_gas {
 mod get_max_priority_fee_per_gas {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -192,7 +210,11 @@ mod get_max_priority_fee_per_gas {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_max_priority_fee_per_gas(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_max_priority_fee_per_gas(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -200,8 +222,6 @@ mod get_max_priority_fee_per_gas {
 mod get_max_fee_per_blob_gas {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -210,7 +230,11 @@ mod get_max_fee_per_blob_gas {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_max_fee_per_blob_gas(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_max_fee_per_blob_gas(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -218,8 +242,6 @@ mod get_max_fee_per_blob_gas {
 mod get_tx_type {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -228,7 +250,11 @@ mod get_tx_type {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_tx_type(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_tx_type(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
 
@@ -236,8 +262,6 @@ mod get_tx_type {
 mod get_sender {
     use hdp_cairo::evm::block_tx::BlockTxTrait;
     use hdp_cairo::{HDP, evm::block_tx::{BlockTxKey, BlockTxImpl}};
-    use starknet::syscalls::call_contract_syscall;
-    use starknet::{ContractAddress, SyscallResult, SyscallResultTrait};
 
     #[storage]
     struct Storage {}
@@ -246,6 +270,10 @@ mod get_sender {
     pub fn main(ref self: ContractState, hdp: HDP, block_number: u32, index: u32) -> u256 {
         hdp
             .evm
-            .block_tx_get_sender(BlockTxKey { chain_id: 11155111, block_number: block_number.into(), index: index.into() })
+            .block_tx_get_sender(
+                BlockTxKey {
+                    chain_id: 11155111, block_number: block_number.into(), index: index.into()
+                }
+            )
     }
 }
