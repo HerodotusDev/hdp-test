@@ -1,1 +1,1 @@
-[{"fetch_keys": [{"type": "EvmHeaderKey", "key": {"chain_id": 11155111, "block_number": 5382820}}], "result": {"low": "0x42d492", "high": "0x0"}, "program_hash": "0x7543439afc2d08265833ada8e292152c44bfb51d2083a75d9404eb8cff6e66c"}]
+[{"fetch_keys": [{"type": "EvmHeaderKey", "key": {"chain_id": "0xaa36a7", "block_number": 5382820}}], "result": {"low": "0x42d492", "high": "0x0"}, "program_hash": "0x7543439afc2d08265833ada8e292152c44bfb51d2083a75d9404eb8cff6e66c"}]

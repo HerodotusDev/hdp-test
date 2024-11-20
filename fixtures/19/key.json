@@ -1,1 +1,1 @@
-[{"fetch_keys": [{"type": "EvmBlockTxKey", "key": {"chain_id": 11155111, "block_number": 5382809, "index": 217}}], "result": {"low": "0x3", "high": "0x0"}, "program_hash": "0x2c437d8f7137c1fdc77ff024adc150038d6c9819c9fe0a541f1f3f8af255d8e"}]
+[{"fetch_keys": [{"type": "EvmBlockTxKey", "key": {"chain_id": "0xaa36a7", "block_number": 5382809, "index": 217}}], "result": {"low": "0x3", "high": "0x0"}, "program_hash": "0x2c437d8f7137c1fdc77ff024adc150038d6c9819c9fe0a541f1f3f8af255d8e"}]

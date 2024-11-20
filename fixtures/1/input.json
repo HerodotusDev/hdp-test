@@ -4,7 +4,7 @@
   "result_root": "0x8271462b8bd7b1b9a77093d0c42d7b4cfc559614e660770877c5ca7c5ed347da",
   "proofs": [
     {
-      "chain_id": 11155111,
+      "chain_id": "0x00000000000000000000000000aa36a7",
       "mmr_with_headers": [
         {
           "mmr_meta": {
