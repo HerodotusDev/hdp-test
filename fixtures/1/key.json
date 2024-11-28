@@ -1,1 +1,0 @@
-[{"fetch_keys": [{"type": "EvmAccountKey", "key": {"chain_id": "0xaa36a7", "block_number": 5382820, "address": "0x13cb6ae34a13a0977f4d7101ebc24b87bb23f0d5"}}], "result": {"low": "0x0", "high": "0x0"}, "program_hash": "0x4062c355f0b70ab4ed6ce821ad04cbb3a6fa6b3d5bcc1a89bf49cc7ed5884e1"}]
