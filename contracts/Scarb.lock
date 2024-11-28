@@ -28,7 +28,6 @@ dependencies = [
 [[package]]
 name = "hdp_cairo"
 version = "0.1.0"
-source = "git+https://github.com/HerodotusDev/hdp-cairo?branch=starknet_syscall_handler#53281c3208bae692c7af43064e6362c327518579"
 
 [[package]]
 name = "header_memorizer"

@@ -12,4 +12,4 @@ members = [
 ]
 
 [workspace.dependencies]
-hdp_cairo = { git = "https://github.com/HerodotusDev/hdp-cairo", branch = "starknet_syscall_handler" }
+hdp_cairo = { path = "../../." }
