@@ -1,0 +1,45 @@
+[env]
+CARGO_MAKE_EXTEND_WORKSPACE_MAKEFILE = true
+
+[tasks.cairo-setup]
+workspace = false
+description = "Set up the Cairo environment by running the setup script."
+script = '''
+echo "Setting up the environment..."
+./scripts/setup_cairovm.sh
+'''
+
+[tasks.cairo1-setup]
+workspace = false
+description = "Set up the Cairo environment by running the setup script."
+script = '''
+echo "Setting up the environment..."
+chmod +x ./scripts/cairo1_install.sh
+./scripts/cairo1_install.sh
+'''
+
+[tasks.integration-test]
+workspace = false
+description = "Run integration tests. Specify the folder name through the INTEGRATION_ARGS environment variable."
+script = '''
+echo "Running integration tests with arguments: $INTEGRATION_ARGS"
+chmod +x ./scripts/integration.sh
+./scripts/integration.sh
+'''
+
+[tasks.reset-setup]
+workspace = false
+description = "Reset all setup and compiled files to their initial state."
+script = '''
+echo "Removing the setup and compiled files..."
+rm -rf venv
+rm -rf tools
+'''
+
+[tasks.run-full-flow]
+workspace = false
+description = "Execute the full integration test flow, including cloning, setup, compilation, and testing."
+dependencies = ["cairo-setup", "cairo1-setup", "integration-test"]
+
+[config]
+unstable_features = ["CTRL_C_HANDLING"]

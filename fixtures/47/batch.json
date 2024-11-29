@@ -1,0 +1,37 @@
+{
+  "raw_results": [
+    "0x02d053d1642d4646010044b9e0a8acb45bb33a8a565fa0da00cc6b30258d7d18"
+  ],
+  "results_commitments": [
+    "0x054995bf078bbf6399789ecaee4e67222bc753179ae92f082717ff9ea81cadff"
+  ],
+  "tasks_commitments": [
+    "0x4cfce628223603b8c7d996c7ee9afe06a65a85a0d9daaca03823b10948da0130"
+  ],
+  "task_inclusion_proofs": [
+    []
+  ],
+  "results_inclusion_proofs": [
+    []
+  ],
+  "results_root": "0xe73b1c4e97af68ce0301f64bda4028fcab8045537ebee789e49edc0ce0d83ac0",
+  "tasks_root": "0xa4f422e13ce625083758798b3c614ef43cc36d95fdfe72d06d68a1c62ba4675f",
+  "mmr_metas": [
+    {
+      "id": 1,
+      "root": "0x3101d95c9dd1c45f3b50ce7355970113515bf65f45051695b96fe95e1100214",
+      "size": 1552535,
+      "peaks": [
+        "0x6be91daacfef363375a01c5c5f318bbd4fb206a7da7aeeb410edeae91d3b1f4",
+        "0x6dc63def1c8f2330ec73ff7420794a39fa522d9802da5616ad54f5a0ab38ec5",
+        "0x42d3fa075877cc90abdfab3a417e5f5faa8fd377d4d769b346f9d5157818f67",
+        "0x6a529c60b841c3f64664f3b49001822df82bdce897d573cb2124ad7e9658281",
+        "0x1739d0b65e6e25fce2d32344778fe45733556fd3ec30030ba7b89ee14c1dd78",
+        "0x3c6de3b1b4fc0666cbe814c0376a5d43c22da924b96efcc073aa7fa47b126a7",
+        "0x00b8f52f8d274393b4da40bbcd4b1de5e08f68abb2e3e1a07bfff4ce1de872d",
+        "0x7e701495df90cfedc1ca280fbc6c5d8fbecdae328f6064158dff3b400956fec",
+        "0x1bc831e2e38d059a82ae2d1539ecc15f6270bcd13444b52145e3e274bdf6e9b"
+      ]
+    }
+  ]
+}

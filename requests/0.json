@@ -1,0 +1,19 @@
+{
+  "destinationChainId": 11155111,
+  "tasks": [
+    {
+      "type": "DatalakeCompute",
+      "datalake": {
+        "type": "BlockSampled",
+        "chainId": 11155111,
+        "blockRangeStart": 5515020,
+        "blockRangeEnd": 5515039,
+        "increment": 10,
+        "sampledProperty": "header.base_fee_per_gas"
+      },
+      "compute": {
+        "aggregateFnId": "avg"
+      }
+    }
+  ]
+}

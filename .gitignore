@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pyzw
+pip-wheel-metadata/
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+*.egg
+*.log
+
+# Rust
+!/contracts/target/
+/target/
+.cargo/
+Cargo.lock
+
+# Additional
+*.pie
+.env
+
+
+.snfoundry_cache/

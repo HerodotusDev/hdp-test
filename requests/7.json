@@ -1,0 +1,27 @@
+{
+  "destinationChainId": 11155111,
+  "tasks": [
+    {
+      "type": "DatalakeCompute",
+      "datalake": {
+        "type": "TransactionsInBlock",
+
+        "chainId": 11155111,
+        "targetBlock": 5340342,
+        "startIndex": 0,
+        "endIndex": 60,
+        "increment": 4,
+        "includedTypes": {
+          "legacy": true,
+          "eip2930": true,
+          "eip1559": false,
+          "eip4844": false
+        },
+        "sampledProperty": "tx.gas_price"
+      },
+      "compute": {
+        "aggregateFnId": "sum"
+      }
+    }
+  ]
+}

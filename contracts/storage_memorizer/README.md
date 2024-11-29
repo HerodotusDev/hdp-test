@@ -1,0 +1,3 @@
+Contract get_slot
+Class Hash: 0x68c1084015a40a607aa61d61eaf187ad74a4edc2589e04e388d496c41fc7e36\
+Contract Address: 0x3855c3c3d3160afa13b36686896de8adb8bc85224da88096cc269aca3b1f496

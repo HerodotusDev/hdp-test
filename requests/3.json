@@ -1,0 +1,19 @@
+{
+  "destinationChainId": 11155111,
+  "tasks": [
+    {
+      "type": "DatalakeCompute",
+      "datalake": {
+        "type": "BlockSampled",
+        "chainId": 11155111,
+        "blockRangeStart": 5244634,
+        "blockRangeEnd": 5244652,
+        "increment": 2,
+        "sampledProperty": "account.0x7f2c6f930306d3aa736b3a6c6a98f512f74036d4.nonce"
+      },
+      "compute": {
+        "aggregateFnId": "sum"
+      }
+    }
+  ]
+}
