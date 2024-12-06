@@ -1,1 +1,0 @@
-[{"fetch_keys": [{"type": "StarknetHeaderKey", "key": {"chain_id": "0x534e5f5345504f4c4941", "block_number": 155555}}], "result": {"low": "0x5fd0a4b054b66", "high": "0x0"}, "program_hash": "0x711e9aa1a11150df6dfdb4f7d226ac8a0fbc98be8fbbcc71b10d8843fb3ab45"}]
